@@ -1,12 +1,22 @@
 import React, { Component } from 'react'
 import Row from 'antd/lib/row'
-import Col from 'antd/lib/col'
-import Card from 'antd/lib/card'
+import Icon from 'antd/lib/icon'
 
 import { githubApi } from '../../api'
 import _ from 'lodash'
 
-class Hello extends Component {
+const LabelTitle = ({ name }) => (
+  <h3>
+    <Icon type="tag-o" style={{ marginRight: '8px' }} />
+    <span>{ name }</span>
+  </h3>
+)
+
+const PostTitle = ({ title }) => (
+  <p>{ title }</p>
+)
+
+class Lables extends Component {
   state = {
     list: [],
     labels: []
@@ -30,27 +40,21 @@ class Hello extends Component {
   render() {
     return (
       <div style={{ padding: '0 16px' }}>
-        <Row type="flex" gutter={24}>
-          {
-            _.map(this.state.labels, (list, name) => (
-              <Col
-                 span={4} 
-                 key={name} 
-                 style={{ marginBottom: '16px' }}>
-                <Card title={name}>
-                  {
-                    list.map(post => (
-                      <p key={post.id}>{post.title}</p>
-                    ))
-                  }
-                </Card>
-              </Col>
-            ))
-          }
-        </Row>
+        {
+          _.map(this.state.labels, (list, name) => (
+            <div style={{ marginBottom: '16px' }}>
+              <LabelTitle name={name} />
+              {
+                list.map(post => (
+                  <PostTitle title={post.title} />
+                ))
+              }
+            </div>
+          ))
+        }
       </div>
     );
   }
 }
 
-export default Hello
+export default Lables

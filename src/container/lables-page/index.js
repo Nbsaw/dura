@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 
-import Hello from '../../components/hello'
+import Lables from '../../components/lables'
 
 class LabelsPage extends Component {
   render () {
     return (
       <div>
-        <p>All label on here</p>
-        <Hello />
+        <Lables />
       </div>
     )
   }
