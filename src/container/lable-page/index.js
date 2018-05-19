@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import MarkdownIt from 'markdown-it'
-import { githubApi, github } from '../../api'
+import _ from 'lodash'
+import { githubApi } from '../../api'
 
 const md = MarkdownIt()
 
 class LabelPage extends Component {
   state = {
+    postTitle: '',
     content: ''
   }
   async componentDidMount () {
@@ -15,12 +17,18 @@ class LabelPage extends Component {
       repo: 'notes',
       number: match.params.number
     })
-    const content = md.render(result.body)
-    this.setState({ content })
+    const dom = document.createElement('div')
+    dom.innerHTML = md.render(result.body)
+    // highlight code
+    _.forEach(dom.getElementsByTagName('pre'),elm => window.hljs.highlightBlock(elm))
+    this.setState({ content: dom.innerHTML, postTitle: result.title })
   }
   render () {
     return (
-      <p dangerouslySetInnerHTML={{ __html: this.state.content }} />
+      <div class='content'>
+        <h2>{ this.state.postTitle }</h2>
+        <p dangerouslySetInnerHTML={{ __html: this.state.content }} />
+      </div>
     )
   }
 }
