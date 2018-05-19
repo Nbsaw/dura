@@ -1,52 +1,27 @@
 import React, { Component } from 'react'
-
 import './App.css'
-import Row from 'antd/lib/row'
-import Col from 'antd/lib/col'
-import Card from 'antd/lib/card'
+import { Route, Switch } from 'react-router'
 
-import { githubApi } from './api'
-import _ from 'lodash'
-
+import HomePage from './container/home-page'
+import AboutPage from './container/about-page'
+import ArchivesPage from './container/archives-page'
+import ClosedPage from './container/closed-page'
+import LabelPage from './container/lable-page'
+import TimeLinePage from './container/timeline-page'
+import NotFoundPage from './container/not-found-page'
 class App extends Component {
-  state = {
-    list: [],
-    labels: []
-  }
-
-  async componentDidMount () {
-    let list = await githubApi.issues.getAll({
-      username: 'Nbsaw',
-      repo: 'notes'
-    })
-    let labels = {}
-    list.forEach(item => {
-      item.labels.forEach(label => {
-        !Array.isArray(labels[label.name]) && (labels[label.name] = [])
-        labels[label.name].push(item)
-      })
-    })
-    this.setState({ list, labels })
-  }
-
-  render() {
+  render () {
     return (
-      <Row gutter={16}>
-        {
-          _.map(this.state.labels, (list, name) => (
-            <Col span={4} style={{ marginBottom: '16px' }}>
-              <Card key={name} title={name}>
-                {
-                  list.map(post => (
-                    <p key={post.id}>{post.title}</p>
-                  ))
-                }
-              </Card>
-            </Col>
-          ))
-        }
-      </Row>
-    );
+      <Switch>
+        <Route exact path="/" component={HomePage}  />
+        <Route exact path="/about" component={AboutPage}  />
+        <Route exact path="/archives" component={ArchivesPage}  />
+        <Route exact path="/closed" component={ClosedPage}  />
+        <Route exact path="/label:number" component={LabelPage}  />
+        <Route exact path="/timeline" component={TimeLinePage} />
+        <Route component={NotFoundPage} />
+      </Switch>
+    )
   }
 }
 
