@@ -1,19 +1,21 @@
 import React, { Component } from 'react'
-import Row from 'antd/lib/row'
 import Icon from 'antd/lib/icon'
+import { Link } from 'react-router-dom'
 
 import { githubApi } from '../../api'
 import _ from 'lodash'
 
 const LabelTitle = ({ name }) => (
   <h3>
-    <Icon type="tag-o" style={{ marginRight: '8px' }} />
-    <span>{ name }</span>
+      <Icon type="tag-o" style={{ marginRight: '8px' }} />
+      <span>{ name }</span>
   </h3>
 )
 
-const PostTitle = ({ title }) => (
-  <p>{ title }</p>
+const PostTitle = ({ number, title }) => (
+  <Link to={`label/${number}`}>
+    <p>{number} { title }</p>
+  </Link>
 )
 
 class Lables extends Component {
@@ -42,11 +44,15 @@ class Lables extends Component {
       <div style={{ padding: '0 16px' }}>
         {
           _.map(this.state.labels, (list, name) => (
-            <div style={{ marginBottom: '16px' }}>
+            <div key={name} style={{ marginBottom: '16px' }}>
               <LabelTitle name={name} />
               {
                 list.map(post => (
-                  <PostTitle title={post.title} />
+                  <PostTitle 
+                    key={post.number} 
+                    number={post.number} 
+                    title={post.title}
+                  />
                 ))
               }
             </div>
