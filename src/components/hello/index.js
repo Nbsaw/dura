@@ -29,21 +29,26 @@ class Hello extends Component {
   
   render() {
     return (
-      <Row gutter={16}>
-        {
-          _.map(this.state.labels, (list, name) => (
-            <Col span={4} style={{ marginBottom: '16px' }}>
-              <Card key={name} title={name}>
-                {
-                  list.map(post => (
-                    <p key={post.id}>{post.title}</p>
-                  ))
-                }
-              </Card>
-            </Col>
-          ))
-        }
-      </Row>
+      <div style={{ padding: '0 16px' }}>
+        <Row type="flex" gutter={24}>
+          {
+            _.map(this.state.labels, (list, name) => (
+              <Col
+                 span={4} 
+                 key={name} 
+                 style={{ marginBottom: '16px' }}>
+                <Card title={name}>
+                  {
+                    list.map(post => (
+                      <p key={post.id}>{post.title}</p>
+                    ))
+                  }
+                </Card>
+              </Col>
+            ))
+          }
+        </Row>
+      </div>
     );
   }
 }
