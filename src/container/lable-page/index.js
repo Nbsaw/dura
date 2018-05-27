@@ -1,9 +1,34 @@
 import React, { Component } from 'react'
+import MarkdownIt from 'markdown-it'
+import _ from 'lodash'
+import { githubApi } from '../../api'
+
+const md = MarkdownIt()
 
 class LabelPage extends Component {
+  state = {
+    postTitle: '',
+    content: ''
+  }
+  async componentDidMount () {
+    const { match } = this.props
+    const result = await githubApi.issues.getDetails({
+      username: 'Nbsaw',
+      repo: 'notes',
+      number: match.params.number
+    })
+    const dom = document.createElement('div')
+    dom.innerHTML = md.render(result.body)
+    // highlight code
+    _.forEach(dom.getElementsByTagName('pre'),elm => window.hljs.highlightBlock(elm))
+    this.setState({ content: dom.innerHTML, postTitle: result.title })
+  }
   render () {
     return (
-      <p>Label</p>
+      <div class='content'>
+        <h2>{ this.state.postTitle }</h2>
+        <p dangerouslySetInnerHTML={{ __html: this.state.content }} />
+      </div>
     )
   }
 }

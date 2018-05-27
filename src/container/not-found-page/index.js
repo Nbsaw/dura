@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 
-class TimeLinePage extends Component {
+class NotFoundPage extends Component {
   render () {
     return (
-      <p>TimeLine</p>
+      <p>Not Found guy</p>
     )
   }
 }
 
-export default TimeLinePage
+export default NotFoundPage
