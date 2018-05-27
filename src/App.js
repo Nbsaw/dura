@@ -10,6 +10,7 @@ import LabelPage from './container/lable-page'
 import LabelsPage from './container/lables-page'
 import TimeLinePage from './container/timeline-page'
 import NotFoundPage from './container/not-found-page'
+
 class App extends Component {
   render () {
     return (
