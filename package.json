@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://nbsaw.github.io/dura",
   "dependencies": {
+    "animate.css": "^3.6.1",
     "antd": "^3.5.2",
     "axios": "^0.18.0",
     "lodash": "^4.17.10",
