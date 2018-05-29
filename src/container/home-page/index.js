@@ -1,43 +1,62 @@
 import React, { Component } from 'react'
-import { Container, Section } from './styled'
-import Avatar from '../../components/avatar'
+import { Avatar, Container, Section, Description, Division, NikeName, Footer } from './styled'
 import SocicalList from '../../components/socical-list'
-import Icon from 'antd/lib/icon'
-import AvatarImg from './images/logo.png'
 
 const socialList = [
   {
     key: 'Zhihu',
-    link: 'https://www.baidu.com',
-    icon: <Icon type="zhihu" />
+    link: 'https://www.zhihu.com/people/nbsaw',
   },
   {
     key: 'Github',
     link: 'https://github.com/Nbsaw',
-    icon: <Icon type="github" />
   },
   {
     key: 'Twitter',
     link: 'https://twitter.com/nbsaw',
-    icon: <Icon type="twitter" />
   },
   {
     key: 'CodePen',
-    link: '',
-    icon: <Icon type="codepen" />
+    link: 'https://codepen.io/nbsaw'
   }
 ]
+
+const NikeNameSection = () => (
+  <Section>
+    <NikeName>Gavin Phang</NikeName>
+  </Section>
+)
+
+const AvatarSection = () => (
+  <Section>
+    <Avatar src="https://avatars1.githubusercontent.com/u/12481935?s=460&v=4" />
+  </Section>
+)
+
+const DescriptionSection = () => (
+  <Section>
+    <Description>
+      Gavin >> [ 'FE' , 'CS' , 'OTAKU' ]
+    </Description>
+  </Section>
+)
+
+const SocicalSection = () => (
+  <Section>
+    <SocicalList list={socialList} />
+  </Section>
+)
 
 class HomePage extends Component {
   render () {
     return (
       <Container>
-        <Section>
-          <Avatar src={AvatarImg} />
-        </Section>
-        <Section>
-          <SocicalList list={socialList} />
-        </Section>
+        <AvatarSection />
+        <NikeNameSection />
+        <DescriptionSection />
+        <Division />
+        <SocicalSection />
+        <Footer>© 2018 nbsaw </Footer>
       </Container>
     )
   }

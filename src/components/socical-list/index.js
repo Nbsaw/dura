@@ -3,29 +3,18 @@ import styled from 'styled-components'
 
 const Navigation = styled.ul`
   padding: 0;
-  animation: .4s rubberBand 1s;
+  margin: 0;
   li {
     display: inline-block;
     list-style: none;
-    &:after {
-      content: '/';
-      margin: 0 12px;
-    }
-    &:last-child:after {
-      content: '';
-    }
+    margin: 0 5px;
   }
 `
 
-const IconContainer = styled.div`
-  font-size: 1.12rem;
-  display: inline-block;
-  margin-right: 8px;
-`
-
 const Link = styled.a`
-  font-size: 1.12rem;
-  color: #7b8993;
+  font-size: 20px;
+  color: #222222;
+  border-bottom: 1px solid #eeeeee;
 `
 
 const SocicalList = ({ list }) => (
@@ -34,7 +23,6 @@ const SocicalList = ({ list }) => (
       list.map((item, idx) => {
         return (
           <li key={idx}>
-            <IconContainer children={ item.icon } />
             <Link href={item.link}>
               { item.key }
             </Link>
