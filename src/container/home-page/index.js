@@ -4,6 +4,10 @@ import SocicalList from '../../components/socical-list'
 
 const socialList = [
   {
+    key: 'Blog',
+    link: '#/labels'
+  },
+  {
     key: 'Zhihu',
     link: 'https://www.zhihu.com/people/nbsaw',
   },
