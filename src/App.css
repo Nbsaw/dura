@@ -1,2 +1,7 @@
 @import '~antd/dist/antd.css';
-@import './css/theme.css'
+@import './css/theme.css';
+@import '~animate.css/animate.css';
+
+body {
+  font-family: 'Sunflower', sans-serif;
+}

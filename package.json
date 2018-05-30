@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://nbsaw.github.io/dura",
   "dependencies": {
+    "animate.css": "^3.6.1",
     "antd": "^3.5.2",
     "axios": "^0.18.0",
     "lodash": "^4.17.10",
@@ -14,7 +15,8 @@
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4",
-    "redux": "^4.0.0"
+    "redux": "^4.0.0",
+    "styled-components": "^3.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
