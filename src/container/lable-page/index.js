@@ -16,8 +16,8 @@ const md = MarkdownIt()
 
 const Container = styled.div`
   flex: 1;
-  heigh: 100vh;
-  overflow: hidden;
+  height: 100vh;
+  overflow: auto;
 `
 
 class LabelPage extends Component<Props,State> {
