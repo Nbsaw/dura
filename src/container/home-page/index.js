@@ -1,29 +1,7 @@
 import React, { Component } from 'react'
+import { AVATAR, BIO, SOCICAL_LIST } from '../../constant'
 import { Avatar, Container, Section, Description, Division, NikeName, Footer } from './styled'
 import SocicalList from '../../components/socical-list'
-
-const socialList = [
-  {
-    key: 'Blog',
-    link: '#/labels'
-  },
-  {
-    key: 'Zhihu',
-    link: 'https://www.zhihu.com/people/nbsaw',
-  },
-  {
-    key: 'Github',
-    link: 'https://github.com/Nbsaw',
-  },
-  {
-    key: 'Twitter',
-    link: 'https://twitter.com/nbsaw',
-  },
-  {
-    key: 'CodePen',
-    link: 'https://codepen.io/nbsaw'
-  }
-]
 
 const NikeNameSection = () => (
   <Section>
@@ -33,21 +11,21 @@ const NikeNameSection = () => (
 
 const AvatarSection = () => (
   <Section>
-    <Avatar src="https://avatars1.githubusercontent.com/u/12481935?s=460&v=4" />
+    <Avatar src={AVATAR ? AVATAR : ''} />
   </Section>
 )
 
 const DescriptionSection = () => (
   <Section>
     <Description>
-      Gavin >> [ 'FE' , 'CS' , 'OTAKU' ]
+      { BIO ? BIO : '' }
     </Description>
   </Section>
 )
 
 const SocicalSection = () => (
   <Section>
-    <SocicalList list={socialList} />
+    <SocicalList list={SOCICAL_LIST ? SOCICAL_LIST : []} />
   </Section>
 )
 
