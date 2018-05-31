@@ -2,7 +2,9 @@
 import React, { Component } from 'react'
 import MarkdownIt from 'markdown-it'
 import _ from 'lodash'
+import Row from 'antd/lib/row'
 
+import Aside from '../../components/layout/aside'
 import { USERNAME, REPO } from '../../constant'
 import { githubApi } from '../../api'
 
@@ -31,10 +33,13 @@ class LabelPage extends Component<Props,State> {
   }
   render () {
     return (
-      <div class='content'>
-        <h2>{ this.state.postTitle }</h2>
-        <p dangerouslySetInnerHTML={{ __html: this.state.content }} />
-      </div>
+      <Row type="flex">
+        <Aside />
+        <div className='content'>
+          <h2>{ this.state.postTitle }</h2>
+          <p dangerouslySetInnerHTML={{ __html: this.state.content }} />
+        </div>
+      </Row>
     )
   }
 }
