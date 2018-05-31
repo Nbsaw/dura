@@ -2,9 +2,10 @@
 import React, { Component } from 'react'
 import Icon from 'antd/lib/icon'
 import { Link } from 'react-router-dom'
-
-import { githubApi } from '../../api'
 import _ from 'lodash'
+
+import { USERNAME, REPO } from '../../constant'
+import { githubApi } from '../../api'
 
 type Props = {}
 type State = { list: [], labels: {} }
@@ -13,8 +14,8 @@ type PostTitleParams = { number: number, title: string}
 
 const LabelTitle = ({ name } : LableTitleParams) => (
   <h3>
-      <Icon type="tag-o" style={{ marginRight: '8px' }} />
-      <span>{ name }</span>
+    <Icon type="tag-o" style={{ marginRight: '8px' }} />
+    <span>{ name }</span>
   </h3>
 )
 
@@ -32,8 +33,8 @@ class Lables extends Component<Props,State> {
   
   async componentDidMount () {
     let list = await githubApi.issues.getAll({
-      username: 'Nbsaw',
-      repo: 'notes'
+      username: USERNAME,
+      repo: REPO
     })
     let labels = {}
     list.forEach(item => {

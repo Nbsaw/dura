@@ -2,6 +2,8 @@
 import React, { Component } from 'react'
 import MarkdownIt from 'markdown-it'
 import _ from 'lodash'
+
+import { USERNAME, REPO } from '../../constant'
 import { githubApi } from '../../api'
 
 type Props = { match: { params: { number: number } } }
@@ -17,8 +19,8 @@ class LabelPage extends Component<Props,State> {
   async componentDidMount () {
     const { match } = this.props
     const result = await githubApi.issues.getDetails({
-      username: 'Nbsaw',
-      repo: 'notes',
+      username: USERNAME,
+      repo: REPO,
       number: match.params.number
     })
     const dom = document.createElement('div')
