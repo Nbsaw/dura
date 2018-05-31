@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import MarkdownIt from 'markdown-it'
 import _ from 'lodash'
+import styled from 'styled-components'
 import Row from 'antd/lib/row'
 
 import Aside from '../../components/layout/aside'
@@ -12,6 +13,12 @@ type Props = { match: { params: { number: number } } }
 type State = { postTitle: string, content: string }
 
 const md = MarkdownIt()
+
+const Container = styled.div`
+  flex: 1;
+  heigh: 100vh;
+  overflow: hidden;
+`
 
 class LabelPage extends Component<Props,State> {
   state = {
@@ -35,10 +42,10 @@ class LabelPage extends Component<Props,State> {
     return (
       <Row type="flex">
         <Aside />
-        <div className='content'>
+        <Container className='content'>
           <h2>{ this.state.postTitle }</h2>
           <p dangerouslySetInnerHTML={{ __html: this.state.content }} />
-        </div>
+        </Container>
       </Row>
     )
   }
