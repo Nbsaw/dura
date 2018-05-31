@@ -4,7 +4,7 @@ import MarkdownIt from 'markdown-it'
 import _ from 'lodash'
 import { githubApi } from '../../api'
 
-type Props = {}
+type Props = { match: { params: { number: number } } }
 type State = { postTitle: string, content: string }
 
 const md = MarkdownIt()

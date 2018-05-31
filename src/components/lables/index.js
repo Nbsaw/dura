@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from 'react'
 import Icon from 'antd/lib/icon'
 import { Link } from 'react-router-dom'
@@ -5,23 +6,28 @@ import { Link } from 'react-router-dom'
 import { githubApi } from '../../api'
 import _ from 'lodash'
 
-const LabelTitle = ({ name }) => (
+type Props = {}
+type State = { list: [], labels: {} }
+type LableTitleParams = { name: string }
+type PostTitleParams = { number: number, title: string}
+
+const LabelTitle = ({ name } : LableTitleParams) => (
   <h3>
       <Icon type="tag-o" style={{ marginRight: '8px' }} />
       <span>{ name }</span>
   </h3>
 )
 
-const PostTitle = ({ number, title }) => (
+const PostTitle = ({ number, title } : PostTitleParams) => (
   <Link to={`label/${number}`}>
     <p>{number} { title }</p>
   </Link>
 )
 
-class Lables extends Component {
+class Lables extends Component<Props,State> {
   state = {
     list: [],
-    labels: []
+    labels: {}
   }
   
   async componentDidMount () {
