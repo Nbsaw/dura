@@ -48,7 +48,7 @@ class Lables extends Component<Props,State> {
   
   render() {
     return (
-      <div style={{ padding: '0 16px' }}>
+      <div style={{ padding: '16px' }}>
         {
           _.map(this.state.labels, (list, name) => (
             <div key={name} style={{ marginBottom: '16px' }}>
