@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { AVATAR, BIO, SOCICAL_LIST } from '../../constant'
+import { NIKENAME, AVATAR, BIO, SOCICAL_LIST } from '../../constant'
 import { Avatar, Container, Section, Description, Division, NikeName, Footer } from './styled'
 import SocicalList from '../../components/socical-list'
 
 const NikeNameSection = () => (
   <Section>
-    <NikeName>Gavin Phang</NikeName>
+    <NikeName>{ NIKENAME ? NIKENAME : '' }</NikeName>
   </Section>
 )
 
