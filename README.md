@@ -14,10 +14,11 @@ Github issues as a blog is awesome , but i want to customize my own theme .
 - WYSWYG
 - Base on Github issues
 - Comment system
+- Flow
 
 ### Supports
 
+- [X] Label article
 - [ ] Archival articles
-- [ ] Label article
 - [ ] Timeline
 - [ ] See Closed articles
