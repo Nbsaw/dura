@@ -1,11 +1,15 @@
+// @flow
 import React, { Component } from 'react'
 import MarkdownIt from 'markdown-it'
 import _ from 'lodash'
 import { githubApi } from '../../api'
 
+type Props = {}
+type State = { postTitle: string, content: string }
+
 const md = MarkdownIt()
 
-class LabelPage extends Component {
+class LabelPage extends Component<Props,State> {
   state = {
     postTitle: '',
     content: ''
