@@ -1,5 +1,4 @@
 // @flow
-// TODO: 重构
 import React, { Component } from 'react'
 import Icon from 'antd/lib/icon'
 import { Link } from 'react-router-dom'
