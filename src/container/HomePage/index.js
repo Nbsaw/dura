@@ -1,7 +1,14 @@
 import React, { Component } from 'react'
 import { NIKENAME, AVATAR, BIO, SOCICAL_LIST } from '../../constant'
-import { Avatar, Container, Section, Description, Division, NikeName, Footer } from './styled'
-import SocicalList from '../../blocks/socical-list'
+
+import Avatar from 'elements/Avatar'
+import FullScreenContainer from 'elements/FullScreenContainer'
+import Section from 'elements/Section'
+import Description from 'elements/Description'
+import Division from 'elements/Division'
+import NikeName from 'elements/NikeName'
+import Footer from 'elements/Footer'
+import SocicalList from 'blocks/SocicalList'
 
 const NikeNameSection = () => (
   <Section>
@@ -32,14 +39,14 @@ const SocicalSection = () => (
 class HomePage extends Component {
   render () {
     return (
-      <Container>
+      <FullScreenContainer>
         <AvatarSection />
         <NikeNameSection />
         <DescriptionSection />
         <Division />
         <SocicalSection />
         <Footer>© 2018 nbsaw </Footer>
-      </Container>
+      </FullScreenContainer>
     )
   }
 }

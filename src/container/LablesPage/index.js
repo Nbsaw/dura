@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Row from 'antd/lib/row'
 
-import Lables from '../../blocks/lables'
-import Aside from '../../blocks/layout/aside'
+import Lables from 'blocks/Lables'
+import Aside from 'blocks/Layout/Aside'
 
 class LabelsPage extends Component {
   render () {

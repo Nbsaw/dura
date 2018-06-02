@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { NIKENAME, AVATAR, BIO, SOCICAL_LIST } from '../../../constant'
-import SocicalList from '../../socical-list'
+import SocicalList from '../../SocicalList'
 
 import Row from 'antd/lib/row'
 
@@ -21,9 +21,6 @@ const Avatar = styled.img`
   box-shadow: 1px 1px 1px 1px #d1d2d6db;
   border-radius: 50%;
   animation: 1s bounceIn;
-  &:hover {
-    /* animation: 1s shake; */
-  }
 `
 
 const NikeName = styled.h1`
