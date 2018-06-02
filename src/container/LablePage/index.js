@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import Row from 'antd/lib/row'
 
 import Aside from 'blocks/Layout/Aside'
+import PostLoader from 'blocks/PosterLoader'
 import { USERNAME, REPO } from '../../constant'
 import { githubApi } from '../../api'
 
@@ -23,7 +24,8 @@ const Container = styled.div`
 class LabelPage extends Component<Props,State> {
   state = {
     postTitle: '',
-    content: ''
+    content: '',
+    load: false
   }
   async componentDidMount () {
     const { match } = this.props
@@ -36,15 +38,21 @@ class LabelPage extends Component<Props,State> {
     dom.innerHTML = md.render(result.body)
     // highlight code
     _.forEach(dom.getElementsByTagName('pre'),elm => window.hljs.highlightBlock(elm))
-    this.setState({ content: dom.innerHTML, postTitle: result.title })
+    this.setState({ content: dom.innerHTML, postTitle: result.title, load: true })
   }
   render () {
     return (
       <Row type="flex">
         <Aside />
         <Container className='content'>
-          <h2>{ this.state.postTitle }</h2>
-          <p dangerouslySetInnerHTML={{ __html: this.state.content }} />
+          {
+            this.state.load ? (
+                    <React.Fragment>
+                      <h2>{ this.state.postTitle }</h2>
+                      <p dangerouslySetInnerHTML={{ __html: this.state.content }} />
+                    </React.Fragment>
+                  ) : <PostLoader />
+          }
         </Container>
       </Row>
     )
