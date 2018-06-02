@@ -1,9 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import { NIKENAME, AVATAR, BIO, SOCICAL_LIST } from '../../../constant'
+import Row from 'antd/lib/row'
+
+import NikeName from 'elements/NikeName'
+import Avatar from 'elements/Avatar'
+import Description from 'elements/Description'
+import Section from 'elements/Section'
+import Division from 'elements/Division'
 import SocicalList from '../../SocicalList'
 
-import Row from 'antd/lib/row'
 
 const Container = styled(Row)`
   border-right: 5px solid #FF9800;
@@ -12,36 +18,6 @@ const Container = styled(Row)`
   height: 100vh;
   text-align: center;
   flex-direction: column;
-`
-
-const Avatar = styled.img`
-  width: 150px;
-  height: 150px;
-  padding: 4px;
-  box-shadow: 1px 1px 1px 1px #d1d2d6db;
-  border-radius: 50%;
-  animation: 1s bounceIn;
-`
-
-const NikeName = styled.h1`
-  margin: 0;
-`
-
-const Section = styled.div`
-  padding: 8px 0;
-`
-
-const Description = styled.div`
-  color: #505050;
-  font-size: 16px;
-`
-
-const Division = styled.hr`
-  height: 1px;
-  border: 0;
-  width: 80%;
-  max-width: 300px;
-  background-image: linear-gradient(-2deg,transparent,#d5d5d5,transparent);
 `
 
 const NikeNameSection = () => (
