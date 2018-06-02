@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import A from 'elements/A'
 
 const Navigation = styled.ul`
   padding: 0;
@@ -11,21 +12,15 @@ const Navigation = styled.ul`
   }
 `
 
-const Link = styled.a`
-  font-size: 20px;
-  color: #222222;
-  border-bottom: 1px solid #eeeeee;
-`
-
 const SocicalList = ({ list }) => (
   <Navigation>
     {
       list.map((item, idx) => {
         return (
           <li key={idx}>
-            <Link href={item.link}>
+            <A href={item.link}>
               { item.key }
-            </Link>
+            </A>
           </li>
         )
       })

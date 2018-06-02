@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
+import Row from 'antd/lib/row'
 
-import Lables from '../../components/lables'
+import Lables from 'blocks/Lables'
+import Aside from 'blocks/Layout/Aside'
 
 class LabelsPage extends Component {
   render () {
     return (
-      <div>
+      <Row type='flex'>
+        <Aside />
         <Lables />
-      </div>
+      </Row>
     )
   }
 }

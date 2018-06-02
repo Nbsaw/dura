@@ -1,4 +1,5 @@
 // @flow
+// TODO: 重构
 import React, { Component } from 'react'
 import Icon from 'antd/lib/icon'
 import { Link } from 'react-router-dom'
@@ -48,7 +49,7 @@ class Lables extends Component<Props,State> {
   
   render() {
     return (
-      <div style={{ padding: '0 16px' }}>
+      <div style={{ padding: '16px', height: '100vh', overflow: 'auto', flex: 1 }}>
         {
           _.map(this.state.labels, (list, name) => (
             <div key={name} style={{ marginBottom: '16px' }}>

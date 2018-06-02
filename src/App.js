@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
-import './App.css'
+import './css/App.css'
 import { Route, Switch } from 'react-router'
 
-import HomePage from './container/home-page'
-import AboutPage from './container/about-page'
-import ArchivesPage from './container/archives-page'
-import ClosedPage from './container/closed-page'
-import LabelPage from './container/lable-page'
-import LabelsPage from './container/lables-page'
-import TimeLinePage from './container/timeline-page'
-import NotFoundPage from './container/not-found-page'
+import HomePage from './container/HomePage'
+import AboutPage from './container/AboutPage'
+import ArchivesPage from './container/ArchivesPage'
+import ClosedPage from './container/ClosedPage'
+import LabelPage from './container/LablePage'
+import LabelsPage from './container/LablesPage'
+import TimeLinePage from './container/TimelinePage'
+import NotFoundPage from './container/NotFoundPage'
 
 class App extends Component {
   render () {
