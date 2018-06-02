@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { NIKENAME, AVATAR, BIO, SOCICAL_LIST } from '../../constant'
 import { Avatar, Container, Section, Description, Division, NikeName, Footer } from './styled'
-import SocicalList from '../../components/socical-list'
+import SocicalList from '../../blocks/socical-list'
 
 const NikeNameSection = () => (
   <Section>

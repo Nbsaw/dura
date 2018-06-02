@@ -5,7 +5,7 @@ import _ from 'lodash'
 import styled from 'styled-components'
 import Row from 'antd/lib/row'
 
-import Aside from '../../components/layout/aside'
+import Aside from '../../blocks/layout/aside'
 import { USERNAME, REPO } from '../../constant'
 import { githubApi } from '../../api'
 
