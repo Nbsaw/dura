@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { NIKENAME, AVATAR, BIO, SOCICAL_LIST } from '../../constant'
+import { NIKENAME, AVATAR, BIO, SOCICAL_LIST } from 'constant'
 
 import Avatar from 'elements/Avatar'
 import FullScreenContainer from 'elements/FullScreenContainer'
