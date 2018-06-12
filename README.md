@@ -18,8 +18,9 @@ Github issues as a blog is awesome , but i want to customize my own theme .
 
 ### Supports
 
-- [X] Label article
+- [X] Article
 - [ ] Archival articles
 - [ ] Timeline
 - [ ] See Closed articles
-- [ ] Comment System
+- [X] Comment System
+- [ ] MObile Responsive
