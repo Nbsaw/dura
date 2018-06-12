@@ -6,5 +6,5 @@ export default styled.img`
   padding: 4px;
   box-shadow: 1px 1px 1px 1px #d1d2d6db;
   border-radius: 50%;
-  animation: 1s bounceIn;
+  /* animation: 1s bounceIn; */
 `
