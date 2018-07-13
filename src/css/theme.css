@@ -5,7 +5,7 @@
 }
 
 .content pre {
-  max-width: 850px;
+  padding: 16px;
   border-radius: 4px;
 }
 
