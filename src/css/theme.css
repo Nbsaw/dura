@@ -4,6 +4,10 @@
   color: rgba(0, 0, 0, 0.65);
 }
 
+.content img{
+  max-width: 100%;
+}
+
 .content h1,
 .content h2,
 .content h3,
