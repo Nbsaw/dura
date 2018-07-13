@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { NIKENAME, AVATAR, BIO, SOCICAL_LIST } from 'constant'
 
+import SiteTitle from 'elements/SiteTitle'
 import Avatar from 'elements/Avatar'
 import FullScreenContainer from 'elements/FullScreenContainer'
 import Section from 'elements/Section'
@@ -40,6 +41,7 @@ class HomePage extends Component {
   render () {
     return (
       <FullScreenContainer>
+        <SiteTitle>首页</SiteTitle>
         <AvatarSection />
         <NikeNameSection />
         <DescriptionSection />

@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import Row from 'antd/lib/row'
 
 import Aside from 'blocks/Layout/Aside'
+import SiteTitle from 'elements/SiteTitle'
 import PostLoader from 'blocks/PosterLoader'
 import { USERNAME, REPO } from '../../constant'
 import { githubApi } from '../../api'
@@ -46,12 +47,20 @@ class LabelPage extends Component<Props,State> {
         <Aside />
         <Container className='content'>
           {
-            this.state.load ? (
-                    <React.Fragment>
-                      <h2>{ this.state.postTitle }</h2>
-                      <p dangerouslySetInnerHTML={{ __html: this.state.content }} />
-                    </React.Fragment>
-                  ) : <PostLoader />
+            this.state.load 
+            ? (
+              <React.Fragment>
+                <SiteTitle>{ this.state.postTitle }</SiteTitle>
+                <h2>{ this.state.postTitle }</h2>
+                <p dangerouslySetInnerHTML={{ __html: this.state.content }} />
+              </React.Fragment>
+            ) 
+            : (
+              <React.Fragment>
+                <SiteTitle> 文章加载中 ...  </SiteTitle>
+                <PostLoader />
+              </React.Fragment>
+            )
           }
         </Container>
       </Row>
