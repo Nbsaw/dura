@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {Helmet} from "react-helmet";
-import { USERNAME, REPO } from 'constant'
+import { USERNAME } from 'constant'
 
 const SiteTitle = ({ children }) => (
   <Helmet>
