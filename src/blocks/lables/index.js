@@ -1,6 +1,5 @@
 // @flow
 import React, { Component } from 'react'
-import Icon from 'antd/lib/icon'
 import { Link } from 'react-router-dom'
 import _ from 'lodash'
 
@@ -8,59 +7,55 @@ import { USERNAME, REPO } from '../../constant'
 import { githubApi } from '../../api'
 
 type Props = {}
-type State = { list: [], labels: {} }
-type LableTitleParams = { name: string }
+type State = { labels: {} }
+type LableTitleParams = { name: string, color: string }
 type PostTitleParams = { number: number, title: string}
 
-const LabelTitle = ({ name } : LableTitleParams) => (
-  <h3>
-    <Icon type="tag-o" style={{ marginRight: '8px' }} />
-    <span>{ name }</span>
+const LabelTitle = ({ name, color } : LableTitleParams) => (
+  <h3 style={{ marginBottom: '16px' }}>
+    <span style={{ display: 'inline-block', background: color, color: '#FFFFFF', padding: '0px 12px', borderRadius: 5 }}>{ name }</span>
   </h3>
 )
 
 const PostTitle = ({ number, title } : PostTitleParams) => (
-  <Link to={`label/${number}`}>
-    <p>{number} { title }</p>
-  </Link>
+  <p style={{ fontSize: '15px' }}>
+    <Link to={`label/${number}`}>
+      { title }
+    </Link>
+  </p>
 )
 
 class Lables extends Component<Props,State> {
   state = {
-    list: [],
     labels: {}
   }
   
   async componentDidMount () {
-    let list = await githubApi.issues.getAll({
+    let resultList = await githubApi.issues.getAll({
       username: USERNAME,
       repo: REPO
     })
     let labels = {}
-    list.forEach(item => {
-      item.labels.forEach(label => {
-        !Array.isArray(labels[label.name]) && (labels[label.name] = [])
-        labels[label.name].push(item)
+    resultList.forEach(item => {
+      item.labels.forEach(({ name, color }) => {
+        !(labels[name] !== null && typeof labels[name] === 'object') && (labels[name] = {})
+        !Array.isArray(labels[name]['items']) && (labels[name]['items'] = [])
+        labels[name]['items'].push(item)
+        labels[name]['color'] = `#${color}`
       })
     })
-    this.setState({ list, labels })
+    this.setState({ labels })
   }
   
   render() {
     return (
       <div style={{ padding: '16px', height: '100vh', overflow: 'auto', flex: 1 }}>
         {
-          _.map(this.state.labels, (list, name) => (
+          _.map(this.state.labels, ({ items, color }, name) => (
             <div key={name} style={{ marginBottom: '16px' }}>
-              <LabelTitle name={name} />
+              <LabelTitle name={name} color={color} />
               {
-                list.map(post => (
-                  <PostTitle 
-                    key={post.number} 
-                    number={post.number} 
-                    title={post.title}
-                  />
-                ))
+                items.map(post => (<PostTitle {...post} />))
               }
             </div>
           ))
