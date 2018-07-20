@@ -1,10 +1,11 @@
 // @flow
+// TODO: 分离逻辑
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import _ from 'lodash'
 
-import { USERNAME, REPO } from '../../constant'
-import { githubApi } from '../../api'
+import { USERNAME, REPO } from 'constant'
+import { githubApi } from 'api'
 
 type Props = {}
 type State = { labels: {} }
@@ -55,7 +56,7 @@ class Lables extends Component<Props,State> {
             <div key={name} style={{ marginBottom: '16px' }}>
               <LabelTitle name={name} color={color} />
               {
-                items.map(post => (<PostTitle {...post} />))
+                items.map((post, idx) => (<PostTitle key={idx} {...post} />))
               }
             </div>
           ))

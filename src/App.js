@@ -2,14 +2,16 @@ import React, { Component } from 'react'
 import './css/App.css'
 import { Route, Switch } from 'react-router'
 
-import HomePage from './container/HomePage'
-import AboutPage from './container/AboutPage'
-import ArchivesPage from './container/ArchivesPage'
-import ClosedPage from './container/ClosedPage'
-import LabelPage from './container/LablePage'
-import LabelsPage from './container/LablesPage'
-import TimeLinePage from './container/TimelinePage'
-import NotFoundPage from './container/NotFoundPage'
+// using webpack import syntax up performance
+import AsyncComponent from 'hoc/AsyncComponent'
+const HomePage = AsyncComponent(() => import('page/HomePage'))
+const AboutPage = AsyncComponent(() => import('page/AboutPage'))
+const ArchivesPage = AsyncComponent(() => import('page/ArchivesPage'))
+const ClosedPage = AsyncComponent(() => import('page/ClosedPage'))
+const LabelPage = AsyncComponent(() => import('page/LablePage'))
+const LabelsPage = AsyncComponent(() => import('page/LablesPage'))
+const TimeLinePage = AsyncComponent(() => import('page/TimelinePage'))
+const NotFoundPage = AsyncComponent(() => import('page/NotFoundPage'))
 
 class App extends Component {
   render () {

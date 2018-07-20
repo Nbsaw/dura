@@ -8,8 +8,8 @@ import Row from 'antd/lib/row'
 import Aside from 'blocks/Layout/Aside'
 import SiteTitle from 'elements/SiteTitle'
 import PostLoader from 'blocks/PosterLoader'
-import { USERNAME, REPO } from '../../constant'
-import { githubApi } from '../../api'
+import { USERNAME, REPO } from 'constant'
+import { githubApi } from 'api'
 
 type Props = { match: { params: { number: number } } }
 type State = { postTitle: string, content: string }
