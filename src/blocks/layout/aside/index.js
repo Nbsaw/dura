@@ -12,7 +12,8 @@ import SocicalList from '../../SocicalList'
 
 
 const Container = styled(Row)`
-  border-right: 5px solid #FF9800;
+  border-right: 5px solid;
+  border-image: linear-gradient(#FFF, 10%, #82def3,90%,#FFF) 1;
   padding: 0 16px;
   width: 260px;
   height: 100vh;
