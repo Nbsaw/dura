@@ -19,6 +19,11 @@ const Container = styled(Row)`
   height: 100vh;
   text-align: center;
   flex-direction: column;
+  @media (max-width: 590px) {
+    position: absolute;
+    right: 100%;
+    background: #FFFFFF;
+  }
 `
 
 const NikeNameSection = () => (
