@@ -3,7 +3,7 @@ import Row from 'antd/lib/row'
 import styled from 'styled-components'
 
 import Lables from 'blocks/Lables'
-import Aside from 'blocks/Layout/Aside'
+import Aside from 'blocks/layout/aside'
 import LabelLoader from 'blocks/LabelLoader'
 import SiteTitle from 'elements/SiteTitle'
 

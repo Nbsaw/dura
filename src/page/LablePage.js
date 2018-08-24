@@ -5,7 +5,7 @@ import _ from 'lodash'
 import styled from 'styled-components'
 import Row from 'antd/lib/row'
 
-import Aside from 'blocks/Layout/Aside'
+import Aside from 'blocks/layout/aside'
 import SiteTitle from 'elements/SiteTitle'
 import PostLoader from 'blocks/PosterLoader'
 import { USERNAME, REPO } from 'constant'

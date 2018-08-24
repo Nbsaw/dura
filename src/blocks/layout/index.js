@@ -1,5 +1,5 @@
 import React from 'react'
-import Aside from './aside'
+import Aside from './Aside'
 
 const Layout = ({ children }) => (
   <React.Fragment>
