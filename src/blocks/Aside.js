@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { NIKENAME, AVATAR, BIO, SOCICAL_LIST } from '../../../constant'
+import { NIKENAME, AVATAR, BIO, SOCICAL_LIST } from 'constant'
 import Row from 'antd/lib/row'
 
 import NikeName from 'elements/NikeName'
@@ -8,7 +8,7 @@ import Avatar from 'elements/Avatar'
 import Description from 'elements/Description'
 import Section from 'elements/Section'
 import Division from 'elements/Division'
-import SocicalList from '../../SocicalList'
+import SocicalList from 'blocks/SocicalList'
 
 
 const Container = styled(Row)`

@@ -3,24 +3,16 @@ import Row from 'antd/lib/row'
 import styled from 'styled-components'
 
 import Lables from 'blocks/Lables'
-import Aside from 'blocks/layout/aside'
 import LabelLoader from 'blocks/LabelLoader'
 import SiteTitle from 'elements/SiteTitle'
 
 import { USERNAME, REPO } from 'constant'
 import { githubApi } from 'api'
 
-const Container = styled.div`
-  flex: 1;
-  height: 100vh;
-  padding: 16px;
-  overflow: auto;
-`
-
 type Props = {}
 type State = { labels: {} }
 
-class LabelsPage extends Component<Props,State> {
+class PostsPage extends Component<Props,State> {
   state = {
     labels: {},
     loading: true
@@ -44,19 +36,16 @@ class LabelsPage extends Component<Props,State> {
   }
   render () {
     return (
-      <Row type='flex'>
+      <React.Fragment>
         <SiteTitle>所有文章</SiteTitle>
-        <Aside />
-        <Container>
-          {
-            this.state.loading
-            ? <LabelLoader />
-            : <Lables labels={this.state.labels} />
-          }
-        </Container>
-      </Row>
+        {
+          this.state.loading
+          ? <LabelLoader />
+          : <Lables labels={this.state.labels} />
+        }
+      </React.Fragment>
     )
   }
 }
 
-export default LabelsPage
+export default PostsPage

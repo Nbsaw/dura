@@ -14,7 +14,7 @@ const LabelTitle = ({ name, color } : LableTitleParams) => (
 
 const PostTitle = ({ number, title } : PostTitleParams) => (
   <p style={{ fontSize: '15px' }}>
-    <Link to={`label/${number}`}>
+    <Link to={`post/${number}`}>
       { title }
     </Link>
   </p>
