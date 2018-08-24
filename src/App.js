@@ -56,9 +56,9 @@ class DefaultLayoutRouter extends Component {
           <Layout showAside={showAside}>
             <Aside />
             <Container>
-              <ToggleAside onClick={this.toggleAside}>
+              {/* <ToggleAside onClick={this.toggleAside}>
                 点老子{ showAside ? '隐藏' : '显示' }侧栏
-              </ToggleAside>
+              </ToggleAside> */}
               <Component {...matchProps} />
             </Container>
           </Layout>

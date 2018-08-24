@@ -6,7 +6,7 @@ const Container = styled.div`
   padding: 16px;
   overflow: auto;
   @media (max-width: 590px) {
-    margin-top: 80px;
+    /* margin-top: 80px; */
   }
 `
 
