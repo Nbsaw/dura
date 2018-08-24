@@ -17,7 +17,7 @@ const Layout = styled.div`
   transform: ${ 
     props => props.showAside 
              ? 'translateX(260px)' 
-             : 'translateX(5px)'
+             : 'translateX(0px)'
   };
 `
 

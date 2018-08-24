@@ -21,7 +21,7 @@ const Container = styled(Row)`
   flex-direction: column;
   @media (max-width: 590px) {
     position: absolute;
-    right: 100%;
+    left: -255px;
     background: #FFFFFF;
   }
 `
