@@ -7,7 +7,6 @@ import styled from 'styled-components'
 import AsyncComponent from 'hoc/AsyncComponent'
 
 // Basic Component
-import Row from 'antd/lib/row'
 import Aside from 'blocks/Aside'
 import Container from 'blocks/Container'
 
@@ -75,6 +74,7 @@ const ClosedPage = AsyncComponent(() => import('page/ClosedPage'))
 const PostPage = AsyncComponent(() => import('page/PostPage'))
 const PostsPage = AsyncComponent(() => import('page/PostsPage'))
 const TimeLinePage = AsyncComponent(() => import('page/TimelinePage'))
+const WorksPage = AsyncComponent(() => import('page/WorksPage'))
 const NotFoundPage = AsyncComponent(() => import('page/NotFoundPage'))
 
 class App extends Component {
@@ -88,6 +88,7 @@ class App extends Component {
         <DefaultLayoutRouter exact path="/posts" component={PostsPage}  />
         <DefaultLayoutRouter exact path="/post/:number" component={PostPage}  />
         {/* <Route exact path="/timeline" component={TimeLinePage} /> */}
+        <DefaultLayoutRouter exact path="/works" component={WorksPage} />
         <DefaultLayoutRouter component={NotFoundPage} />
       </Switch>
     )

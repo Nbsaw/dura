@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import Row from 'antd/lib/row'
-import styled from 'styled-components'
 
 import Lables from 'blocks/Lables'
 import LabelLoader from 'blocks/LabelLoader'
@@ -9,10 +7,7 @@ import SiteTitle from 'elements/SiteTitle'
 import { USERNAME, REPO } from 'constant'
 import { githubApi } from 'api'
 
-type Props = {}
-type State = { labels: {} }
-
-class PostsPage extends Component<Props,State> {
+class PostsPage extends Component {
   state = {
     labels: {},
     loading: true

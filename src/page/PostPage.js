@@ -1,26 +1,15 @@
-// @flow
 import React, { Component } from 'react'
 import MarkdownIt from 'markdown-it'
 import _ from 'lodash'
-import styled from 'styled-components'
 
 import SiteTitle from 'elements/SiteTitle'
 import PostLoader from 'blocks/PosterLoader'
 import { USERNAME, REPO } from 'constant'
 import { githubApi } from 'api'
 
-type Props = { match: { params: { number: number } } }
-type State = { postTitle: string, content: string }
-
 const md = MarkdownIt()
 
-const Container = styled.div`
-  flex: 1;
-  height: 100vh;
-  overflow: auto;
-`
-
-class PostPage extends Component<Props,State> {
+class PostPage extends Component {
   state = {
     postTitle: '',
     content: '',

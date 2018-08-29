@@ -1,5 +1,5 @@
 // @flow
-type SOCICAL_LIST_TYPE = [{ key: string, link: string }]
+type SOCICAL_LIST_TYPE = Array<{ key: string, link: string }>
 
 export const USERNAME : string = 'nbsaw'
 export const REPO : string = 'notes'
@@ -11,5 +11,6 @@ export const SOCICAL_LIST: SOCICAL_LIST_TYPE = [
   { key: 'Zhihu', link: 'https://www.zhihu.com/people/nbsaw' },
   { key: 'Github', link: 'https://github.com/Nbsaw' },
   { key: 'Twitter', link: 'https://twitter.com/nbsaw' },
-  { key: 'CodePen', link: 'https://codepen.io/nbsaw' }
+  { key: 'CodePen', link: 'https://codepen.io/nbsaw' },
+  { key: 'Works', link: '#/works' }
 ]
