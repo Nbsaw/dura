@@ -1,19 +1,19 @@
 // @flow
-import React from 'react'
-import ContentLoader from "react-content-loader";
-import styled from 'styled-components'
+import React from 'react';
+import ContentLoader from 'react-content-loader';
+import styled from 'styled-components';
 
 const Container = styled.div`
   width: 1620px;
-`
+`;
 
 const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
-`
+`;
 
-const h = 4
+const h = 4;
 
 const LabelLoader = () => (
   <Wrapper>
@@ -38,7 +38,7 @@ const LabelLoader = () => (
         <rect x="0" y={20 * h} width="60" height={h} />
         <rect x="0" y={22 * h} width="40" height={h} />
         <rect x="0" y={24 * h} width="75" height={h} />
-        
+
         <rect x="0" y={28 * h} width="15" height={h} />
         <rect x="0" y={30 * h} width="60" height={h} />
         <rect x="0" y={32 * h} width="80" height={h} />

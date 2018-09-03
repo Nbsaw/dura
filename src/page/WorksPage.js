@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import SiteTitle from "elements/SiteTitle";
-import { Card, Icon, Tag } from "antd";
-import works, { tagColor } from "constant/works";
-import styled from "styled-components";
+import React, { Component } from 'react';
+import SiteTitle from 'elements/SiteTitle';
+import { Card, Icon, Tag } from 'antd';
+import works, { tagColor } from 'constant/works';
+import styled from 'styled-components';
 
 const Container = styled.div`
   padding: 30px;
@@ -28,13 +28,11 @@ const Cover = styled.div`
   background-position: 50% 50%;
 `;
 
-const Row = styled.div`
-`;
+const Row = styled.div``;
 
 const Col = styled.div`
   margin-bottom: 25px;
 `;
-
 
 const Works = ({ title, desc, tags }) => (
   <Col>

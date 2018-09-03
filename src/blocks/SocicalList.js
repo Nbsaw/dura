@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
-import A from 'elements/A'
+import React from 'react';
+import styled from 'styled-components';
+import A from 'elements/A';
 
 const Navigation = styled.ul`
   padding: 0;
@@ -10,22 +10,18 @@ const Navigation = styled.ul`
     list-style: none;
     margin: 0 5px;
   }
-`
+`;
 
 const SocicalList = ({ list }) => (
   <Navigation>
-    {
-      list.map((item, idx) => {
-        return (
-          <li key={idx}>
-            <A href={item.link}>
-              { item.key }
-            </A>
-          </li>
-        )
-      })
-    }
+    {list.map((item, idx) => {
+      return (
+        <li key={idx}>
+          <A href={item.link}>{item.key}</A>
+        </li>
+      );
+    })}
   </Navigation>
-)
+);
 
-export default SocicalList
+export default SocicalList;

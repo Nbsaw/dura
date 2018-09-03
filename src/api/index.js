@@ -1,5 +1,3 @@
-import githubApi from "./github-api"
+import githubApi from './github-api';
 
-export {
-  githubApi
-}
+export { githubApi };

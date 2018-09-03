@@ -3,5 +3,4 @@ const tag = {
   React: '#61dafb',
   'React Native': '#05A5D1',
   VueX: '#3eaf7c',
-  
-}
+};

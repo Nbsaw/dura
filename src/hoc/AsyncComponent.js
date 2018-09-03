@@ -11,14 +11,12 @@ export default function asyncComponent(importComponent) {
     async componentDidMount() {
       const { default: component } = await importComponent();
       this.setState({
-        component: component
+        component: component,
       });
     }
     render() {
       const C = this.state.component;
-      return C
-        ? <C {...this.props} />
-        : null;
+      return C ? <C {...this.props} /> : null;
     }
   }
   return AsyncComponent;

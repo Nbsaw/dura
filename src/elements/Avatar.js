@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export default styled.img`
   width: 150px;
@@ -7,4 +7,4 @@ export default styled.img`
   box-shadow: 1px 1px 1px 1px #d1d2d6db;
   border-radius: 50%;
   /* animation: 1s bounceIn; */
-`
+`;

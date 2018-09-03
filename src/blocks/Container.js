@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const Container = styled.div`
   flex: 1;
@@ -8,6 +8,6 @@ const Container = styled.div`
   @media (max-width: 590px) {
     /* margin-top: 80px; */
   }
-`
+`;
 
-export default Container
+export default Container;
