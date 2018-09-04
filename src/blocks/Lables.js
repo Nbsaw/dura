@@ -29,11 +29,19 @@ const PostTitle = ({ number, title }: PostTitleParams) => (
 );
 
 const Lables = ({ labels }) =>
-  _.map(labels, ({ items, color }, name) => (
-    <div key={name} style={{ marginBottom: '16px' }}>
-      <LabelTitle name={name} color={color} />
-      {items.map((post, idx) => <PostTitle key={idx} {...post} />)}
-    </div>
-  ));
+  _.map(
+    labels,
+    ({ items, color }, name) =>
+      name !== 'WIP' ? (
+        <div key={name} style={{ marginBottom: '16px' }}>
+          <LabelTitle name={name} color={color} />
+          {items.map((post, idx) => (
+            <PostTitle key={idx} {...post} />
+          ))}
+        </div>
+      ) : (
+        []
+      )
+  );
 
 export default Lables;
