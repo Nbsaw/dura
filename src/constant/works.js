@@ -1,5 +1,3 @@
-// THE YAML ⬇
-
 const workFieldGen = (title, desc) => ({ title, desc });
 
 const product = [

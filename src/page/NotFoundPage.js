@@ -18,7 +18,7 @@ class NotFoundPage extends Component {
   render() {
     return (
       <Container>
-        <img src={require('assets/not-thing.png')} />
+        <img alt="not found" src={require('assets/not-thing.png')} />
         <Desc>这里啥也没有 ... 点击侧栏的Blog试试吧 ...</Desc>
       </Container>
     );

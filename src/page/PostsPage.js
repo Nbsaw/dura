@@ -4,8 +4,10 @@ import Lables from 'blocks/Lables';
 import LabelLoader from 'blocks/LabelLoader';
 import SiteTitle from 'elements/SiteTitle';
 
-import { USERNAME, REPO } from 'constant';
+import { me } from 'constant';
 import { githubApi } from 'api';
+
+const { USERNAME, REPO } = me;
 
 class PostsPage extends Component {
   state = {

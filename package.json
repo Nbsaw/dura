@@ -5,7 +5,7 @@
   "homepage": "https://nbsaw.github.io/dura",
   "dependencies": {
     "animate.css": "^3.6.1",
-    "antd": "^3.5.2",
+    "antd": "^3.9.1",
     "axios": "^0.18.0",
     "flow-bin": "^0.73.0",
     "lodash": "^4.17.10",

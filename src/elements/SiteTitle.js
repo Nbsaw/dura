@@ -1,6 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { USERNAME } from 'constant';
+import { me } from 'constant';
+
+const { USERNAME } = me;
 
 const SiteTitle = ({ children }) => (
   <Helmet>

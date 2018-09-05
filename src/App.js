@@ -1,24 +1,21 @@
-import React, { Component } from 'react'
-import './css/App.css'
-import { Route, Switch } from 'react-router'
-import styled from 'styled-components'
+import React, { Component } from 'react';
+import './css/App.css';
+import { Route, Switch } from 'react-router';
+import styled from 'styled-components';
 
 // using webpack import syntax up performance
-import AsyncComponent from 'hoc/AsyncComponent'
+import AsyncComponent from 'hoc/AsyncComponent';
 
 // Basic Component
-import Aside from 'blocks/Aside'
-import Container from 'blocks/Container'
+import Aside from 'blocks/Aside';
+import Container from 'blocks/Container';
 
 const Layout = styled.div`
   display: flex;
   transition: 300ms ease-in-out;
-  transform: ${ 
-    props => props.showAside 
-             ? 'translateX(260px)' 
-             : 'translateX(0px)'
-  };
-`
+  transform: ${props =>
+    props.showAside ? 'translateX(260px)' : 'translateX(0px)'};
+`;
 
 const ToggleAside = styled.div`
   position: fixed;
@@ -30,28 +27,30 @@ const ToggleAside = styled.div`
   @media (max-width: 590px) {
     display: block;
   }
-`
+`;
 
 // Page Layout
 class DefaultLayoutRouter extends Component {
-  constructor (props) {
-    super(props)
-    this.toggleAside = this.toggleAside.bind(this)
+  constructor(props) {
+    super(props);
+    this.toggleAside = this.toggleAside.bind(this);
   }
   state = {
-    showAside: false
+    showAside: false,
+  };
+  toggleAside() {
+    const { showAside } = this.state;
+    this.setState({ showAside: !showAside });
   }
-  toggleAside () {
-    const { showAside } = this.state
-    this.setState({ showAside: !showAside })
-  }
-  render () {
-    const { showAside } = this.state
-    const { component: Component , ...rest } = this.props
+  render() {
+    const { showAside } = this.state;
+    const { component: Component, ...rest } = this.props;
 
     return (
-      <Route exact {...rest} render={
-        matchProps => (
+      <Route
+        exact
+        {...rest}
+        render={matchProps => (
           <Layout showAside={showAside}>
             <Aside />
             <Container>
@@ -61,37 +60,37 @@ class DefaultLayoutRouter extends Component {
               <Component {...matchProps} />
             </Container>
           </Layout>
-        )
-      }/>
-    )
+        )}
+      />
+    );
   }
 }
 
-const HomePage = AsyncComponent(() => import('page/HomePage'))
-const AboutPage = AsyncComponent(() => import('page/AboutPage'))
-const ArchivesPage = AsyncComponent(() => import('page/ArchivesPage'))
-const ClosedPage = AsyncComponent(() => import('page/ClosedPage'))
-const PostPage = AsyncComponent(() => import('page/PostPage'))
-const PostsPage = AsyncComponent(() => import('page/PostsPage'))
-const TimeLinePage = AsyncComponent(() => import('page/TimelinePage'))
-const WorksPage = AsyncComponent(() => import('page/WorksPage'))
-const NotFoundPage = AsyncComponent(() => import('page/NotFoundPage'))
+const HomePage = AsyncComponent(() => import('page/HomePage'));
+const AboutPage = AsyncComponent(() => import('page/AboutPage'));
+const ArchivesPage = AsyncComponent(() => import('page/ArchivesPage'));
+const ClosedPage = AsyncComponent(() => import('page/ClosedPage'));
+const PostPage = AsyncComponent(() => import('page/PostPage'));
+const PostsPage = AsyncComponent(() => import('page/PostsPage'));
+const TimeLinePage = AsyncComponent(() => import('page/TimelinePage'));
+const WorksPage = AsyncComponent(() => import('page/WorksPage'));
+const NotFoundPage = AsyncComponent(() => import('page/NotFoundPage'));
 
 class App extends Component {
-  render () {
+  render() {
     return (
       <Switch>
-        <Route exact path="/" component={HomePage}  />
+        <Route exact path="/" component={HomePage} />
         {/* <Route exact path="/about" component={AboutPage}  /> */}
         {/* <Route exact path="/archives" component={ArchivesPage}  /> */}
         {/* <Route exact path="/closed" component={ClosedPage}  /> */}
-        <DefaultLayoutRouter exact path="/posts" component={PostsPage}  />
-        <DefaultLayoutRouter exact path="/post/:number" component={PostPage}  />
-        {/* <Route exact path="/timeline" component={TimeLinePage} /> */}
+        <DefaultLayoutRouter exact path="/posts" component={PostsPage} />
+        <DefaultLayoutRouter exact path="/post/:number" component={PostPage} />
+        <DefaultLayoutRouter exact path="/timeline" component={TimeLinePage} />
         <DefaultLayoutRouter exact path="/works" component={WorksPage} />
         <DefaultLayoutRouter component={NotFoundPage} />
       </Switch>
-    )
+    );
   }
 }
 

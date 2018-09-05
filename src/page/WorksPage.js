@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import SiteTitle from 'elements/SiteTitle';
-import { Card, Icon, Tag } from 'antd';
-import works, { tagColor } from 'constant/works';
+import { works } from 'constant';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -19,16 +18,6 @@ const Title = styled.h1`
   padding-bottom: 10px;
   border-bottom: 1px solid #eaecef;
 `;
-
-const Cover = styled.div`
-  height: 250px;
-  width: 100%;
-  background: ${props => `url(${props.src})`};
-  background-size: cover;
-  background-position: 50% 50%;
-`;
-
-const Row = styled.div``;
 
 const Col = styled.div`
   margin-bottom: 25px;

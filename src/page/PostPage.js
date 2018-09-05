@@ -5,8 +5,10 @@ import _ from 'lodash';
 
 import SiteTitle from 'elements/SiteTitle';
 import PostLoader from 'blocks/PosterLoader';
-import { USERNAME, REPO } from 'constant';
+import { me } from 'constant';
 import { githubApi } from 'api';
+
+const { USERNAME, REPO } = me;
 
 const md = MarkdownIt();
 

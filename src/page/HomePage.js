@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NIKENAME, AVATAR, BIO, SOCICAL_LIST } from 'constant';
+import { me } from 'constant';
 
 import SiteTitle from 'elements/SiteTitle';
 import Avatar from 'elements/Avatar';
@@ -10,6 +10,8 @@ import Division from 'elements/Division';
 import NikeName from 'elements/NikeName';
 import Footer from 'elements/Footer';
 import SocicalList from 'blocks/SocicalList';
+
+const { NIKENAME, AVATAR, BIO, SOCICAL_LIST } = me;
 
 const NikeNameSection = () => (
   <Section>

@@ -1,7 +1,9 @@
 // @flow
-import { GITHUB_API_URL } from '../constant';
+import { config } from '../constant';
 import { fetchGithubWithOauth } from './comman';
 import qs from 'qs';
+
+const { GITHUB_API_URL } = config;
 
 type GetRepoInfoParams = { username: string, repo: string };
 type GetAllParams = { username: string, repo: string, state: string };
