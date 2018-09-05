@@ -40,6 +40,8 @@ const WorksList = ({ works }) => {
   );
 };
 
+console.log(works);
+
 const Work = () =>
   works.map(({ type, works }) => (
     <Box key={type}>
