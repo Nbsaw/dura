@@ -8,6 +8,12 @@ const { GITHUB_API_URL } = config;
 type GetRepoInfoParams = { username: string, repo: string };
 type GetAllParams = { username: string, repo: string, state: string };
 type GetDetailsParams = { username: string, repo: string, number: number };
+type CreateCommentParams = {
+  username: string,
+  repo: string,
+  number: number,
+  body: string,
+};
 
 const github = {
   getRepoInfo: async ({ username, repo }: GetRepoInfoParams) => {
@@ -29,6 +35,19 @@ const github = {
     getDetails: async ({ username, repo, number }: GetDetailsParams) => {
       const request = await fetchGithubWithOauth.get(
         `${GITHUB_API_URL}/repos/${username}/${repo}/issues/${number}`
+      );
+      const result = request.data;
+      return result;
+    },
+    createComment: async ({
+      username,
+      repo,
+      number,
+      body,
+    }: CreateCommentParams) => {
+      const request = await fetchGithubWithOauth.post(
+        `${GITHUB_API_URL}/repos/${username}/${repo}/issues/${number}/comments`,
+        { body }
       );
       const result = request.data;
       return result;
