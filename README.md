@@ -22,6 +22,4 @@ Github issues as a blog is awesome , but i want to customize my own theme .
 - [X] Mobile Responsive
 - [X] Works Preview
 - [X] Timeline
-- [ ] Archival articles
-- [ ] See Closed articles
 - [ ] Comment System
