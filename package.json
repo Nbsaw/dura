@@ -2,7 +2,7 @@
   "name": "dura",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://nbsaw.github.io/dura",
+  "homepage": "https://nbsaw.github.io",
   "dependencies": {
     "animate.css": "^3.6.1",
     "antd": "^3.9.1",

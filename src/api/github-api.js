@@ -1,27 +1,42 @@
 // @flow
-import { config } from '../constant';
+import { config, me } from '../constant';
+import axios from 'axios';
 import { fetchGithubWithOauth } from './comman';
 import qs from 'qs';
 
-const { GITHUB_API_URL } = config;
+const { USERNAME, REPO } = me;
+const { GITHUB_API_URL, CLIENTID, CLIENTSECRET } = config;
 
 type GetRepoInfoParams = { username: string, repo: string };
 type GetAllParams = { username: string, repo: string, state: string };
 type GetDetailsParams = { username: string, repo: string, number: number };
 type CreateCommentParams = {
-  username: string,
-  repo: string,
-  number: number,
   body: string,
+  issuesId: number,
+  access_token: string,
 };
 
 const github = {
-  getRepoInfo: async ({ username, repo }: GetRepoInfoParams) => {
-    const request = await fetchGithubWithOauth.get(
-      `${GITHUB_API_URL}/repos/${username}/${repo}`
-    );
-    const result = request.data;
-    return result;
+  user: {
+    getAccessToken: async (code: string) => {
+      const res = await axios({
+        method: 'post',
+        url: 'https://gh-oauth.imsun.net',
+        data: {
+          code,
+          client_id: CLIENTID,
+          client_secret: CLIENTSECRET,
+        },
+      });
+      return res.data.access_token;
+    },
+    getRepoInfo: async ({ username, repo }: GetRepoInfoParams) => {
+      const request = await fetchGithubWithOauth.get(
+        `${GITHUB_API_URL}/repos/${username}/${repo}`
+      );
+      const result = request.data;
+      return result;
+    },
   },
   issues: {
     getAll: async ({ username, repo, state = 'open' }: GetAllParams) => {
@@ -40,17 +55,21 @@ const github = {
       return result;
     },
     createComment: async ({
-      username,
-      repo,
-      number,
       body,
+      access_token,
+      issuesId,
     }: CreateCommentParams) => {
-      const request = await fetchGithubWithOauth.post(
-        `${GITHUB_API_URL}/repos/${username}/${repo}/issues/${number}/comments`,
-        { body }
-      );
-      const result = request.data;
-      return result;
+      const res = await axios({
+        method: 'post',
+        url: `https://api.github.com/repos/${USERNAME}/${REPO}/issues/${issuesId}/comments`,
+        data: {
+          body,
+        },
+        headers: {
+          Authorization: `token ${access_token}`,
+        },
+      });
+      return res;
     },
   },
 };

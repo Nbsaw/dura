@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './css/App.css';
 import { Route, Switch } from 'react-router';
 import styled from 'styled-components';
+import qs from 'qs';
+import { withRouter } from 'react-router';
+import { githubApi } from 'api';
 
 // using webpack import syntax up performance
 import AsyncComponent from 'hoc/AsyncComponent';
@@ -75,8 +78,22 @@ const PostsPage = AsyncComponent(() => import('page/PostsPage'));
 const TimeLinePage = AsyncComponent(() => import('page/TimelinePage'));
 const WorksPage = AsyncComponent(() => import('page/WorksPage'));
 const NotFoundPage = AsyncComponent(() => import('page/NotFoundPage'));
+const CommentPage = AsyncComponent(() => import('page/CommentPage'));
 
 class App extends Component {
+  async componentDidMount() {
+    const redirect_uri = localStorage.getItem('redirect_uri');
+    let { code } = qs.parse(window.location.search.substr(1));
+    if (code) {
+      localStorage.removeItem('redirect_uri');
+      code = code.replace('code=', '');
+      localStorage.setItem(
+        'accessToken',
+        await githubApi.user.getAccessToken(code)
+      );
+    }
+    redirect_uri && this.props.history.replace(redirect_uri);
+  }
   render() {
     return (
       <Switch>
@@ -88,10 +105,11 @@ class App extends Component {
         <DefaultLayoutRouter exact path="/post/:number" component={PostPage} />
         <DefaultLayoutRouter exact path="/timeline" component={TimeLinePage} />
         <DefaultLayoutRouter exact path="/works" component={WorksPage} />
+        <DefaultLayoutRouter exact path="/comment" component={CommentPage} />
         <DefaultLayoutRouter component={NotFoundPage} />
       </Switch>
     );
   }
 }
 
-export default App;
+export default withRouter(App);

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { me } from 'constant';
-import axios from 'axios';
 
 import SiteTitle from 'elements/SiteTitle';
 import Avatar from 'elements/Avatar';
@@ -39,10 +38,6 @@ const SocicalSection = () => (
 );
 
 class HomePage extends Component {
-  componentDidMount() {
-    console.log('123');
-    axios.post;
-  }
   render() {
     return (
       <FullScreenContainer>

@@ -19,12 +19,12 @@ class PostPage extends Component {
     load: false,
   };
   async componentDidMount() {
-    const { match } = this.props;
+    const issuesId = this.props.match.params.number;
     try {
       const result = await githubApi.issues.getDetails({
         username: USERNAME,
         repo: REPO,
-        number: match.params.number,
+        number: issuesId,
       });
       const dom = document.createElement('div');
       dom.innerHTML = md.render(result.body);
