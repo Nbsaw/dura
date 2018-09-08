@@ -4,10 +4,7 @@ import Lables from 'blocks/Lables';
 import LabelLoader from 'blocks/LabelLoader';
 import SiteTitle from 'elements/SiteTitle';
 
-import { me } from 'constant';
 import { githubApi } from 'api';
-
-const { USERNAME, REPO } = me;
 
 class PostsPage extends Component {
   state = {
@@ -16,10 +13,7 @@ class PostsPage extends Component {
   };
 
   async componentDidMount() {
-    let resultList = await githubApi.issues.getAll({
-      username: USERNAME,
-      repo: REPO,
-    });
+    let resultList = await githubApi.issues.getAll();
     let labels = {};
     resultList.forEach(item => {
       item.labels.forEach(({ name, color }) => {
