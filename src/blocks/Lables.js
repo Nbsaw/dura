@@ -1,12 +1,8 @@
-// @flow
 import React from 'react';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
 
-type LableTitleParams = { name: string, color: string };
-type PostTitleParams = { number: number, title: string };
-
-const LabelTitle = ({ name, color }: LableTitleParams) => (
+const LabelTitle = ({ name, color }) => (
   <h3 style={{ marginBottom: '16px' }}>
     <span
       style={{
@@ -22,7 +18,7 @@ const LabelTitle = ({ name, color }: LableTitleParams) => (
   </h3>
 );
 
-const PostTitle = ({ number, title }: PostTitleParams) => (
+const PostTitle = ({ number, title }) => (
   <p style={{ fontSize: '15px' }}>
     <Link to={`post/${number}`}>{title}</Link>
   </p>

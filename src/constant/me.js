@@ -1,13 +1,10 @@
-// @flow
-type SOCICAL_LIST_TYPE = Array<{ key: string, link: string }>;
-
-export const USERNAME: string = 'nbsaw';
-export const REPO: string = 'notes';
-export const NIKENAME: string = 'Gavin Phang';
-export const AVATAR: string =
+export const USERNAME = 'nbsaw';
+export const REPO = 'notes';
+export const NIKENAME = 'Gavin Phang';
+export const AVATAR =
   'https://avatars1.githubusercontent.com/u/12481935?s=460&v=4';
-export const BIO: string = `Gavin >> [ 'FE' , 'CS' , 'OTAKU' ]`;
-export const SOCICAL_LIST: SOCICAL_LIST_TYPE = [
+export const BIO = `Gavin >> [ 'FE' , 'CS' , 'OTAKU' ]`;
+export const SOCICAL_LIST = [
   { key: 'Blog', link: '#/posts' },
   { key: 'Zhihu', link: 'https://www.zhihu.com/people/nbsaw' },
   { key: 'Github', link: 'https://github.com/Nbsaw' },

@@ -1,4 +1,3 @@
-// @flow
 import { config, me } from '../constant';
 import axios from 'axios';
 import { fetchGithubWithOauth } from './comman';
@@ -7,18 +6,10 @@ import qs from 'qs';
 const { USERNAME, REPO } = me;
 const { GITHUB_API_URL, CLIENTID, CLIENTSECRET } = config;
 
-type GetRepoInfoParams = { username: string, repo: string };
-type GetAllParams = { username: string, repo: string, state: string };
-type GetDetailsParams = { username: string, repo: string, number: number };
-type CreateCommentParams = {
-  body: string,
-  issuesId: number,
-  access_token: string,
-};
 
 const github = {
   user: {
-    getAccessToken: async (code: string) => {
+    getAccessToken: async code => {
       const res = await axios({
         method: 'post',
         url: 'https://gh-oauth.imsun.net',
@@ -30,7 +21,7 @@ const github = {
       });
       return res.data.access_token;
     },
-    getRepoInfo: async ({ username, repo }: GetRepoInfoParams) => {
+    getRepoInfo: async ({ username, repo }) => {
       const request = await fetchGithubWithOauth.get(
         `${GITHUB_API_URL}/repos/${username}/${repo}`
       );
@@ -39,7 +30,7 @@ const github = {
     },
   },
   issues: {
-    getAll: async ({ username, repo, state = 'open' }: GetAllParams) => {
+    getAll: async ({ username, repo, state = 'open' }) => {
       const query = qs.stringify({ state });
       const request = await fetchGithubWithOauth.get(
         `${GITHUB_API_URL}/repos/${username}/${repo}/issues?${query}`
@@ -47,7 +38,7 @@ const github = {
       const result = request.data;
       return result;
     },
-    getDetails: async ({ username, repo, number }: GetDetailsParams) => {
+    getDetails: async ({ username, repo, number }) => {
       const request = await fetchGithubWithOauth.get(
         `${GITHUB_API_URL}/repos/${username}/${repo}/issues/${number}`
       );
