@@ -75,8 +75,9 @@ class PostPage extends Component {
           <p dangerouslySetInnerHTML={{ __html: this.state.content }} />
           <div style={{ marginTop: 30 }}>
             {this.state.comments.length > 0 ? (
-              <h3>> 评论</h3>(
-                this.state.comments.map((comment, idx) => (
+              <React.Fragment>
+                <h3>> 评论</h3>
+                {this.state.comments.map((comment, idx) => (
                   <Comment key={idx}>
                     <CommentLeft>
                       <a href={comment.user.url}>
@@ -93,8 +94,8 @@ class PostPage extends Component {
                       <p>{comment.body}</p>
                     </CommentRight>
                   </Comment>
-                ))
-              )
+                ))}
+              </React.Fragment>
             ) : (
               <h3>> 暂无评论</h3>
             )}
