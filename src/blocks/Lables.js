@@ -9,8 +9,9 @@ const LabelTitle = ({ name, color }) => (
         display: 'inline-block',
         background: color,
         color: '#FFFFFF',
-        padding: '0px 12px',
-        borderRadius: 5,
+        fontSize: 13,
+        padding: '2px 12px',
+        fontWeight: 700,
       }}
     >
       {name}

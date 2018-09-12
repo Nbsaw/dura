@@ -4,12 +4,15 @@ import { Icon } from 'antd';
 export default {
   2018: [
     {
+      text: '09月10日 科目二终于过了',
+    },
+    {
       dot: <Icon type="clock-circle-o" />,
       text: '08月01日 加入深圳市慢钱网络科技有限公司',
     },
     {
       dot: <Icon type="meh-o" style={{ color: 'orange' }} />,
-      text: '07月2x日 科目二考试失败 留下了没有技术的泪水',
+      text: '07月27日 科目二考试失败 留下了没有技术的泪水',
     },
     {
       text: '中间 思考人生的时期,迄今为止过的最不快乐的时间',
@@ -100,9 +103,6 @@ export default {
     { text: '09月16日 青岛旅游五天' },
     {
       text: '08月18日 广州一日游',
-    },
-    {
-      text: 'xx月yy日 被初恋拉黑了 哭哭',
     },
     {
       text: '04月30日 拥有了自己的Acer笔记本,发誓要好好学习,结果打游戏打了个爽',
