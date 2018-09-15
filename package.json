@@ -1,8 +1,8 @@
 {
-  "name": "dura",
+  "name": "ruka",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://nbsaw.github.io/dura",
+  "homepage": "https://nbsaw.github.io",
   "dependencies": {
     "animate.css": "^3.6.1",
     "antd": "^3.9.1",
@@ -29,7 +29,7 @@
     "test": "react-scripts test --env=node",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build -r https://github.com/Nbsaw/nbsaw.github.io.git -b master"
   },
   "devDependencies": {
     "babel-plugin-syntax-dynamic-import": "^6.18.0",

@@ -24,7 +24,7 @@ const product = [
 
 const personal = [
   workFieldGen('notes', '个人博客记录了前端开发的一些坑，笔记'),
-  workFieldGen('Dura', 'Está poderosa, media escandalosa'),
+  workFieldGen('Ruka', 'Está poderosa, media escandalosa'),
   workFieldGen('Pyfl', '获取汉字拼音缩写'),
   workFieldGen('Resume', '在线的个人简历'),
   workFieldGen(

@@ -4,6 +4,9 @@ import { Icon } from 'antd';
 export default {
   2018: [
     {
+      text: '09月15日 Dura更名为Ruka',
+    },
+    {
       text: '09月10日 科目二终于过了',
     },
     {
