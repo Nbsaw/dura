@@ -1,12 +1,6 @@
-# dura
+## What is ruka ?
 
-💦 dura is zero config blog system . power by ant design .
-
-### Motivation
-
-I used [github issues](https://github.com/Nbsaw/notes/issues) as a blog and and is a heavy user . 
-
-Github issues as a blog is awesome , but i want to customize my own theme .
+ruka is a blog system based on github issues . Powerful and simple .
 
 ### Features
 
