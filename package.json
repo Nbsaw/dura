@@ -31,11 +31,13 @@
   },
   "husky": {
     "hooks": {
+      "pre-commit": "npm run format",
       "pre-push": "if git-branch-is master; then npm build && npx surge ; fi"
     }
   },
   "devDependencies": {
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "git-branch-is": "^2.1.0",
     "husky": "^1.0.1",
     "surge": "^0.20.1"
   }
