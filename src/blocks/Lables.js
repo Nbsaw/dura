@@ -25,7 +25,7 @@ const PostTitle = ({ number, title }) => (
   </p>
 );
 
-const Lables = ({ labels }: { labels: [] }) =>
+const Lables = ({ labels }) =>
   _.map(
     labels,
     ({ items, color }, name) =>

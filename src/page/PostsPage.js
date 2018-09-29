@@ -15,6 +15,8 @@ class PostsPage extends Component {
   async componentDidMount() {
     let resultList = await githubApi.issues.getAll();
     let labels = {};
+    // filter OWNER post
+    resultList.filter(item => item.author_association === 'OWNER');
     resultList.forEach(item => {
       item.labels.forEach(({ name, color }) => {
         !(labels[name] !== null && typeof labels[name] === 'object') &&

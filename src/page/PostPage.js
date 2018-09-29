@@ -54,7 +54,7 @@ class PostPage extends Component {
       _.forEach(dom.getElementsByTagName('pre'), elm =>
         window.hljs.highlightBlock(elm)
       );
-      const comments = await githubApi.issues.getComments({ number: issuesId });
+      let comments = await githubApi.issues.getComments({ number: issuesId });
       this.setState({
         comments,
         content: dom.innerHTML,
