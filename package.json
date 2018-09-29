@@ -32,7 +32,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm run format",
-      "pre-push": "if git-branch-is master; then npm run build && npx surge ; fi"
+      "pre-push": "if git-branch-is master; then npm run build && surge -p ./build -d nbsaw.surge.sh; fi"
     }
   },
   "devDependencies": {
