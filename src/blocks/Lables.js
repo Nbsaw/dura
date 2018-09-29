@@ -32,9 +32,7 @@ const Lables = ({ labels }: { labels: [] }) =>
       name !== 'WIP' ? (
         <div key={name} style={{ marginBottom: '16px' }}>
           <LabelTitle name={name} color={color} />
-          {items.map((post, idx) => (
-            <PostTitle key={idx} {...post} />
-          ))}
+          {items.map((post, idx) => <PostTitle key={idx} {...post} />)}
         </div>
       ) : (
         []
