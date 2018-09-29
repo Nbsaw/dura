@@ -11,4 +11,5 @@ export const SOCICAL_LIST = [
   { key: 'Twitter', link: 'https://twitter.com/nbsaw' },
   { key: 'CodePen', link: 'https://codepen.io/nbsaw' },
   { key: 'Works', link: '#/works' },
+  { key: 'TimeLine', link: '#/timeline' },
 ];
