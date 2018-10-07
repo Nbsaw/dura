@@ -6,7 +6,7 @@ const Navigation = styled.ul`
   padding: 0;
   margin: 0;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   min-width: 280px;
   flex-wrap: wrap;
   justify-content: center;

@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import { Button } from 'antd';
 import styled from 'styled-components';
 import { githubApi } from 'api';
-import { me, config } from 'constant';
-
-const { USERNAME, REPO } = me;
+import { config } from 'constant';
 
 const CommentContainer = styled.div`
   width: 100%;

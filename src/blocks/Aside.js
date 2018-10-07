@@ -10,7 +10,9 @@ import Section from 'elements/Section';
 import Division from 'elements/Division';
 import SocicalList from 'blocks/SocicalList';
 
-const { NIKENAME, AVATAR, BIO, SOCICAL_LIST } = me;
+import { githubApi } from 'api'
+
+const { USER_INFO_MODE, NIKENAME, AVATAR, BIO, SOCICAL_LIST } = me;
 
 const Container = styled(Row)`
   border-right: 5px solid;
@@ -27,21 +29,21 @@ const Container = styled(Row)`
   }
 `;
 
-const NikeNameSection = () => (
+const NikeNameSection = ({ nickname }) => (
   <Section>
-    <NikeName>{NIKENAME ? NIKENAME : ''}</NikeName>
+    <NikeName>{nickname}</NikeName>
   </Section>
 );
 
-const AvatarSection = () => (
+const AvatarSection = ({ avatar }) => (
   <Section>
-    <Avatar src={AVATAR ? AVATAR : ''} />
+    <Avatar src={avatar} />
   </Section>
 );
 
-const DescriptionSection = () => (
+const DescriptionSection = ({ bio }) => (
   <Section>
-    <Description>{BIO ? BIO : ''}</Description>
+    <Description>{bio}</Description>
   </Section>
 );
 
@@ -51,14 +53,33 @@ const SocicalSection = () => (
   </Section>
 );
 
-const Aside = () => (
+const Aside = ({ nickname, avatar, bio }) => (
   <Container type="flex" justify="center" align="middle">
-    <AvatarSection />
-    <NikeNameSection />
-    <DescriptionSection />
+    <AvatarSection avatar={avatar}/>
+    <NikeNameSection nickname={nickname} />
+    <DescriptionSection bio={bio} />
     <Division />
     <SocicalSection />
   </Container>
 );
 
-export default Aside;
+class AsideHoc extends React.Component {
+  state = { nickname: '', avatar: '', bio: '' }
+
+  async componentDidMount () {
+    if (USER_INFO_MODE === 'GITHUB') {
+      const res = await githubApi.user.getUserInfo()
+      this.setState({ nickname: res.name, avatar: res.avatar_url, bio: res.bio })
+    }
+    else {
+      this.setState({ nickname: NIKENAME, avatar: AVATAR, bio: BIO })
+    }
+  }
+
+  render () {
+    const { nickname, avatar, bio } = this.state
+    return <Aside nickname={nickname} avatar={avatar} bio={bio} />
+  }
+}
+
+export default AsideHoc;

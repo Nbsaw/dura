@@ -5,9 +5,6 @@ const Container = styled.div`
   height: 100vh;
   padding: 16px;
   overflow: auto;
-  @media (max-width: 590px) {
-    /* margin-top: 80px; */
-  }
 `;
 
 export default Container;

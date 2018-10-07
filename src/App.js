@@ -20,17 +20,17 @@ const Layout = styled.div`
     props.showAside ? 'translateX(260px)' : 'translateX(0px)'};
 `;
 
-const ToggleAside = styled.div`
-  position: fixed;
-  top: 30px;
-  left: 13px;
-  border: 1px solid red;
-  padding: 10px;
-  display: none;
-  @media (max-width: 590px) {
-    display: block;
-  }
-`;
+// const ToggleAside = styled.div`
+//   position: fixed;
+//   top: 30px;
+//   left: 13px;
+//   border: 1px solid red;
+//   padding: 10px;
+//   display: none;
+//   @media (max-width: 590px) {
+//     display: block;
+//   }
+// `;
 
 // Page Layout
 class DefaultLayoutRouter extends Component {
@@ -70,9 +70,8 @@ class DefaultLayoutRouter extends Component {
 }
 
 const HomePage = AsyncComponent(() => import('page/HomePage'));
-const AboutPage = AsyncComponent(() => import('page/AboutPage'));
-const ArchivesPage = AsyncComponent(() => import('page/ArchivesPage'));
-const ClosedPage = AsyncComponent(() => import('page/ClosedPage'));
+// const AboutPage = AsyncComponent(() => import('page/AboutPage'));
+// const ArchivesPage = AsyncComponent(() => import('page/ArchivesPage'));
 const PostPage = AsyncComponent(() => import('page/PostPage'));
 const PostsPage = AsyncComponent(() => import('page/PostsPage'));
 const TimeLinePage = AsyncComponent(() => import('page/TimelinePage'));

@@ -11,23 +11,25 @@ import NikeName from 'elements/NikeName';
 import Footer from 'elements/Footer';
 import SocicalList from 'blocks/SocicalList';
 
-const { NIKENAME, AVATAR, BIO, SOCICAL_LIST } = me;
+import { githubApi } from 'api'
 
-const NikeNameSection = () => (
+const { USER_INFO_MODE, NIKENAME, AVATAR, BIO, SOCICAL_LIST } = me;
+
+const NikeNameSection = ({ nickname }) => (
   <Section>
-    <NikeName>{NIKENAME ? NIKENAME : ''}</NikeName>
+    <NikeName>{nickname}</NikeName>
   </Section>
 );
 
-const AvatarSection = () => (
+const AvatarSection = ({ avatar }) => (
   <Section>
-    <Avatar src={AVATAR ? AVATAR : ''} />
+    <Avatar src={avatar} />
   </Section>
 );
 
-const DescriptionSection = () => (
+const DescriptionSection = ({ bio }) => (
   <Section>
-    <Description>{BIO ? BIO : ''}</Description>
+    <Description>{bio}</Description>
   </Section>
 );
 
@@ -37,16 +39,41 @@ const SocicalSection = () => (
   </Section>
 );
 
+const Aside = ({ nickname, avatar, bio }) => (
+  <React.Fragment>
+    <AvatarSection avatar={avatar}/>
+    <NikeNameSection nickname={nickname} />
+    <DescriptionSection bio={bio} />
+    <Division />
+    <SocicalSection />
+  </React.Fragment>
+);
+
+class AsideHoc extends React.Component {
+  state = { nickname: '', avatar: '', bio: '' }
+
+  async componentDidMount () {
+    if (USER_INFO_MODE === 'GITHUB') {
+      const res = await githubApi.user.getUserInfo()
+      this.setState({ nickname: res.name, avatar: res.avatar_url, bio: res.bio })
+    }
+    else {
+      this.setState({ nickname: NIKENAME, avatar: AVATAR, bio: BIO })
+    }
+  }
+
+  render () {
+    const { nickname, avatar, bio } = this.state
+    return <Aside nickname={nickname} avatar={avatar} bio={bio} />
+  }
+}
+
 class HomePage extends Component {
   render() {
     return (
       <FullScreenContainer>
         <SiteTitle>首页</SiteTitle>
-        <AvatarSection />
-        <NikeNameSection />
-        <DescriptionSection />
-        <Division />
-        <SocicalSection />
+        <AsideHoc />
         <Footer>© 2018 nbsaw </Footer>
       </FullScreenContainer>
     );

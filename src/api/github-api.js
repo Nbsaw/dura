@@ -8,6 +8,10 @@ const { GITHUB_API_URL, CLIENTID, CLIENTSECRET } = config;
 
 const github = {
   user: {
+    getUserInfo: async () => {
+      const res = await axios({ url: `${GITHUB_API_URL}/users/${USERNAME}` })
+      return res.data
+    },
     getAccessToken: async code => {
       const res = await axios({
         method: 'post',
@@ -20,9 +24,9 @@ const github = {
       });
       return res.data.access_token;
     },
-    getRepoInfo: async ({ username, repo }) => {
+    getRepoInfo: async () => {
       const request = await fetchGithubWithOauth.get(
-        `${GITHUB_API_URL}/repos/${username}/${repo}`
+        `${GITHUB_API_URL}/repos/${USERNAME}/${REPO}`
       );
       const result = request.data;
       return result;
