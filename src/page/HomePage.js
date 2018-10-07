@@ -11,7 +11,7 @@ import NikeName from 'elements/NikeName';
 import Footer from 'elements/Footer';
 import SocicalList from 'blocks/SocicalList';
 
-import { githubApi } from 'api'
+import { githubApi } from 'api';
 
 const { USER_INFO_MODE, NIKENAME, AVATAR, BIO, SOCICAL_LIST } = me;
 
@@ -41,7 +41,7 @@ const SocicalSection = () => (
 
 const Aside = ({ nickname, avatar, bio }) => (
   <React.Fragment>
-    <AvatarSection avatar={avatar}/>
+    <AvatarSection avatar={avatar} />
     <NikeNameSection nickname={nickname} />
     <DescriptionSection bio={bio} />
     <Division />
@@ -50,21 +50,24 @@ const Aside = ({ nickname, avatar, bio }) => (
 );
 
 class AsideHoc extends React.Component {
-  state = { nickname: '', avatar: '', bio: '' }
+  state = { nickname: '', avatar: '', bio: '' };
 
-  async componentDidMount () {
+  async componentDidMount() {
     if (USER_INFO_MODE === 'GITHUB') {
-      const res = await githubApi.user.getUserInfo()
-      this.setState({ nickname: res.name, avatar: res.avatar_url, bio: res.bio })
-    }
-    else {
-      this.setState({ nickname: NIKENAME, avatar: AVATAR, bio: BIO })
+      const res = await githubApi.user.getUserInfo();
+      this.setState({
+        nickname: res.name,
+        avatar: res.avatar_url,
+        bio: res.bio,
+      });
+    } else {
+      this.setState({ nickname: NIKENAME, avatar: AVATAR, bio: BIO });
     }
   }
 
-  render () {
-    const { nickname, avatar, bio } = this.state
-    return <Aside nickname={nickname} avatar={avatar} bio={bio} />
+  render() {
+    const { nickname, avatar, bio } = this.state;
+    return <Aside nickname={nickname} avatar={avatar} bio={bio} />;
   }
 }
 

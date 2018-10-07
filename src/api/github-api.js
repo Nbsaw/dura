@@ -9,8 +9,8 @@ const { GITHUB_API_URL, CLIENTID, CLIENTSECRET } = config;
 const github = {
   user: {
     getUserInfo: async () => {
-      const res = await axios({ url: `${GITHUB_API_URL}/users/${USERNAME}` })
-      return res.data
+      const res = await axios({ url: `${GITHUB_API_URL}/users/${USERNAME}` });
+      return res.data;
     },
     getAccessToken: async code => {
       const res = await axios({
