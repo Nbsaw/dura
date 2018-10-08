@@ -1,10 +1,10 @@
 // Which user info mode for blog
-export const USER_INFO_MODE = 'GITHUB';
+export const USER_INFO_MODE = 'CUSTOM';
 
 // The custom user info for blog
-export const NIKENAME = '';
-export const AVATAR = '';
-export const BIO = ``;
+export const NIKENAME = 'Gavin Phang';
+export const AVATAR = 'https://avatars1.githubusercontent.com/u/12481935?s=460&v=4';
+export const BIO = `Gavin >> [ 'FE' , 'CS' , 'OTAKU' ]`;
 
 // Which repo you select to as blog
 export const USERNAME = 'nbsaw';
