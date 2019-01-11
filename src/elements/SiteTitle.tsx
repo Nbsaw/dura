@@ -1,10 +1,14 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { me } from 'constant';
+import { me } from '../constant';
 
 const { USERNAME } = me;
 
-const SiteTitle = ({ children }) => (
+interface SiteTitleParms {
+  children: string;
+}
+
+const SiteTitle = ({ children }: SiteTitleParms) => (
   <Helmet>
     <title>
       {' '}

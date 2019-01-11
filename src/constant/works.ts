@@ -1,4 +1,4 @@
-const workFieldGen = (title, desc) => ({ title, desc });
+const workFieldGen = (title: string, desc: string) => ({ title, desc });
 
 const product = [
   workFieldGen(
@@ -11,8 +11,7 @@ const product = [
   ),
   workFieldGen(
     '小智起名',
-    '使用LOGO网站沉淀下来的百万个公司名字进行机器学习，生成有意义的公司名字，为有需求的客户生成公司名字。使用XZ-Design搭建基本的页面组件，采用了Styled-Component作为CSS类库，复杂的动画配合设计使用了airbnb的lottie-web完成。',
-    ['React', 'Redux', 'Lodash']
+    '使用LOGO网站沉淀下来的百万个公司名字进行机器学习，生成有意义的公司名字，为有需求的客户生成公司名字。使用XZ-Design搭建基本的页面组件，采用了Styled-Component作为CSS类库，复杂的动画配合设计使用了airbnb的lottie-web完成。'
   ),
   workFieldGen(
     '维智高端品牌设计',

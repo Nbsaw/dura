@@ -1,18 +1,36 @@
 import React from 'react';
 import styled from 'styled-components';
-import { me } from 'constant';
+import { me } from '../constant';
 import Row from 'antd/lib/row';
 
-import NikeName from 'elements/NikeName';
-import Avatar from 'elements/Avatar';
-import Description from 'elements/Description';
-import Section from 'elements/Section';
-import Division from 'elements/Division';
-import SocicalList from 'blocks/SocicalList';
+import NikeName from '../elements/NikeName';
+import Avatar from '../elements/Avatar';
+import Description from '../elements/Description';
+import Section from '../elements/Section';
+import Division from '../elements/Division';
+import SocicalList from './SocicalList';
 
-import { githubApi } from 'api';
+import { githubApi } from '../api';
 
-const { USER_INFO_MODE, NIKENAME, AVATAR, BIO, SOCICAL_LIST } = me;
+const { SOCICAL_LIST } = me;
+
+interface NikeNameSectionParams {
+  nickname: string;
+}
+
+interface AvatarSectionParams {
+  avatar: string;
+}
+
+interface DescriptionSectionParmas {
+  bio: string;
+}
+
+interface AsideParams {
+  nickname: string;
+  avatar: string;
+  bio: string;
+}
 
 const Container = styled(Row)`
   border-right: 5px solid;
@@ -29,19 +47,19 @@ const Container = styled(Row)`
   }
 `;
 
-const NikeNameSection = ({ nickname }) => (
+const NikeNameSection = ({ nickname }: NikeNameSectionParams) => (
   <Section>
     <NikeName>{nickname}</NikeName>
   </Section>
 );
 
-const AvatarSection = ({ avatar }) => (
+const AvatarSection = ({ avatar }: AvatarSectionParams) => (
   <Section>
     <Avatar src={avatar} />
   </Section>
 );
 
-const DescriptionSection = ({ bio }) => (
+const DescriptionSection = ({ bio }: DescriptionSectionParmas) => (
   <Section>
     <Description>{bio}</Description>
   </Section>
@@ -49,11 +67,11 @@ const DescriptionSection = ({ bio }) => (
 
 const SocicalSection = () => (
   <Section>
-    <SocicalList list={SOCICAL_LIST ? SOCICAL_LIST : []} />
+    <SocicalList list={SOCICAL_LIST} />
   </Section>
 );
 
-const Aside = ({ nickname, avatar, bio }) => (
+const Aside = ({ nickname, avatar, bio }: AsideParams) => (
   <Container type="flex" justify="center" align="middle">
     <AvatarSection avatar={avatar} />
     <NikeNameSection nickname={nickname} />
@@ -67,16 +85,12 @@ class AsideHoc extends React.Component {
   state = { nickname: '', avatar: '', bio: '' };
 
   async componentDidMount() {
-    if (USER_INFO_MODE === 'GITHUB') {
-      const res = await githubApi.user.getUserInfo();
-      this.setState({
-        nickname: res.name,
-        avatar: res.avatar_url,
-        bio: res.bio,
-      });
-    } else {
-      this.setState({ nickname: NIKENAME, avatar: AVATAR, bio: BIO });
-    }
+    const res = await githubApi.user.getUserInfo();
+    this.setState({
+      nickname: res.name,
+      avatar: res.avatar_url,
+      bio: res.bio,
+    });
   }
 
   render() {
