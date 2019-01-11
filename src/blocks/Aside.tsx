@@ -9,28 +9,15 @@ import Description from '../elements/Description';
 import Section from '../elements/Section';
 import Division from '../elements/Division';
 import SocicalList from './SocicalList';
-
 import { githubApi } from '../api';
-
 const { SOCICAL_LIST } = me;
 
-interface NikeNameSectionParams {
-  nickname: string;
-}
-
-interface AvatarSectionParams {
-  avatar: string;
-}
-
-interface DescriptionSectionParmas {
-  bio: string;
-}
-
-interface AsideParams {
-  nickname: string;
-  avatar: string;
-  bio: string;
-}
+import {
+  PNikeNameSection,
+  PAvatarSection,
+  PDescriptionSection,
+  PAside,
+} from './types';
 
 const Container = styled(Row)`
   border-right: 5px solid;
@@ -47,19 +34,19 @@ const Container = styled(Row)`
   }
 `;
 
-const NikeNameSection = ({ nickname }: NikeNameSectionParams) => (
+const NikeNameSection = ({ nickname }: PNikeNameSection) => (
   <Section>
     <NikeName>{nickname}</NikeName>
   </Section>
 );
 
-const AvatarSection = ({ avatar }: AvatarSectionParams) => (
+const AvatarSection = ({ avatar }: PAvatarSection) => (
   <Section>
     <Avatar src={avatar} />
   </Section>
 );
 
-const DescriptionSection = ({ bio }: DescriptionSectionParmas) => (
+const DescriptionSection = ({ bio }: PDescriptionSection) => (
   <Section>
     <Description>{bio}</Description>
   </Section>
@@ -71,7 +58,7 @@ const SocicalSection = () => (
   </Section>
 );
 
-const Aside = ({ nickname, avatar, bio }: AsideParams) => (
+const Aside = ({ nickname, avatar, bio }: PAside) => (
   <Container type="flex" justify="center" align="middle">
     <AvatarSection avatar={avatar} />
     <NikeNameSection nickname={nickname} />

@@ -2,17 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
 
-interface LabelTitleParmas {
-  name: string;
-  color: string;
-}
+import { PLabelTitle, PPostTitle } from './types';
 
-interface PostTitleParmas {
-  number: string;
-  title: string;
-}
-
-const LabelTitle = ({ name, color }: LabelTitleParmas) => (
+const LabelTitle = ({ name, color }: PLabelTitle) => (
   <h3 style={{ marginBottom: '16px' }}>
     <span
       style={{
@@ -29,7 +21,7 @@ const LabelTitle = ({ name, color }: LabelTitleParmas) => (
   </h3>
 );
 
-const PostTitle = ({ number, title }: PostTitleParmas) => (
+const PostTitle = ({ number, title }: PPostTitle) => (
   <p style={{ fontSize: '15px' }}>
     <Link to={`post/${number}`}>{title}</Link>
   </p>

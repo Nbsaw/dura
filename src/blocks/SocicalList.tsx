@@ -2,9 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import A from '../elements/A';
 
-interface SocicalListParmas {
-  list: { link: string, key: string }[];
-}
+import { PSocicalList } from './types';
 
 const Navigation = styled.ul`
   padding: 0;
@@ -22,7 +20,7 @@ const Navigation = styled.ul`
   }
 `;
 
-const SocicalList = ({ list }: SocicalListParmas) => (
+const SocicalList = ({ list }: PSocicalList) => (
   <Navigation>
     {list.map((item, idx) => {
       return (
