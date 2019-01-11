@@ -1,10 +1,11 @@
-import { config, me } from '../constant';
+import { config, me } from '../../constant';
 import axios from 'axios';
-import { fetchGithubWithOauth } from './comman';
+import { fetchGithubWithOauth } from '../comman';
 import qs from 'qs';
 
 const { USERNAME, REPO } = me;
 const { GITHUB_API_URL, CLIENTID, CLIENTSECRET } = config;
+
 
 const github = {
   user: {
@@ -12,7 +13,7 @@ const github = {
       const res = await axios({ url: `${GITHUB_API_URL}/users/${USERNAME}` });
       return res.data;
     },
-    getAccessToken: async code => {
+    getAccessToken: async (code : string) => {
       const res = await axios({
         method: 'post',
         url: 'https://gh-oauth.imsun.net',
@@ -41,14 +42,14 @@ const github = {
       const result = request.data;
       return result;
     },
-    getDetails: async ({ number }) => {
+    getDetails: async ({ number }: { number:number }) => {
       const request = await fetchGithubWithOauth.get(
         `${GITHUB_API_URL}/repos/${USERNAME}/${REPO}/issues/${number}`
       );
       const result = request.data;
       return result;
     },
-    createComment: async ({ body, access_token, issuesId }) => {
+    createComment: async ({ body, access_token, issuesId } : { body: string, access_token: string, issuesId: string }) => {
       const res = await axios({
         method: 'post',
         url: `https://api.github.com/repos/${USERNAME}/${REPO}/issues/${issuesId}/comments`,
@@ -61,7 +62,7 @@ const github = {
       });
       return res;
     },
-    getComments: async ({ username, repo, number }) => {
+    getComments: async ({ username, repo, number }: { username: string, repo: string, number: number }) => {
       // /repos/:owner/:repo/issues/:number/comments
       const request = await fetchGithubWithOauth.get(
         `${GITHUB_API_URL}/repos/${USERNAME}/${REPO}/issues/${number}/comments`
