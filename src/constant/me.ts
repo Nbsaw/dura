@@ -12,7 +12,7 @@ export const USERNAME = 'nbsaw';
 export const REPO = 'notes';
 
 // The socical list for you
-export const SOCICAL_LIST = [
+export const SOCICAL_LIST: { key: string, link: string }[] = [
   { key: 'Blog', link: '#/posts' },
   { key: 'Zhihu', link: 'https://www.zhihu.com/people/nbsaw' },
   { key: 'Github', link: 'https://github.com/Nbsaw' },

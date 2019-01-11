@@ -2,10 +2,24 @@ import React from 'react';
 import { Icon } from 'antd';
 
 export default {
+  2019: [
+    {
+      text: '01月11日 开始使用typescript重构ruka',
+    },
+    {
+      text: '01月10日 加班结束',
+    },
+    { text: '01月06日 有点无聊又开始写起了日记' },
+  ],
   2018: [
     {
-      dot: <Icon 
-      type="meh-o" style={{ color: 'orange' }} />,
+      text: '12月19日 开始疯狂加班',
+    },
+    {
+      text: '11月09日 鹿晗演唱会',
+    },
+    {
+      dot: <Icon type="meh-o" style={{ color: 'orange' }} />,
       text: '10月05日 科目三挂科 ... 法克 ...',
     },
     {

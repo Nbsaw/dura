@@ -5,12 +5,7 @@ import styled from 'styled-components';
 import Aside from '../blocks/Aside';
 import Container from '../blocks/Container';
 
-interface DefaultLayoutRouterProps {
-  component: Function;
-}
-interface DefaultLayoutRouterState {
-  showAside: boolean;
-}
+import { DefaultLayoutRouterProps, DefaultLayoutRouterState } from './types';
 
 const Layout =
   styled.div <
