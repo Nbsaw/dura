@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { Icon } from 'antd';
 
-export default {
+interface TimelineType {
+  [index: string]: {
+    text: string,
+    dot?: ReactElement<any>,
+    color?: string,
+  }[];
+}
+
+const Timeline: TimelineType = {
   2019: [
+    {
+      text: '01月12日 去惠州开年会了',
+    },
     {
       text: '01月11日 开始使用typescript重构ruka',
     },
@@ -147,3 +158,5 @@ export default {
     },
   ],
 };
+
+export default Timeline;

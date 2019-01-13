@@ -8,7 +8,7 @@ import { githubApi } from './api';
 import AsyncComponent from './hoc/AsyncComponent';
 
 // Basic Component
-// import DefaultLayoutRouter from './blocks/DefaultLayoutRouter';
+import DefaultLayoutRouter from './blocks/DefaultLayoutRouter';
 
 // types
 import { History } from 'history';
@@ -19,7 +19,7 @@ const HomePage = AsyncComponent(() => import('./pages/HomePage'));
 // const ArchivesPage = AsyncComponent(() => import('./pages/ArchivesPage'));
 // const PostPage = AsyncComponent(() => import('./pages/PostPage'));
 // const PostsPage = AsyncComponent(() => import('./pages/PostsPage'));
-// const TimeLinePage = AsyncComponent(() => import('./pages/TimelinePage'));
+const TimeLinePage = AsyncComponent(() => import('./pages/TimelinePage'));
 // const WorksPage = AsyncComponent(() => import('./pages/WorksPage'));
 // const NotFoundPage = AsyncComponent(() => import('./pages/NotFoundPage'));
 // const CommentPage = AsyncComponent(() => import('./pages/CommentPage'));
@@ -51,7 +51,7 @@ class App extends Component<AppProps, AppState> {
         {/* TO TYPESCRIPT ⬇ */}
         {/* <DefaultLayoutRouter exact path="/posts" component={PostsPage} /> */}
         {/* <DefaultLayoutRouter exact path="/post/:number" component={PostPage} /> */}
-        {/* <DefaultLayoutRouter exact path="/timeline" component={TimeLinePage} /> */}
+        <DefaultLayoutRouter exact path="/timeline" component={TimeLinePage} />
         {/* <DefaultLayoutRouter exact path="/works" component={WorksPage} /> */}
         {/* <DefaultLayoutRouter exact path="/comment" component={CommentPage} /> */}
         {/* <DefaultLayoutRouter component={NotFoundPage} /> */}
