@@ -20,6 +20,7 @@ import {
 } from './types';
 
 const Container = styled(Row)`
+  flex-flow: column !important;
   border-right: 5px solid;
   border-image: linear-gradient(#fff, 10%, #82def3, 90%, #fff) 1;
   padding: 0 16px;
