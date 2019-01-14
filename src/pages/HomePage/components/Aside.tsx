@@ -28,7 +28,6 @@ class AsideHoc extends React.Component {
 
   async componentDidMount() {
     const res = await githubApi.user.getUserInfo();
-    debugger;
     this.setState({
       nickname: res.name,
       avatar: res.avatar_url,

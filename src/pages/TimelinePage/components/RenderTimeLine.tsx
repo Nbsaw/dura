@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { Timeline } from 'antd';
-import SiteTitle from '../elements/SiteTitle';
 import styled from 'styled-components';
-
-import { timeline } from '../constant';
+import { Timeline } from 'antd';
+import { timeline } from '../../../constant';
 
 const Time = styled.h1`
   font-weight: 300;
@@ -37,15 +35,4 @@ class RenderTimeLine extends Component {
   }
 }
 
-class TimeLinePage extends Component {
-  render() {
-    return (
-      <React.Fragment>
-        <SiteTitle>时间轴</SiteTitle>
-        <RenderTimeLine />
-      </React.Fragment>
-    );
-  }
-}
-
-export default TimeLinePage;
+export default RenderTimeLine;

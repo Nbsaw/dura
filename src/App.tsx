@@ -11,7 +11,6 @@ import AsyncComponent from './hoc/AsyncComponent';
 import DefaultLayoutRouter from './blocks/DefaultLayoutRouter';
 
 // types
-import { History } from 'history';
 import { RouteComponentProps } from 'react-router';
 
 const HomePage = AsyncComponent(() => import('./pages/HomePage'));
@@ -19,7 +18,9 @@ const HomePage = AsyncComponent(() => import('./pages/HomePage'));
 // const ArchivesPage = AsyncComponent(() => import('./pages/ArchivesPage'));
 // const PostPage = AsyncComponent(() => import('./pages/PostPage'));
 // const PostsPage = AsyncComponent(() => import('./pages/PostsPage'));
-const TimeLinePage = AsyncComponent(() => import('./pages/TimelinePage'));
+const TimeLinePage = AsyncComponent(() =>
+  import('./pages/TimelinePage/components/RenderTimeLine')
+);
 // const WorksPage = AsyncComponent(() => import('./pages/WorksPage'));
 // const NotFoundPage = AsyncComponent(() => import('./pages/NotFoundPage'));
 // const CommentPage = AsyncComponent(() => import('./pages/CommentPage'));
