@@ -30,15 +30,21 @@ export interface DefaultLayoutRouterState {
 }
 
 // Lables
-export interface PLabelTitle {
+export interface LabelTitleProps {
   name: string;
   color: string;
 }
 
-export interface PPostTitle {
+export interface PostTitleProps {
   number: string;
   title: string;
 }
+
+export interface LabelsProps {
+  labels?: {};
+}
+
+export interface LabelsState {}
 
 // SocicalList
 export interface PSocicalList {
