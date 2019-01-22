@@ -21,7 +21,7 @@ const HomePage = AsyncComponent(() => import('./pages/HomePage'));
 const TimeLinePage = AsyncComponent(() =>
   import('./pages/TimelinePage/components/RenderTimeLine')
 );
-// const WorksPage = AsyncComponent(() => import('./pages/WorksPage'));
+const WorksPage = AsyncComponent(() => import('./pages/WorksPage'));
 // const NotFoundPage = AsyncComponent(() => import('./pages/NotFoundPage'));
 // const CommentPage = AsyncComponent(() => import('./pages/CommentPage'));
 
@@ -53,7 +53,7 @@ class App extends Component<AppProps, AppState> {
         {/* <DefaultLayoutRouter exact path="/posts" component={PostsPage} /> */}
         {/* <DefaultLayoutRouter exact path="/post/:number" component={PostPage} /> */}
         <DefaultLayoutRouter exact path="/timeline" component={TimeLinePage} />
-        {/* <DefaultLayoutRouter exact path="/works" component={WorksPage} /> */}
+        <DefaultLayoutRouter exact path="/works" component={WorksPage} />
         {/* <DefaultLayoutRouter exact path="/comment" component={CommentPage} /> */}
         {/* <DefaultLayoutRouter component={NotFoundPage} /> */}
       </Switch>
