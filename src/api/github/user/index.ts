@@ -1,6 +1,6 @@
-import { config, me } from '../../constant';
+import { config, me } from '../../../constant';
 import axios from 'axios';
-import { fetchGithubWithOauth } from '../comman';
+import { fetchGithubWithOauth } from '../../comman';
 
 const { USERNAME, REPO } = me;
 const { GITHUB_API_URL, CLIENTID, CLIENTSECRET } = config;
