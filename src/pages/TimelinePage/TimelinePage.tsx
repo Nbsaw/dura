@@ -5,10 +5,10 @@ import { RenderTimeLine } from './components';
 class TimeLinePage extends Component {
   render() {
     return (
-      <React.Fragment>
+      <>
         <SiteTitle>时间轴</SiteTitle>
         <RenderTimeLine />
-      </React.Fragment>
+      </>
     );
   }
 }

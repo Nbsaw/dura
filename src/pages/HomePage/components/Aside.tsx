@@ -10,17 +10,17 @@ import {
   AvatarSection,
   NikeNameSection,
   DescriptionSection,
-  SocicalSection,
+  SocicalSection
 } from './';
 
 const Aside = ({ nickname, avatar, bio }: AsideParmas) => (
-  <React.Fragment>
+  <>
     <AvatarSection avatar={avatar} />
     <NikeNameSection nickname={nickname} />
     <DescriptionSection bio={bio} />
     <Division />
     <SocicalSection />
-  </React.Fragment>
+  </>
 );
 
 class AsideHoc extends React.Component {
@@ -31,7 +31,7 @@ class AsideHoc extends React.Component {
     this.setState({
       nickname: res.name,
       avatar: res.avatar_url,
-      bio: res.bio,
+      bio: res.bio
     });
     this.setState({ nickname: NIKENAME, avatar: AVATAR, bio: BIO });
   }

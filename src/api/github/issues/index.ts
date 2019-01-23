@@ -1,5 +1,3 @@
-/// <reference path="./types.d.ts" />
-
 import qs from 'qs';
 import axios from 'axios';
 
@@ -9,11 +7,13 @@ import { fetchGithubWithOauth } from '../../comman';
 const { USERNAME, REPO } = me;
 const { GITHUB_API_URL } = config;
 
+import * as TYPES from './types';
+
 // ref ↓
 // https://stackoverflow.com/questions/23314806/setting-default-value-for-typescript-object-passed-as-argument
 export async function getAll({
-  state = 'open',
-}: IssuesApiTypes.getAllParams = {}): Promise<IssuesApiTypes.getAllResponse[]> {
+  state = 'open'
+}: TYPES.getAllParams = {}): Promise<TYPES.getAllResponse[]> {
   const query = qs.stringify({ state });
   const request = await fetchGithubWithOauth.get(
     `${GITHUB_API_URL}/repos/${USERNAME}/${REPO}/issues?${query}`
