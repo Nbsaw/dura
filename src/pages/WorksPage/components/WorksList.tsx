@@ -1,6 +1,6 @@
 import React from 'react';
 import { Works } from './';
-import { WorksListProps } from './types';
+import { WorksListProps } from '../types';
 
 const WorksList = ({ works }: WorksListProps) => {
   return (

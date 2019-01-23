@@ -2,7 +2,7 @@ import React from 'react';
 import Division from '../../../elements/Division';
 
 import { githubApi } from '../../../api';
-import { AsideParmas } from './types';
+import { AsideParmas } from '../types';
 import { me } from '../../../constant';
 const { NIKENAME, AVATAR, BIO } = me;
 
