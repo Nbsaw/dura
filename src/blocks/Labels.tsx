@@ -6,7 +6,7 @@ import {
   LabelTitleProps,
   PostTitleProps,
   LabelsProps,
-  LabelsState,
+  LabelsState
 } from './types';
 
 const LabelTitle = ({ name, color }: LabelTitleProps) => (
@@ -18,7 +18,7 @@ const LabelTitle = ({ name, color }: LabelTitleProps) => (
         color: '#FFFFFF',
         fontSize: 13,
         padding: '2px 12px',
-        fontWeight: 700,
+        fontWeight: 700
       }}
     >
       {name}
@@ -34,23 +34,22 @@ const PostTitle = ({ number, title }: PostTitleProps) => (
 
 class Labels extends Component<LabelsProps, LabelsState> {
   render() {
-    console.log(this.props);
-    return <div>awesome</div>;
-    // _.map(
-    //   this.props.labels,
-    //   ({ items, color }, name) => name
-    //   name !== 'WIP' ? (
-    //     <div key={name} style={{ marginBottom: '16px' }}>
-    //       <LabelTitle name={name} color={color} />
-    //       {items.map((post, idx) => (
-    //         <PostTitle key={idx} {...post} />
-    //       ))}
-    //     </div>
-    //   ) : (
-    //     []
-    //   )
-    // )
-    return <div>123</div>;
+    return (
+      <>
+        {_.map(this.props.labels, ({ items, color }, name) =>
+          name !== 'WIP' ? (
+            <div key={name} style={{ marginBottom: '16px' }}>
+              <LabelTitle name={name} color={color} />
+              {items.map((post, idx) => (
+                <PostTitle key={idx} {...post} />
+              ))}
+            </div>
+          ) : (
+            []
+          )
+        )}
+      </>
+    );
   }
 }
 

@@ -1,3 +1,5 @@
+import { getAllResponse } from '../api/github/issues/types';
+
 // Aside
 export interface PNikeNameSection {
   nickname: string;
@@ -39,7 +41,13 @@ export interface PostTitleProps {
 }
 
 export interface LabelsProps {
-  labels?: {};
+  labels: {
+    [key: string]: {
+      // items is alias of issues item
+      items: getAllResponse[],
+      color: string
+    }
+  };
 }
 
 export interface LabelsState {}

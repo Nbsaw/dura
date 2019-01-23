@@ -23,21 +23,3 @@
 //     number: number,
 //   };
 // }
-
-declare namespace IssuesApiTypes {
-  interface getAllParams {
-    state?: string,
-  }
-
-  interface getAllResponse {
-    number:string, 
-    title:string,
-    author_association: string,
-    labels: [
-      {
-        name: string,
-        color: string
-      }
-    ]
-  }
-}
