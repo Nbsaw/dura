@@ -8,7 +8,7 @@ ruka is a blog system based on github issues . Powerful and simple .
 - WYSWYG
 - Base on Github issues
 - Comment system
-- Flow
+- TypeScript
 
 ### [WIP] Install and start ruka
 
