@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { WorkProps } from './types';
+import { WorkProps } from '../types';
 
 const Col = styled.div`
   margin-bottom: 25px;

@@ -1,25 +1,13 @@
 
 import React, { Component } from 'react';
-import Labels from '../../blocks/Labels';
-import LabelLoader from '../../blocks/LabelLoader';
+import Labels from './components/Labels';
+import LabelLoader from './components/LabelLoader';
 import SiteTitle from '../../elements/SiteTitle';
 
 import { githubApi } from '../../api';
-import { getAllResponse } from '../../api/github/issues/types';
+import { PostsPageState } from "./types"
 
-interface PostsPageProps {}
-interface PostsPageState {
-  labels: {
-    [key: string]: {
-      // items is alias of issues item
-      items: getAllResponse[],
-      color: string,
-    },
-  };
-  loading: boolean;
-}
-
-class PostsPage extends Component<PostsPageProps, PostsPageState> {
+class PostsPage extends Component<{}, PostsPageState> {
   state = {
     labels: {},
     loading: true,

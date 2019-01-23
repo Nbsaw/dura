@@ -1,5 +1,3 @@
-import { getAllResponse } from '../api/github/issues/types';
-
 // Aside
 export interface PNikeNameSection {
   nickname: string;
@@ -28,29 +26,6 @@ export interface DefaultLayoutRouterProps {
 export interface DefaultLayoutRouterState {
   showAside: boolean;
 }
-
-// Lables
-export interface LabelTitleProps {
-  name: string;
-  color: string;
-}
-
-export interface PostTitleProps {
-  number: string;
-  title: string;
-}
-
-export interface LabelsProps {
-  labels: {
-    [key: string]: {
-      // items is alias of issues item
-      items: getAllResponse[],
-      color: string
-    }
-  };
-}
-
-export interface LabelsState {}
 
 // SocicalList
 export interface PSocicalList {
