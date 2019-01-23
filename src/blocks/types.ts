@@ -1,5 +1,3 @@
-import { RouteProps } from 'react-router';
-
 // Aside
 export interface PNikeNameSection {
   nickname: string;

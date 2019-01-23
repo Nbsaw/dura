@@ -12,6 +12,9 @@ interface TimelineType {
 const Timeline: TimelineType = {
   2019: [
     {
+      text: '01月23日 偷懒了很久又开始重构了起来 (00点15分)',
+    },
+    {
       text: '01月12日 去惠州开年会了',
     },
     {
