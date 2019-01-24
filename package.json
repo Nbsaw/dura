@@ -4,7 +4,9 @@
   "private": true,
   "homepage": "https://nbsaw.github.io",
   "dependencies": {
+    "@types/highlight.js": "^9.12.3",
     "@types/lodash": "^4.14.119",
+    "@types/markdown-it": "^0.0.7",
     "@types/node": "^10.12.18",
     "@types/qs": "^6.5.1",
     "@types/react": "^16.7.18",
@@ -18,6 +20,7 @@
     "antd": "^3.9.1",
     "axios": "^0.18.0",
     "flow-bin": "^0.73.0",
+    "highlight.js": "^9.13.1",
     "lodash": "^4.17.10",
     "markdown-it": "^8.4.1",
     "react": "^16.3.2",

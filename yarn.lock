@@ -821,13 +821,27 @@
     "@svgr/core" "^2.4.1"
     loader-utils "^1.1.0"
 
+"@types/highlight.js@^9.12.3":
+  version "9.12.3"
+  resolved "https://registry.yarnpkg.com/@types/highlight.js/-/highlight.js-9.12.3.tgz#b672cfaac25cbbc634a0fd92c515f66faa18dbca"
+
 "@types/history@*":
   version "4.7.2"
   resolved "https://registry.yarnpkg.com/@types/history/-/history-4.7.2.tgz#0e670ea254d559241b6eeb3894f8754991e73220"
 
+"@types/linkify-it@*":
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@types/linkify-it/-/linkify-it-2.0.4.tgz#80a7f9aec4c9283e8333debda5a88511d4a529a7"
+
 "@types/lodash@^4.14.119":
   version "4.14.119"
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.119.tgz#be847e5f4bc3e35e46d041c394ead8b603ad8b39"
+
+"@types/markdown-it@^0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@types/markdown-it/-/markdown-it-0.0.7.tgz#75070485a3d8ad11e7deb8287f4430be15bf4d39"
+  dependencies:
+    "@types/linkify-it" "*"
 
 "@types/node@*", "@types/node@^10.12.18":
   version "10.12.18"
@@ -4228,6 +4242,10 @@ he@1.2.x:
 hex-color-regex@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/hex-color-regex/-/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
+
+highlight.js@^9.13.1:
+  version "9.13.1"
+  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-9.13.1.tgz#054586d53a6863311168488a0f58d6c505ce641e"
 
 history@^4.7.2:
   version "4.7.2"

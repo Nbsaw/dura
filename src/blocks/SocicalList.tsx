@@ -18,6 +18,9 @@ const Navigation = styled.ul`
     list-style: none;
     margin: 0 5px;
   }
+  a:focus {
+    text-decoration: none;
+  }
 `;
 
 const SocicalList = ({ list }: PSocicalList) => (

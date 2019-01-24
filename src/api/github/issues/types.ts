@@ -13,3 +13,21 @@ export interface getAllResponse {
     }
   ];
 }
+
+export interface getDetailsParams {
+  number: string;
+}
+
+export interface getCommentsParams {
+  number: string;
+}
+
+export interface getCommentsResponse {
+  user: {
+    url: string,
+    avatar_url: string,
+    login: string,
+    created_at: string,
+    body: string
+  };
+}
