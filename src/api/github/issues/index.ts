@@ -21,35 +21,37 @@ export async function getAll({
   return request.data;
 }
 
-// export async function getDetails({ number }: T.getDetails) {
-//   const request = await fetchGithubWithOauth.get(
-//     `${GITHUB_API_URL}/repos/${USERNAME}/${REPO}/issues/${number}`
-//   );
-//   return request.data;
-// }
+export async function getDetails({ number }: TYPES.getDetailsParams) {
+  const request = await fetchGithubWithOauth.get(
+    `${GITHUB_API_URL}/repos/${USERNAME}/${REPO}/issues/${number}`
+  );
+  return request.data;
+}
+
+export async function getComments({
+  number
+}: TYPES.getCommentsParams): Promise<TYPES.getCommentsResponse[]> {
+  // /repos/:owner/:repo/issues/:number/comments
+  const request = await fetchGithubWithOauth.get(
+    `${GITHUB_API_URL}/repos/${USERNAME}/${REPO}/issues/${number}/comments`
+  );
+  return request.data;
+}
 
 // export async function createComment({
 //   body,
 //   access_token,
-//   issuesId,
-// }: T.createComment) {
+//   issuesId
+// }: TYPES.createComment) {
 //   const res = await axios({
 //     method: 'post',
 //     url: `${GITHUB_API_URL}/repos/${USERNAME}/${REPO}/issues/${issuesId}/comments`,
 //     data: {
-//       body,
+//       body
 //     },
 //     headers: {
-//       Authorization: `token ${access_token}`,
-//     },
+//       Authorization: `token ${access_token}`
+//     }
 //   });
 //   return res;
-// }
-
-// export async function getComments({ number }: T.getComments) {
-//   // /repos/:owner/:repo/issues/:number/comments
-//   const request = await fetchGithubWithOauth.get(
-//     `${GITHUB_API_URL}/repos/${USERNAME}/${REPO}/issues/${number}/comments`
-//   );
-//   return request.data;
 // }

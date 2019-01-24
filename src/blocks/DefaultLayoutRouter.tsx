@@ -27,7 +27,7 @@ class DefaultLayoutRouter extends Component<
     this.toggleAside = this.toggleAside.bind(this);
   }
   state = {
-    showAside: false,
+    showAside: false
   };
   toggleAside() {
     const { showAside } = this.state;
