@@ -29,19 +29,6 @@ type AppProps = RouteComponentProps;
 type AppState = {};
 
 class App extends Component<AppProps, AppState> {
-  async componentDidMount() {
-    const redirect_uri = localStorage.getItem('redirect_uri');
-    let { code } = qs.parse(window.location.search.substr(1));
-    if (code) {
-      localStorage.removeItem('redirect_uri');
-      code = code.replace('code=', '');
-      localStorage.setItem(
-        'accessToken',
-        await githubApi.user.getAccessToken(code)
-      );
-    }
-    redirect_uri && this.props.history.replace(redirect_uri);
-  }
   render() {
     return (
       <Switch>
