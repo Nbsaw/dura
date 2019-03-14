@@ -7,10 +7,7 @@ import Container from '../blocks/Container';
 
 import { DefaultLayoutRouterProps, DefaultLayoutRouterState } from './types';
 
-const Layout =
-  styled.div <
-  { showAside: boolean } >
-  `
+const Layout = styled.div<{ showAside: boolean }>`
   display: flex;
   transition: 300ms ease-in-out;
   transform: ${props =>
