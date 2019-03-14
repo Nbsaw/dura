@@ -29,5 +29,5 @@ export interface DefaultLayoutRouterState {
 
 // SocicalList
 export interface PSocicalList {
-  list: { link: string, key: string }[];
+  list: { link: string; key: string }[];
 }

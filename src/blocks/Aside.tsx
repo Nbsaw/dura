@@ -16,7 +16,7 @@ import {
   PNikeNameSection,
   PAvatarSection,
   PDescriptionSection,
-  PAside,
+  PAside
 } from './types';
 
 const Container = styled(Row)`
@@ -77,7 +77,7 @@ class AsideHoc extends React.Component {
     this.setState({
       nickname: res.name,
       avatar: res.avatar_url,
-      bio: res.bio,
+      bio: res.bio
     });
   }
 

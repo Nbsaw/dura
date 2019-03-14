@@ -9,7 +9,7 @@ export default function asyncComponent(ImportComponent: () => Promise<any>) {
     constructor(props: any) {
       super(props);
       this.state = {
-        component: undefined,
+        component: undefined
       };
     }
     async componentDidMount() {
