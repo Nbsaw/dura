@@ -1,18 +1,16 @@
 ![ruka](./assets/ruka.png)
 
-## What is ruka ?
+---
 
-ruka is a blog system based on github issues . Powerful and simple .
+**Ruka is a blog system based on Github issues** :squirrel:
 
 ### Features
 
 - Zero Config
 - WYSWYG
-- Base on Github issues
-- Comment system
-- TypeScript
+- Online Editing
 
-### [WIP] Install and start ruka
+### Install and start ruka
 
 Use `yarn` or `npm` instal ruka , and modify the config file .
 
@@ -20,13 +18,15 @@ Use `yarn start` or `npm run start` to start ruka .
 
 ### How to Deploy ruka
 
-If you modify ruka , You can just commit message to git and push , then you can deploy ruka !!
+You can `build` ruka and deploy anywhere . Cdn,Static Resource Server and etc.
 
-``` shell
-git push
-```
+### Contributing
 
-At last you just type `surge` , and you know what you do next.
+1. Fork it!
+2. Create your feature branch: git checkout -b my-new-feature
+3. Commit your changes: git commit -am 'Add some feature'
+4. Push to the branch: git push origin my-new-feature
+5. Submit a pull request :D
 
 ### Todo List
 
