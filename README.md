@@ -1,3 +1,5 @@
+![ruka](./assets/ruka.png)
+
 ## What is ruka ?
 
 ruka is a blog system based on github issues . Powerful and simple .
