@@ -10,7 +10,7 @@ import Section from '../elements/Section';
 import Division from '../elements/Division';
 import SocicalList from './SocicalList';
 import { githubApi } from '../api';
-const { SOCICAL_LIST } = me;
+const { USER_INFO_MODE, NIKENAME, AVATAR, BIO, SOCICAL_LIST } = me;
 
 import {
   PNikeNameSection,
@@ -73,12 +73,16 @@ class AsideHoc extends React.Component {
   state = { nickname: '', avatar: '', bio: '' };
 
   async componentDidMount() {
-    const res = await githubApi.user.getUserInfo();
-    this.setState({
-      nickname: res.name,
-      avatar: res.avatar_url,
-      bio: res.bio
-    });
+    if (USER_INFO_MODE === 'CUSTOM') {
+      this.setState({ nickname: NIKENAME, avatar: AVATAR, bio: BIO });
+    } else {
+      const res = await githubApi.user.getUserInfo();
+      this.setState({
+        nickname: res.name,
+        avatar: res.avatar_url,
+        bio: res.bio
+      });
+    }
   }
 
   render() {

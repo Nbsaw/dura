@@ -4,7 +4,7 @@ import Division from '../../../elements/Division';
 import { githubApi } from '../../../api';
 import { AsideParmas } from '../types';
 import { me } from '../../../constant';
-const { NIKENAME, AVATAR, BIO } = me;
+const { USER_INFO_MODE, NIKENAME, AVATAR, BIO } = me;
 
 import {
   AvatarSection,
@@ -27,13 +27,16 @@ class AsideHoc extends React.Component {
   state = { nickname: '', avatar: '', bio: '' };
 
   async componentDidMount() {
-    const res = await githubApi.user.getUserInfo();
-    this.setState({
-      nickname: res.name,
-      avatar: res.avatar_url,
-      bio: res.bio
-    });
-    this.setState({ nickname: NIKENAME, avatar: AVATAR, bio: BIO });
+    if (USER_INFO_MODE === 'CUSTOM') {
+      this.setState({ nickname: NIKENAME, avatar: AVATAR, bio: BIO });
+    } else {
+      const res = await githubApi.user.getUserInfo();
+      this.setState({
+        nickname: res.name,
+        avatar: res.avatar_url,
+        bio: res.bio
+      });
+    }
   }
 
   render() {
