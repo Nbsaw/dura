@@ -6,4 +6,7 @@ export interface PostPageState {
   postTitle: string;
   content: string;
   load: boolean;
+  created_at: string;
+  updated_at: string;
+  url: string;
 }

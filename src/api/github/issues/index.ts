@@ -21,7 +21,9 @@ export async function getAll({
   return request.data;
 }
 
-export async function getDetails({ number }: TYPES.getDetailsParams) {
+export async function getDetails({
+  number
+}: TYPES.getDetailsParams): Promise<TYPES.getDetailsResponse> {
   const request = await fetchGithubWithOauth.get(
     `${GITHUB_API_URL}/repos/${USERNAME}/${REPO}/issues/${number}`
   );

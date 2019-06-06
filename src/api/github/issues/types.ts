@@ -8,8 +8,8 @@ export interface getAllResponse {
   author_association: string;
   labels: [
     {
-      name: string,
-      color: string
+      name: string;
+      color: string;
     }
   ];
 }
@@ -18,16 +18,24 @@ export interface getDetailsParams {
   number: string;
 }
 
+export interface getDetailsResponse {
+  title: string;
+  body: string;
+  created_at: string;
+  updated_at: string;
+  url: string;
+}
+
 export interface getCommentsParams {
   number: string;
 }
 
 export interface getCommentsResponse {
   user: {
-    url: string,
-    avatar_url: string,
-    login: string,
-    created_at: string,
-    body: string
+    url: string;
+    avatar_url: string;
+    login: string;
+    created_at: string;
+    body: string;
   };
 }
