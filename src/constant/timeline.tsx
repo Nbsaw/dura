@@ -12,10 +12,28 @@ interface TimelineType {
 const Timeline: TimelineType = {
   2019: [
     {
+      text: '06月06日 可恶马云爸爸居然给我支付宝涨额度了 因为我买了电脑吗 ...'
+    },
+    {
+      text: '06月04日 拥有了人生的第一台MacBook Pro, 还是希望好好学习吧 '
+    },
+    {
+      text: '04月15日 好像是今天来着拿到了驾照'
+    },
+    {
+      text: '05月08日 生日快乐 礼物是 airpods 和 电动牙刷 '
+    },
+    {
+      text: '03月19日 重新开始吧'
+    },
+    {
+      text: '02月xx日 搬了次家来着 还是在老地方附近'
+    },
+    {
       text: '01月23日 偷懒了很久又开始重构了起来 (00点15分)'
     },
     {
-      text: '01月12日 去惠州开年会了'
+      text: '01月12日 去惠州开年会啦'
     },
     {
       text: '01月11日 开始使用typescript重构ruka'
@@ -28,6 +46,9 @@ const Timeline: TimelineType = {
   2018: [
     {
       text: '12月19日 开始疯狂加班'
+    },
+    {
+      text: '12月17日 买的Iphone XsMax到了 新的白条开始了'
     },
     {
       text: '11月09日 鹿晗演唱会'
