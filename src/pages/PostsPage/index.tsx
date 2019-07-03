@@ -15,9 +15,13 @@ class PostsPage extends Component<{}, PostsPageState> {
   async componentDidMount() {
     let resultList = await githubApi.issues.getAll();
     let labels: PostsPageState['labels'] = {};
+    type itemType = typeof resultList[number];
 
-    // filter OWNER post
-    resultList = resultList.filter(item => item.author_association === 'OWNER');
+    let isOwner = (item: itemType) => item.author_association === 'OWNER';
+    let isWIP = (item: itemType) => item.labels.some(label => label.name === "WIP");
+
+    // filter OWNER and not WIP post
+    resultList = resultList.filter(item => isOwner(item) && !isWIP(item));
 
     // get tag color and items
     resultList.forEach(item => {
