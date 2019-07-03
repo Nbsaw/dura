@@ -18,7 +18,8 @@ class PostsPage extends Component<{}, PostsPageState> {
     type itemType = typeof resultList[number];
 
     let isOwner = (item: itemType) => item.author_association === 'OWNER';
-    let isWIP = (item: itemType) => item.labels.some(label => label.name === "WIP");
+    let isWIP = (item: itemType) =>
+      item.labels.some(label => label.name === 'WIP');
 
     // filter OWNER and not WIP post
     resultList = resultList.filter(item => isOwner(item) && !isWIP(item));

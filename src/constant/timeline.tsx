@@ -12,7 +12,7 @@ interface TimelineType {
 const Timeline: TimelineType = {
   2019: [
     {
-      text: '06月29日 又开始锻炼身体了这一次可以持续多久呢..',
+      text: '06月29日 又开始锻炼身体了这一次可以持续多久呢..'
     },
     {
       text: '06月06日 可恶马云爸爸居然给我支付宝涨额度了 因为我买了电脑吗 ...'
