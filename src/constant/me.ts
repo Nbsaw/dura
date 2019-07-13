@@ -17,7 +17,7 @@ export const SOCICAL_LIST: { key: string; link: string }[] = [
   { key: 'Zhihu', link: 'https://www.zhihu.com/people/nbsaw' },
   { key: 'Github', link: 'https://github.com/Nbsaw' },
   { key: 'Twitter', link: 'https://twitter.com/nbsaw' },
-  { key: 'CodePen', link: 'https://codepen.io/nbsaw' },
-  { key: 'Works', link: '#/works' }
+  { key: 'CodePen', link: 'https://codepen.io/nbsaw' }
+  // { key: 'Works', link: '#/works' }
   // { key: 'TimeLine', link: '#/timeline' }
 ];
