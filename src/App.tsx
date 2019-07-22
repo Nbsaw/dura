@@ -33,7 +33,7 @@ class App extends Component<AppProps, AppState> {
     return (
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/about" component={AboutPage} />
+        <DefaultLayoutRouter exact path="/about" component={AboutPage} />
         {/* <Route exact path="/archives" component={ArchivesPage}  /> */}
         {/* TO TYPESCRIPT ⬇ */}
         <DefaultLayoutRouter exact path="/posts" component={PostsPage} />
