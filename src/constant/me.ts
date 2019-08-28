@@ -10,7 +10,7 @@ export const WECAHT = 'UEkyMzQ1';
 
 // Which repo you select to as blog
 export const USERNAME = 'yuxino';
-export const REPO = 'notes';
+export const REPO = 'blog';
 
 // The socical list for you
 export const SOCICAL_LIST: { key: string; link: string }[] = [
