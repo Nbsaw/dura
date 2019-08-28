@@ -1,8 +1,4 @@
-![ruka](./assets/ruka.png)
-
----
-
-**Ruka is a blog system based on Github issues** :squirrel:
+**Meteorite is a blog system based on Github issues** :squirrel:
 
 ## Features
 
@@ -10,15 +6,15 @@
 2. WYSWYG
 3. Online Editing
 
-## Install and start ruka
+## Install and start meteorite
 
-Use `yarn` or `npm` instal ruka , and modify the config file .
+Use `yarn` or `npm` instal meteorite , and modify the config file .
 
-Use `yarn start` or `npm run start` to start ruka .
+Use `yarn start` or `npm run start` to start meteorite .
 
-## How to Deploy ruka
+## How to Deploy meteorite
 
-You can `build` ruka and deploy anywhere . Cdn,Static Resource Server and etc.
+You can `build` meteorite and deploy anywhere . Cdn,Static Resource Server and etc.
 
 ## Contributing
 
