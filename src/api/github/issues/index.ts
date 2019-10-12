@@ -11,10 +11,11 @@ import * as TYPES from './types';
 
 // ref ↓
 // https://stackoverflow.com/questions/23314806/setting-default-value-for-typescript-object-passed-as-argument
+// page limit: https://stackoverflow.com/questions/33374778/how-can-i-get-all-the-github-issues-using-github-api
 export async function getAll({
   state = 'open'
 }: TYPES.getAllParams = {}): Promise<TYPES.getAllResponse[]> {
-  const query = qs.stringify({ state });
+  const query = qs.stringify({ state, page: 1, per_page: 300 });
   const request = await fetchGithubWithOauth.get(
     `${GITHUB_API_URL}/repos/${USERNAME}/${REPO}/issues?${query}`
   );

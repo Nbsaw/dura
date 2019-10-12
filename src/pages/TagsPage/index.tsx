@@ -42,7 +42,7 @@ class TagsPage extends Component<{}, TagsPageState> {
   render() {
     return (
       <>
-        <SiteTitle>所有文章</SiteTitle>
+        <SiteTitle>Tags</SiteTitle>
         {this.state.loading ? (
           <LabelLoader />
         ) : (
