@@ -17,7 +17,7 @@ const HomePage = AsyncComponent(() => import('./pages/HomePage'));
 const AboutPage = AsyncComponent(() => import('./pages/AboutPage'));
 // const ArchivesPage = AsyncComponent(() => import('./pages/ArchivesPage'));
 const PostPage = AsyncComponent(() => import('./pages/PostPage'));
-const PostsPage = AsyncComponent(() => import('./pages/PostsPage'));
+const TagsPage = AsyncComponent(() => import('./pages/TagsPage'));
 // const TimeLinePage = AsyncComponent(() =>
 //   import('./pages/TimelinePage/components/RenderTimeLine')
 // );
@@ -36,7 +36,7 @@ class App extends Component<AppProps, AppState> {
         <DefaultLayoutRouter exact path="/about" component={AboutPage} />
         {/* <Route exact path="/archives" component={ArchivesPage}  /> */}
         {/* TO TYPESCRIPT ⬇ */}
-        <DefaultLayoutRouter exact path="/posts" component={PostsPage} />
+        <DefaultLayoutRouter exact path="/tags" component={TagsPage} />
         <DefaultLayoutRouter exact path="/post/:number" component={PostPage} />
         {/* <DefaultLayoutRouter exact path="/timeline" component={TimeLinePage} /> */}
         <DefaultLayoutRouter exact path="/works" component={WorksPage} />

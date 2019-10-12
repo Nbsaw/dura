@@ -3,9 +3,9 @@ import { getAllResponse } from '../../../api/github/issues/types';
 type Labels = {
   [key: string]: {
     // items is alias of issues item
-    items: getAllResponse[],
-    color: string
-  }
+    items: getAllResponse[];
+    color: string;
+  };
 };
 
 // Post Title
@@ -28,7 +28,7 @@ export interface LabelsProps {
 export interface LabelsState {}
 
 // Label Page
-export interface PostsPageState {
+export interface TagsPageState {
   labels: Labels;
   loading: boolean;
 }

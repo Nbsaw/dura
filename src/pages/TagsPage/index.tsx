@@ -4,9 +4,9 @@ import LabelLoader from './components/LabelLoader';
 import SiteTitle from '../../elements/SiteTitle';
 
 import { githubApi } from '../../api';
-import { PostsPageState } from './types';
+import { TagsPageState } from './types';
 
-class PostsPage extends Component<{}, PostsPageState> {
+class TagsPage extends Component<{}, TagsPageState> {
   state = {
     labels: {},
     loading: true
@@ -14,7 +14,7 @@ class PostsPage extends Component<{}, PostsPageState> {
 
   async componentDidMount() {
     let resultList = await githubApi.issues.getAll();
-    let labels: PostsPageState['labels'] = {};
+    let labels: TagsPageState['labels'] = {};
     type itemType = typeof resultList[number];
 
     let isOwner = (item: itemType) => item.author_association === 'OWNER';
@@ -53,4 +53,4 @@ class PostsPage extends Component<{}, PostsPageState> {
   }
 }
 
-export default PostsPage;
+export default TagsPage;
