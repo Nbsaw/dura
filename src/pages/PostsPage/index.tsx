@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { githubApi } from '../../api';
 import SiteTitle from '../../elements/SiteTitle';
+import removeMd from 'remove-markdown';
 
 const Container = styled.div`
   padding-top: 20px;
@@ -15,22 +16,6 @@ const Block = styled.div`
   }
 `;
 
-// const Writing = styled.div`
-//   font-size: 40px;
-//   color: #40a9ff;
-//   letter-spacing: 2px;
-//   font-style: normal;
-//   font-weight: 700;
-//   margin-bottom: 10px;
-//   display: inline-block;
-//   &::after {
-//     content: ' ';
-//     display: block;
-//     width: 40%;
-//     border-bottom: 2px solid #cccccc;
-//   }
-// `;
-
 const Text = styled.a``;
 
 class PostsPage extends Component<{}, { resultList: any[] }> {
@@ -42,6 +27,8 @@ class PostsPage extends Component<{}, { resultList: any[] }> {
   async componentDidMount() {
     if (localStorage.getItem('v')) {
       const v = localStorage.getItem('v') || '';
+      console.log(JSON.parse(v));
+      // logger
       this.setState({ resultList: JSON.parse(v) });
     } else {
       let resultList = await githubApi.issues.getAll();
@@ -58,15 +45,19 @@ class PostsPage extends Component<{}, { resultList: any[] }> {
           ({
             updated_at,
             title,
-            number
+            number,
+            body
           }: {
             updated_at: string;
             title: string;
             number: number;
+            body: string;
           }) => {
+            const plainText = removeMd(body);
             return (
               <Block key={number}>
                 {updated_at.slice(0, 10)} - <Text>{title}</Text>
+                <div>{plainText.slice(0, 150)}</div>
               </Block>
             );
           }
