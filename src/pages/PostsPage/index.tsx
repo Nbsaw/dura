@@ -6,6 +6,7 @@ import removeMd from 'remove-markdown';
 import PostTitle from '../TagsPage/components/PostTitle';
 import Icon from 'antd/lib/icon';
 import { Link } from 'react-router-dom';
+import LabelTitle from '../TagsPage/components/LabelTitle';
 
 const Container = styled.div`
   padding-top: 20px;
@@ -35,7 +36,12 @@ const BlockText = styled.div`
   flex-direction: column;
 `;
 
-const BlockTextTitle = styled.h2``;
+const BlockLabelTitle = styled.div`
+  display: inline-block;
+  & + & {
+    margin-left: 5px;
+  }
+`;
 
 const BlockImage = styled.img`
   width: 300px;
@@ -82,18 +88,32 @@ class PostsPage extends Component<{}, { resultList: any[] }> {
             updated_at,
             title,
             number,
-            body
+            body,
+            ...args
           }: {
             updated_at: string;
             title: string;
             number: string;
             body: string;
+            labels: any;
           }) => {
             const plainText = removeMd(body);
+            console.log(args.labels);
             return (
               <Block key={number}>
                 <BlockText>
                   <PostAt>发布于 {updated_at.slice(0, 10)}</PostAt>
+                  <div>
+                    {args.labels.map((item: any, idx: number) => (
+                      <BlockLabelTitle>
+                        <LabelTitle
+                          name={item.name}
+                          color={`#${item.color}`}
+                          key={idx}
+                        ></LabelTitle>
+                      </BlockLabelTitle>
+                    ))}
+                  </div>
                   <PostTitle number={number} title={title} />
                   <p>{`${plainText.slice(0, 120)} ...`}</p>
                 </BlockText>
