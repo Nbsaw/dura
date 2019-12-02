@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { githubApi } from '../../api';
 import SiteTitle from '../../elements/SiteTitle';
 import removeMd from 'remove-markdown';
 import PostTitle from '../TagsPage/components/PostTitle';
-import Icon from 'antd/lib/icon';
 import { Link } from 'react-router-dom';
 import LabelTitle from '../TagsPage/components/LabelTitle';
+import { getPixivList } from '../../api/pixiv';
 
 const Container = styled.div`
   padding-top: 20px;
@@ -43,11 +43,17 @@ const BlockLabelTitle = styled.div`
   }
 `;
 
-const BlockImage = styled.img`
+const BlockImage = styled.div<{ src: string }>`
   width: 300px;
-  height: 200px;
+  height: 250px;
   flex-shrink: 0;
-  margin-left: 25px;
+  margin-left: 15px;
+  ${({ src }) =>
+    css`
+      background: url(${src});
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+    `}
 `;
 
 const BlockReadMore = styled(Link)`
@@ -58,8 +64,6 @@ const PostAt = styled.div`
   margin-bottom: 15px;
 `;
 
-// https://picsum.photos/seed/picsum/200/300
-
 class PostsPage extends Component<{}, { resultList: any[] }> {
   state = {
     loading: true,
@@ -68,10 +72,16 @@ class PostsPage extends Component<{}, { resultList: any[] }> {
 
   async componentDidMount() {
     if (localStorage.getItem('v')) {
+      // TODO: temp code
+      const i = await getPixivList();
       const v = localStorage.getItem('v') || '';
-      console.log(JSON.parse(v));
-      // logger
-      this.setState({ resultList: JSON.parse(v) });
+      const r = JSON.parse(v);
+      r.forEach((_: string, idx: number) => (r[idx].img = i[idx]));
+      if (r.length > 50) {
+        for (let idx = 50; idx < r.length; idx++)
+          r[idx].img = `https://picsum.photos/500/300?number=${idx}`;
+      }
+      this.setState({ resultList: r });
     } else {
       let resultList = await githubApi.issues.getAll();
       localStorage.setItem('v', JSON.stringify(resultList));
@@ -84,26 +94,31 @@ class PostsPage extends Component<{}, { resultList: any[] }> {
       <Container>
         <SiteTitle>Blog</SiteTitle>
         {this.state.resultList.map(
-          ({
-            updated_at,
-            title,
-            number,
-            body,
-            ...args
-          }: {
-            updated_at: string;
-            title: string;
-            number: string;
-            body: string;
-            labels: any;
-          }) => {
+          (
+            {
+              updated_at,
+              title,
+              number,
+              body,
+              img,
+              ...args
+            }: {
+              updated_at: string;
+              title: string;
+              number: string;
+              body: string;
+              labels: any;
+              img: string;
+            },
+            idx
+          ) => {
             const plainText = removeMd(body);
-            console.log(args.labels);
             return (
               <Block key={number}>
                 <BlockText>
-                  <PostAt>发布于 {updated_at.slice(0, 10)}</PostAt>
                   <div>
+                    <PostTitle number={number} title={title} />
+                    <PostAt>发布于 {updated_at.slice(0, 10)}</PostAt>
                     {args.labels.map((item: any, idx: number) => (
                       <BlockLabelTitle>
                         <LabelTitle
@@ -114,13 +129,10 @@ class PostsPage extends Component<{}, { resultList: any[] }> {
                       </BlockLabelTitle>
                     ))}
                   </div>
-                  <PostTitle number={number} title={title} />
                   <p>{`${plainText.slice(0, 120)} ...`}</p>
                 </BlockText>
                 <div>
-                  <BlockImage
-                    src={`https://picsum.photos/500/300?number=${number}`}
-                  />
+                  <BlockImage src={img} />
                 </div>
                 <BlockReadMore to={`post/${number}`}>
                   Read More ...
