@@ -15,6 +15,7 @@ export const REPO = 'blog';
 // The socical list for you
 export const SOCICAL_LIST: { key: string; link: string }[] = [
   { key: 'Blog', link: '#/posts' },
+  { key: 'Tags', link: '#/tags' },
   { key: 'Zhihu', link: 'https://www.zhihu.com/people/nbsaw' },
   { key: 'Github', link: 'https://github.com/yuxino' },
   { key: 'Twitter', link: 'https://twitter.com/yuxino' },

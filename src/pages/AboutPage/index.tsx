@@ -24,10 +24,6 @@ class AboutPage extends Component {
           <p>什么都写 ... 什么都搞 ... 搬砖</p>
           <p>WECAHT: {WECAHT}</p>
         </Box>
-        <Box>
-          <Title>浮莲子</Title>
-          <p>牛排大大</p>
-        </Box>
       </>
     );
   }

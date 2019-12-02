@@ -1,54 +1,135 @@
 import React, { Component } from 'react';
-import Labels from './components/Labels';
-import LabelLoader from './components/LabelLoader';
-import SiteTitle from '../../elements/SiteTitle';
-
+import styled from 'styled-components';
 import { githubApi } from '../../api';
-import { PostsPageState } from './types';
+import SiteTitle from '../../elements/SiteTitle';
+import removeMd from 'remove-markdown';
+import PostTitle from '../TagsPage/components/PostTitle';
+import Icon from 'antd/lib/icon';
+import { Link } from 'react-router-dom';
+import LabelTitle from '../TagsPage/components/LabelTitle';
 
-class PostsPage extends Component<{}, PostsPageState> {
+const Container = styled.div`
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const Block = styled.div`
+  font-size: 12px;
+  display: flex;
+  flex-shrink: 0;
+  /* height: 400px; */
+  padding: 50px 25px;
+  border: 1px solid #ece8e8;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  &:nth-child(1n) {
+    margin-right: 20px;
+  }
+`;
+
+const BlockText = styled.div`
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+`;
+
+const BlockLabelTitle = styled.div`
+  display: inline-block;
+  & + & {
+    margin-left: 5px;
+  }
+`;
+
+const BlockImage = styled.img`
+  width: 300px;
+  height: 200px;
+  flex-shrink: 0;
+  margin-left: 25px;
+`;
+
+const BlockReadMore = styled(Link)`
+  width: 100%;
+`;
+
+const PostAt = styled.div`
+  margin-bottom: 15px;
+`;
+
+// https://picsum.photos/seed/picsum/200/300
+
+class PostsPage extends Component<{}, { resultList: any[] }> {
   state = {
-    labels: {},
-    loading: true
+    loading: true,
+    resultList: []
   };
 
   async componentDidMount() {
-    let resultList = await githubApi.issues.getAll();
-    let labels: PostsPageState['labels'] = {};
-    type itemType = typeof resultList[number];
-
-    let isOwner = (item: itemType) => item.author_association === 'OWNER';
-    let isWIP = (item: itemType) =>
-      item.labels.some(label => label.name === 'WIP');
-
-    // filter OWNER and not WIP post
-    resultList = resultList.filter(item => isOwner(item) && !isWIP(item));
-
-    // get tag color and items
-    resultList.forEach(item => {
-      item.labels.forEach(({ name, color }) => {
-        // init the labels
-        if (!(labels[name] !== null && typeof labels[name] === 'object')) {
-          labels[name] = { items: [], color: '' };
-        }
-        labels[name]['items'].push(item);
-        labels[name]['color'] = `#${color}`;
-      });
-    });
-
-    this.setState({ labels, loading: false });
+    if (localStorage.getItem('v')) {
+      const v = localStorage.getItem('v') || '';
+      console.log(JSON.parse(v));
+      // logger
+      this.setState({ resultList: JSON.parse(v) });
+    } else {
+      let resultList = await githubApi.issues.getAll();
+      localStorage.setItem('v', JSON.stringify(resultList));
+      this.setState({ resultList });
+    }
   }
 
   render() {
     return (
-      <>
-        <SiteTitle>所有文章</SiteTitle>
-        {this.state.loading ? (
-          <LabelLoader />
-        ) : (
-          <Labels labels={this.state.labels} />
+      <Container>
+        <SiteTitle>Blog</SiteTitle>
+        {this.state.resultList.map(
+          ({
+            updated_at,
+            title,
+            number,
+            body,
+            ...args
+          }: {
+            updated_at: string;
+            title: string;
+            number: string;
+            body: string;
+            labels: any;
+          }) => {
+            const plainText = removeMd(body);
+            console.log(args.labels);
+            return (
+              <Block key={number}>
+                <BlockText>
+                  <PostAt>发布于 {updated_at.slice(0, 10)}</PostAt>
+                  <div>
+                    {args.labels.map((item: any, idx: number) => (
+                      <BlockLabelTitle>
+                        <LabelTitle
+                          name={item.name}
+                          color={`#${item.color}`}
+                          key={idx}
+                        ></LabelTitle>
+                      </BlockLabelTitle>
+                    ))}
+                  </div>
+                  <PostTitle number={number} title={title} />
+                  <p>{`${plainText.slice(0, 120)} ...`}</p>
+                </BlockText>
+                <div>
+                  <BlockImage
+                    src={`https://picsum.photos/500/300?number=${number}`}
+                  />
+                </div>
+                <BlockReadMore to={`post/${number}`}>
+                  Read More ...
+                </BlockReadMore>
+              </Block>
+            );
+          }
         )}
-      </>
+      </Container>
     );
   }
 }
