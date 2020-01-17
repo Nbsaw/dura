@@ -42,7 +42,8 @@
     "build": "react-scripts build",
     "format": "prettier --config --write src/**/*.{ts,tsx}",
     "test": "react-scripts test --env=node",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "yarn build && surge build --domain nbsaw.surge.sh"
   },
   "lint-staged": {
     "*.{ts,tsx}": [

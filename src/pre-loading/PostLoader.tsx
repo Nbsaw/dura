@@ -3,7 +3,7 @@ import ContentLoader from 'react-content-loader';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  width: 550px;
+  width: 620px;
   height: 350px;
   overflow: hidden;
   padding: 20px 50px;
@@ -19,7 +19,7 @@ const PostLoader = () => (
   <Wrapper>
     <ContentLoader
       height={350}
-      width={550}
+      width={620}
       speed={2}
       primaryColor="#f3f3f3"
       secondaryColor="#ecebeb"
@@ -44,7 +44,7 @@ const PostLoader = () => (
       <rect x="0" y="340" width="75" height={13} />
 
       {/* 右边缩略图 */}
-      <rect x="350" y="50" width="220" height={260} />
+      <rect x="360" y="50" width="220" height={260} />
     </ContentLoader>
   </Wrapper>
 );
