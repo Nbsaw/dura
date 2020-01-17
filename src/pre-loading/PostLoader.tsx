@@ -3,8 +3,8 @@ import ContentLoader from 'react-content-loader';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  width: 600px;
-  height: 400px;
+  width: 550px;
+  height: 350px;
   overflow: hidden;
   padding: 20px 50px;
   box-sizing: content-box;
@@ -18,8 +18,8 @@ const Wrapper = styled.div`
 const PostLoader = () => (
   <Wrapper>
     <ContentLoader
-      height={400}
-      width={600}
+      height={350}
+      width={550}
       speed={2}
       primaryColor="#f3f3f3"
       secondaryColor="#ecebeb"
