@@ -19,9 +19,9 @@ const AboutPage = AsyncComponent(() => import('./pages/AboutPage'));
 const PostPage = AsyncComponent(() => import('./pages/PostPage'));
 const PostsPage = AsyncComponent(() => import('./pages/PostsPage'));
 const TagsPage = AsyncComponent(() => import('./pages/TagsPage'));
-// const TimeLinePage = AsyncComponent(() =>
-//   import('./pages/TimelinePage/components/RenderTimeLine')
-// );
+const TimeLinePage = AsyncComponent(() =>
+  import('./pages/TimelinePage/components/RenderTimeLine')
+);
 const WorksPage = AsyncComponent(() => import('./pages/WorksPage'));
 // const CommentPage = AsyncComponent(() => import('./pages/CommentPage'));
 const NotFoundPage = AsyncComponent(() => import('./pages/NotFoundPage'));
@@ -40,7 +40,7 @@ class App extends Component<AppProps, AppState> {
         <DefaultLayoutRouter exact path="/posts" component={PostsPage} />
         <DefaultLayoutRouter exact path="/tags" component={TagsPage} />
         <DefaultLayoutRouter exact path="/post/:number" component={PostPage} />
-        {/* <DefaultLayoutRouter exact path="/timeline" component={TimeLinePage} /> */}
+        <DefaultLayoutRouter exact path="/timeline" component={TimeLinePage} />
         <DefaultLayoutRouter exact path="/works" component={WorksPage} />
         {/* <DefaultLayoutRouter exact path="/comment" component={CommentPage} /> */}
         <DefaultLayoutRouter component={NotFoundPage} />

@@ -5,7 +5,7 @@ import _ from 'lodash';
 import hljs from 'highlight.js';
 
 import SiteTitle from '../../elements/SiteTitle';
-import PostLoader from '../../blocks/PosterLoader';
+import PostLoader from '../../pre-loading/PosterLoader';
 // import TimeAgo from './components/TimeAgo';
 import { githubApi } from '../../api';
 import { PostPageProps, PostPageState } from './types';

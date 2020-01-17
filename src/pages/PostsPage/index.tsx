@@ -7,6 +7,7 @@ import PostTitle from '../TagsPage/components/PostTitle';
 import { Link } from 'react-router-dom';
 import LabelTitle from '../TagsPage/components/LabelTitle';
 import { getPixivList } from '../../api/pixiv';
+import PostLoader from '../../pre-loading/PostLoader';
 
 const Container = styled.div`
   padding-top: 20px;
@@ -64,9 +65,9 @@ const PostAt = styled.div`
   margin-bottom: 15px;
 `;
 
-class PostsPage extends Component<{}, { resultList: any[] }> {
+class PostsPage extends Component<{}, { resultList: any[]; loading: boolean }> {
   state = {
-    loading: true,
+    loading: false,
     resultList: []
   };
 
@@ -81,66 +82,68 @@ class PostsPage extends Component<{}, { resultList: any[] }> {
         for (let idx = 50; idx < r.length; idx++)
           r[idx].img = `https://picsum.photos/500/300?number=${idx}`;
       }
-      this.setState({ resultList: r });
+      this.setState({ resultList: r, loading: true });
     } else {
       let resultList = await githubApi.issues.getAll();
       localStorage.setItem('v', JSON.stringify(resultList));
-      this.setState({ resultList });
+      this.setState({ resultList, loading: true });
     }
   }
 
   render() {
+    var times = [1, 2, 3, 4, 5];
     return (
       <Container>
         <SiteTitle>Blog</SiteTitle>
-        {this.state.resultList.map(
-          (
-            {
-              updated_at,
-              title,
-              number,
-              body,
-              img,
-              ...args
-            }: {
-              updated_at: string;
-              title: string;
-              number: string;
-              body: string;
-              labels: any;
-              img: string;
-            },
-            idx
-          ) => {
-            const plainText = removeMd(body);
-            return (
-              <Block key={number}>
-                <BlockText>
-                  <div>
-                    <PostTitle number={number} title={title} />
-                    <PostAt>发布于 {updated_at.slice(0, 10)}</PostAt>
-                    {args.labels.map((item: any, idx: number) => (
-                      <BlockLabelTitle>
-                        <LabelTitle
-                          name={item.name}
-                          color={`#${item.color}`}
-                          key={idx}
-                        ></LabelTitle>
-                      </BlockLabelTitle>
-                    ))}
-                  </div>
-                  <p>{`${plainText.slice(0, 120)} ...`}</p>
-                </BlockText>
-                <div>
-                  <BlockImage src={img} />
-                </div>
-                <BlockReadMore to={`post/${number}`}>
-                  Read More ...
-                </BlockReadMore>
-              </Block>
-            );
-          }
-        )}
+        {this.state.loading
+          ? this.state.resultList.map(
+              (
+                {
+                  updated_at,
+                  title,
+                  number,
+                  body,
+                  img,
+                  ...args
+                }: {
+                  updated_at: string;
+                  title: string;
+                  number: string;
+                  body: string;
+                  labels: any;
+                  img: string;
+                },
+                idx
+              ) => {
+                const plainText = removeMd(body);
+                return (
+                  <Block key={number}>
+                    <BlockText>
+                      <div>
+                        <PostTitle number={number} title={title} />
+                        <PostAt>发布于 {updated_at.slice(0, 10)}</PostAt>
+                        {args.labels.map((item: any, idx: number) => (
+                          <BlockLabelTitle key={`${number}-${item.id}`}>
+                            <LabelTitle
+                              name={item.name}
+                              color={`#${item.color}`}
+                            ></LabelTitle>
+                          </BlockLabelTitle>
+                        ))}
+                      </div>
+                      <p>{`${plainText.slice(0, 120)} ...`}</p>
+                    </BlockText>
+                    <div>
+                      <BlockImage src={img} />
+                    </div>
+                    <BlockReadMore to={`post/${number}`}>
+                      Read More ...
+                    </BlockReadMore>
+                  </Block>
+                );
+              }
+            )
+          : times.map(i => <PostLoader key={i} />)}
       </Container>
     );
   }

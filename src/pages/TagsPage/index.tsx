@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Labels from './components/Labels';
-import LabelLoader from './components/LabelLoader';
+import LabelLoader from '../../pre-loading/LabelLoader';
 import SiteTitle from '../../elements/SiteTitle';
 
 import { githubApi } from '../../api';
