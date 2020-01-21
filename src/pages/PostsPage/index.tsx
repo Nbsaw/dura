@@ -14,6 +14,7 @@ const Container = styled.div`
   padding-bottom: 20px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 `;
 
 const Block = styled.div`
@@ -22,12 +23,15 @@ const Block = styled.div`
   flex-shrink: 0;
   /* height: 400px; */
   padding: 50px 25px;
-  border: 1px solid #ece8e8;
   margin-top: 20px;
   flex-wrap: wrap;
   justify-content: space-between;
-  &:nth-child(1n) {
-    margin-right: 20px;
+  &:after {
+    content: ' ';
+    width: 28%;
+    margin: 0 auto;
+    margin-top: 50px;
+    border-bottom: 1px solid #ece8e8;
   }
 `;
 

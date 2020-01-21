@@ -8,10 +8,15 @@ const Wrapper = styled.div`
   overflow: hidden;
   padding: 20px 50px;
   box-sizing: content-box;
-  border: 1px solid rgb(236, 232, 232);
   margin-bottom: 20px;
-  &:nth-child(2n-1) {
-    margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  &:after {
+    content: ' ';
+    width: 28%;
+    margin: 0 auto;
+    margin-top: 50px;
+    border-bottom: 1px solid #ece8e8;
   }
 `;
 

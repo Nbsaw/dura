@@ -16,7 +16,7 @@ const h = 4;
 
 const Post = () => (
   <Wrapper>
-    <Container>
+    {/* <Container>
       <h2>
         <ContentLoader
           height={8}
@@ -57,7 +57,7 @@ const Post = () => (
 
         <rect x="0" y={23 * h} width="30" height={h} />
       </ContentLoader>
-    </Container>
+    </Container> */}
   </Wrapper>
 );
 
