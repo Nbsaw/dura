@@ -12,6 +12,9 @@ interface TimelineType {
 const Timeline: TimelineType = {
   2020: [
     {
+      text: '01月21日 又改了一下主题 哎呀'
+    },
+    {
       text: '01月21日 嗨，今天还在上班啊啊啊啊 还有两天 马上新的一年了哦 !'
     },
     {
