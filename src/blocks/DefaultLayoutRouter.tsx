@@ -13,6 +13,9 @@ const Container = styled.div`
   max-width: 1200px;
   margin: auto;
   flex-direction: column;
+  &.shink {
+    padding-top: 130px;
+  }
 `;
 
 const Nav = styled.div`
@@ -22,9 +25,17 @@ const Nav = styled.div`
   box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.66);
   background-size: cover;
   position: relative;
+  &.shink {
+    height: 130px;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+  }
 `;
 
 const Box = styled.div`
+  position: relative;
+  z-index: 1;
   margin: auto;
   width: 70%;
   padding-top: 20px;
@@ -95,6 +106,7 @@ class DefaultLayoutRouter extends Component<
   render() {
     const { showAside } = this.state;
     const { component: Component, ...rest } = this.props;
+    const isPost = this.props.path === '/posts';
 
     return (
       <Route
@@ -102,7 +114,7 @@ class DefaultLayoutRouter extends Component<
         {...rest}
         render={matchProps => (
           <Layout showAside={showAside}>
-            <Nav>
+            <Nav className={isPost ? '' : 'shink'}>
               <Box>
                 <SocicalList>
                   {SOCICAL_LIST.map((item, idx) => {
@@ -121,7 +133,7 @@ class DefaultLayoutRouter extends Component<
                 </Box2>
               </Info>
             </Nav>
-            <Container>
+            <Container className={isPost ? '' : 'shink'}>
               <Component {...matchProps} />
             </Container>
           </Layout>

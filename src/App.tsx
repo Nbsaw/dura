@@ -30,6 +30,11 @@ type AppProps = RouteComponentProps;
 type AppState = {};
 
 class App extends Component<AppProps, AppState> {
+  componentDidMount() {
+    this.props.history.listen(() => {
+      window.scrollTo(0, 0);
+    });
+  }
   render() {
     return (
       <Switch>

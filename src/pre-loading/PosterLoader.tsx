@@ -3,20 +3,23 @@ import ContentLoader from 'react-content-loader';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  width: 1620px;
+  max-width: 1200px;
 `;
 
 const Wrapper = styled.div`
-  width: 100%;
+  width: 65%;
   height: 100%;
   overflow: hidden;
+  margin: auto;
+  padding-top: 40px;
+  border: none;
 `;
 
-const h = 4;
+const h = 8;
 
 const Post = () => (
   <Wrapper>
-    {/* <Container>
+    <Container>
       <h2>
         <ContentLoader
           height={8}
@@ -55,9 +58,19 @@ const Post = () => (
 
         <rect x="0" y={21 * h} width="60" height={h} />
 
-        <rect x="0" y={23 * h} width="30" height={h} />
+        <rect x="0" y={23 * h} width="400" height={h} />
+
+        <rect x="0" y={25 * h} width="400" height={h} />
+
+        <rect x="0" y={27 * h} width="400" height={h} />
+
+        <rect x="0" y={29 * h} width="120" height={h} />
+
+        <rect x="0" y={31 * h} width="320" height={h} />
+
+        <rect x="0" y={33 * h} width="30" height={h} />
       </ContentLoader>
-    </Container> */}
+    </Container>
   </Wrapper>
 );
 
