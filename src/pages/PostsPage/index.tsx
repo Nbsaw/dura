@@ -76,22 +76,15 @@ class PostsPage extends Component<{}, { resultList: any[]; loading: boolean }> {
   };
 
   async componentDidMount() {
-    if (localStorage.getItem('v')) {
-      // TODO: temp code
-      const i = await getPixivList();
-      const v = localStorage.getItem('v') || '';
-      const r = JSON.parse(v);
-      r.forEach((_: string, idx: number) => (r[idx].img = i[idx]));
-      if (r.length > 50) {
-        for (let idx = 50; idx < r.length; idx++)
-          r[idx].img = `https://picsum.photos/500/300?number=${idx}`;
-      }
-      this.setState({ resultList: r, loading: true });
-    } else {
-      let resultList = await githubApi.issues.getAll();
-      localStorage.setItem('v', JSON.stringify(resultList));
-      this.setState({ resultList, loading: true });
+    const r: any = await githubApi.issues.getAll();
+    const i = await getPixivList();
+    const v = localStorage.getItem('v') || '';
+    r.forEach((_: string, idx: number) => (r[idx].img = i[idx]));
+    if (r.length > 50) {
+      for (let idx = 50; idx < r.length; idx++)
+        r[idx].img = `https://picsum.photos/500/300?number=${idx}`;
     }
+    this.setState({ resultList: r, loading: true });
   }
 
   render() {

@@ -12,6 +12,15 @@ interface TimelineType {
 const Timeline: TimelineType = {
   2020: [
     {
+      text: '02月4日 今年的春节应该会是过得最长的一个春节，因为肺炎的影响'
+    },
+    {
+      text: '02月2日 开始学起了swift'
+    },
+    {
+      text: '01月25日 今年还能收到来自爸妈的压岁钱 让我有点感慨'
+    },
+    {
       text: '01月21日 又改了一下主题 哎呀'
     },
     {
