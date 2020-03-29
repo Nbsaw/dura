@@ -8,7 +8,16 @@ const product = [
 ];
 
 const personal = [
-  workFieldGen('Notes', '个人博客记录了前端开发的一些坑，笔记')
+  // 工程
+  workFieldGen('Notes', '个人博客记录了前端开发的一些坑，笔记'),
+  workFieldGen('Meteorite', '现在在用的博客'),
+  workFieldGen('VIVA', '在写的编辑器'),
+  // CLI 工具
+  workFieldGen('script-list', '获取pacakge.json的命令并输出点击即可执行'),
+  workFieldGen('kiracli', '根据git的url把对应的git项目当做模板载到当前目录'),
+  // 效率提升
+  // 服务
+  workFieldGen('Npass', '类似One-pass的东西')
 ];
 
 const prs = [
