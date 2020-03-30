@@ -1,15 +1,13 @@
 import FullScreenContainer from "../components/full-screen-container";
-import Link from "next/link";
+import SiteTitle from "../components/site-title";
+import { Aside } from "../components/home-page";
+import Footer from "../components/footer";
 
 const Home = ({ userAgent }) => (
   <FullScreenContainer>
-    Hello world! - user agent: {userAgent}
-    <Link href="/about">
-      <a>About Page</a>
-    </Link>
-    <Link href="/post?title=123">
-      <a>Post Page</a>
-    </Link>
+    <SiteTitle>首页</SiteTitle>
+    <Aside />
+    <Footer>© 2018 nbsaw </Footer>
   </FullScreenContainer>
 );
 

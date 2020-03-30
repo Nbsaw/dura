@@ -1,3 +1,4 @@
+// let fullscreen easy comopnent
 import style from "./index.module.scss";
 
 export default function FullScreenContainer({ children }) {
