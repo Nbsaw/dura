@@ -4,7 +4,8 @@ import { githubApi } from "../../services";
 import { useState, useEffect } from "react";
 import SiteTitle from "../../components/site-title";
 import style from "./index.module.scss";
-import SocicalLink from "../../components/socical-link";
+import DefaultLayoutRouter from "../../layout/default";
+import TimeAgo from "./components/time-ago";
 
 const md = MarkdownIt();
 
@@ -46,15 +47,21 @@ const RenderPostById = function(props) {
   if (error) return error.message;
   return (
     isMounted && (
-      <div className={style.post}>
-        <div className={style.content}>
-          <SiteTitle>{post_title}</SiteTitle>
-          <p dangerouslySetInnerHTML={{ __html: postContent }} />
-          {/* <p>
-            原文链接: <SocicalLink href={post_url}>{post_url}</SocicalLink>
-          </p> */}
+      <DefaultLayoutRouter isPost>
+        <div className={style.post}>
+          <div className={style.content}>
+            <SiteTitle>{post_title}</SiteTitle>
+            <h2 className={style.title}>
+              {post_title}
+              <TimeAgo
+                created_at={post_created_at}
+                updated_at={post_updated_at}
+              />
+            </h2>
+            <p dangerouslySetInnerHTML={{ __html: postContent }} />
+          </div>
         </div>
-      </div>
+      </DefaultLayoutRouter>
     )
   );
 };

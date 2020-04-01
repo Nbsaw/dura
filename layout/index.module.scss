@@ -1,0 +1,193 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: auto;
+  box-sizing: border-box;
+  &.shink {
+    padding-top: 130px;
+  }
+}
+
+.nav {
+  background: url(https://pics.manqian.com/mq-pim/202001211579576584006.jpg);
+  height: 400px;
+  background-position: 30% 100%;
+  box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.66);
+  background-size: cover;
+  position: relative;
+  z-index: 500;
+  &.shink {
+    height: 130px;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+  }
+}
+
+.box {
+  display: flex;
+  position: relative;
+  z-index: 1;
+  margin: auto;
+  max-width: 1200px;
+  padding-top: 20px;
+  padding-left: 25px;
+  padding-right: 25px;
+  box-sizing: border-box;
+  &.shink {
+    max-width: 800px;
+  }
+}
+
+.socical_list {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 16px;
+  text-align: right;
+  margin-left: auto;
+
+  a {
+    display: inline-block;
+    color: #ffffff;
+  }
+  a + a {
+    margin-left: 10px;
+  }
+}
+
+.info {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.66), transparent);
+}
+
+.box2 {
+  margin: auto;
+  // width: 55%;
+  max-width: 1200px;
+  padding-left: 25px;
+  padding-top: 20px;
+  padding-bottom: 35px;
+  box-sizing: border-box;
+  &.shink {
+    max-width: 800px;
+  }
+}
+
+.title {
+  color: #ffffff;
+  font-size: 45px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.logo {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 25px;
+  &.shink {
+    display: none;
+  }
+}
+
+.quote {
+  color: #ffffff;
+  margin: 0;
+}
+
+@media only screen and (max-width: 1185px) {
+  .box {
+    max-width: 600px;
+  }
+  .box2 {
+    max-width: 600px;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .title {
+    font-size: 30px;
+  }
+
+  .info {
+    &.shink {
+      top: 10px;
+    }
+  }
+}
+
+@media only screen and (max-width: 610px) {
+  .container {
+    &.shink {
+      padding-top: 50px;
+    }
+  }
+
+  .box {
+    height: 50px;
+    padding: 0px;
+    align-items: center;
+  }
+
+  .box2 {
+    &.shink {
+      display: none;
+    }
+  }
+
+  .nav {
+    max-height: 300px;
+    &.shink {
+      height: 50px;
+    }
+  }
+
+  .box {
+    width: 90%;
+  }
+
+  .logo {
+    &.shink {
+      display: block;
+    }
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .nav {
+    max-height: 250px;
+  }
+
+  .title {
+    font-size: 25px;
+  }
+
+  .box {
+    padding-top: 0px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .nav {
+    max-height: 150px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+  .quote {
+    font-size: 12px;
+  }
+}

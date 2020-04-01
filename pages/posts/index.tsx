@@ -5,6 +5,7 @@ import SiteTitle from "../../components/site-title";
 import PostItem from "./components/PostItem";
 import { getPixivList } from "../../services/pixiv";
 import style from "./index.module.scss";
+import DefaultLayoutRouter from "../../layout/default";
 
 // post page props
 interface PPostPage {
@@ -13,12 +14,14 @@ interface PPostPage {
 
 const PostsPage = (props: PPostPage) => {
   return (
-    <div className={style.container}>
-      <SiteTitle>Blog</SiteTitle>
-      {props.resultList.map((props, idx) => (
-        <PostItem key={idx} {...props} />
-      ))}
-    </div>
+    <DefaultLayoutRouter>
+      <div className={style.container}>
+        <SiteTitle>Blog</SiteTitle>
+        {props.resultList.map((props, idx) => (
+          <PostItem key={idx} {...props} />
+        ))}
+      </div>
+    </DefaultLayoutRouter>
   );
 };
 

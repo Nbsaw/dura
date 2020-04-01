@@ -9,9 +9,13 @@
   background-position: center center;
 }
 
+.title {
+  font-weight: 400 !important;
+}
+
 .content {
   max-width: 800px;
-  padding: 16px;
+  padding: 16px 25px;
   box-sizing: border-box;
   font-size: 15px;
   color: rgba(0, 0, 0, 0.65);
