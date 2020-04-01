@@ -6,15 +6,14 @@ import style from "./index.module.scss";
 
 // the post item to render posts list
 export default function PostItem(props) {
-  console.log(props);
   const { updated_at, title, number, body, img, ...args } = props;
   const plainText = removeMd(body);
   return (
     <div className={style.block} key={number}>
       <div className={style.block_text}>
-        <div>
+        <div className={style.block_header}>
           <PostTitle number={number} title={title} />
-          <div className={style.post_at}>发布于 {updated_at.slice(0, 10)}</div>
+          <div className={style.post_at}>{updated_at.slice(0, 10)}</div>
           {args.labels.map((item: any, idx: number) => (
             <div
               className={style.block_label_title}
@@ -27,14 +26,15 @@ export default function PostItem(props) {
             </div>
           ))}
         </div>
-        <p>{`${plainText.slice(0, 120)} ...`}</p>
+        <p className={style.block_content}>{`${plainText.slice(
+          0,
+          120
+        )} ...`}</p>
       </div>
-      <div>
-        <div
-          className={style.block_image}
-          style={{ backgroundImage: `url(${img})` }}
-        />
-      </div>
+      <div
+        className={style.block_image}
+        style={{ backgroundImage: `url(${img})` }}
+      />
       <Link href={`post/${number}`}>
         <a className={style.block_read_more}>Read More ...</a>
       </Link>

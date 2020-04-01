@@ -1,3 +1,3 @@
-import githubApi from './github';
+import githubApi from "./github";
 
 export { githubApi };

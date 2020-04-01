@@ -1,12 +1,21 @@
 .label_title {
   margin-bottom: 16px;
+  font-size: 0;
 }
 
 .label_title_text {
-  display: inline-block;
-  background: color;
   color: #ffffff;
-  font-size: 13;
+  font-size: 13px;
   padding: 2px 12px;
   font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+@media only screen and (max-width: 660px) {
+  .label_title_text {
+    font-size: 10px;
+  }
 }

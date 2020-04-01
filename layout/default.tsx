@@ -2,7 +2,16 @@ import React, { Component } from "react";
 // import { Route } from "react-router";
 import { me } from "../constant";
 const { NIKENAME, BIO, SOCICAL_LIST } = me;
-// import { DefaultLayoutRouterProps, DefaultLayoutRouterState } from "./types";
+
+// DefaultLayoutRouter
+export interface DefaultLayoutRouterProps {
+  component: Function;
+  exact?: boolean;
+  path?: string;
+}
+export interface DefaultLayoutRouterState {
+  showAside: boolean;
+}
 
 // const Container = styled.div`
 //   width: 100%;

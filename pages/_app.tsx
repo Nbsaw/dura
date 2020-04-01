@@ -7,8 +7,18 @@ Router.events.on("routeChangeStart", NProgress.start);
 Router.events.on("routeChangeComplete", NProgress.done);
 Router.events.on("routeChangeError", NProgress.done);
 
+interface CustomAppProps {
+  Component: {
+    layout: {
+      name: string;
+      [key: string]: any;
+    };
+  };
+}
+
 // getInitialProps , layout
-function App({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps & CustomAppProps) {
+  console.log(Component.layout?.name);
   return <Component {...pageProps} />;
 }
 

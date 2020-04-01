@@ -5,3 +5,11 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+@media only screen and (max-width: 660px) {
+  .container {
+    padding: 25px 15px;
+    // justify-content: normal;
+    align-items: center;
+  }
+}

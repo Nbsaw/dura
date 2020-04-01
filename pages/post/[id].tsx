@@ -50,9 +50,9 @@ const RenderPostById = function(props) {
         <div className={style.content}>
           <SiteTitle>{post_title}</SiteTitle>
           <p dangerouslySetInnerHTML={{ __html: postContent }} />
-          <p>
+          {/* <p>
             原文链接: <SocicalLink href={post_url}>{post_url}</SocicalLink>
-          </p>
+          </p> */}
         </div>
       </div>
     )
