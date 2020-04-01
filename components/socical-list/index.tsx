@@ -1,6 +1,6 @@
 // The socical list
 import React from "react";
-import A from "../a";
+import SocicalLink from "../socical-link";
 import style from "./index.module.scss";
 
 export interface PSocicalList {
@@ -12,7 +12,7 @@ const SocicalList = ({ list }: PSocicalList) => (
     {list.map((item, idx) => {
       return (
         <li key={idx}>
-          <A href={item.link}>{item.key}</A>
+          <SocicalLink href={item.link}>{item.key}</SocicalLink>
         </li>
       );
     })}

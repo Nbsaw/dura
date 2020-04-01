@@ -1,3 +1,4 @@
+// blog posts page
 import React from "react";
 import { githubApi } from "../../services";
 import SiteTitle from "../../components/site-title";
