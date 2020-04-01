@@ -1,6 +1,18 @@
+.post {
+  background-image: linear-gradient(
+      90deg,
+      rgba(50, 0, 0, 0.05) 3%,
+      rgba(0, 0, 0, 0) 3%
+    ),
+    linear-gradient(360deg, rgba(50, 0, 0, 0.05) 3%, rgba(0, 0, 0, 0) 3%);
+  background-size: 20px 20px;
+  background-position: center center;
+}
+
 .content {
-  width: 65%;
+  max-width: 800px;
   padding: 16px;
+  box-sizing: border-box;
   font-size: 15px;
   color: rgba(0, 0, 0, 0.65);
   display: flex;
@@ -16,7 +28,9 @@
 }
 
 .content img {
-  max-width: 100%;
+  max-width: 300px;
+  display: block;
+  margin: auto;
 }
 
 .content h1,
@@ -98,6 +112,7 @@
   padding: 0 1em;
   color: #6a737d;
   border-left: 0.25em solid #dfe2e5;
+  margin: 0px;
 }
 
 .content blockquote > :first-child {
