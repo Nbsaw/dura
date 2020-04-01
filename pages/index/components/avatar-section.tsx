@@ -1,7 +1,10 @@
 import React from "react";
 import Section from "../../../components/section";
 import Avatar from "../../../components/avatar";
-import { AvatarSectionParmas } from "./types";
+
+interface AvatarSectionParmas {
+  avatar: string;
+}
 
 const AvatarSection = ({ avatar }: AvatarSectionParmas) => (
   <Section>

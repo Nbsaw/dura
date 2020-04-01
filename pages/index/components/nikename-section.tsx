@@ -1,7 +1,10 @@
 import React from "react";
 import Section from "../../../components/section";
 import NikeName from "../../../components/nikeName";
-import { NikeNameSectionParmas } from "./types";
+
+interface NikeNameSectionParmas {
+  nickname: string;
+}
 
 const NikeNameSection = ({ nickname }: NikeNameSectionParmas) => (
   <Section>

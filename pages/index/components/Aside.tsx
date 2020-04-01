@@ -1,18 +1,21 @@
 import React from "react";
 import Division from "../../../components/division";
-import { AsideParmas } from "./types";
 import { me } from "../../../constant";
 import githubApi from "../../../services/github";
 const { USER_INFO_MODE, NIKENAME, AVATAR, BIO } = me;
 
-import {
-  AvatarSection,
-  NikeNameSection,
-  DescriptionSection,
-  SocicalSection
-} from "./";
+import AvatarSection from "./avatar-section";
+import NikeNameSection from "./nikename-section";
+import DescriptionSection from "./description-section";
+import SocicalSection from "./socical-section";
 
-const Aside = ({ nickname, avatar, bio }: AsideParmas) => (
+export interface AsideParmas {
+  nickname: string;
+  avatar: string;
+  bio: string;
+}
+
+const _Aside = ({ nickname, avatar, bio }: AsideParmas) => (
   <>
     <AvatarSection avatar={avatar} />
     <NikeNameSection nickname={nickname} />
@@ -22,7 +25,7 @@ const Aside = ({ nickname, avatar, bio }: AsideParmas) => (
   </>
 );
 
-class AsideHoc extends React.Component {
+class Aside extends React.Component {
   state = { nickname: "", avatar: "", bio: "" };
 
   async componentDidMount() {
@@ -40,8 +43,8 @@ class AsideHoc extends React.Component {
 
   render() {
     const { nickname, avatar, bio } = this.state;
-    return <Aside nickname={nickname} avatar={avatar} bio={bio} />;
+    return <_Aside nickname={nickname} avatar={avatar} bio={bio} />;
   }
 }
 
-export default AsideHoc;
+export default Aside;

@@ -1,8 +1,8 @@
 // blog posts page
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { githubApi } from "../../services";
 import SiteTitle from "../../components/site-title";
-import PostItem from "./components/PostItem";
+import PostItem from "./components/post-item";
 import { getPixivList } from "../../services/pixiv";
 import style from "./index.module.scss";
 import DefaultLayoutRouter from "../../layout/default";
@@ -13,15 +13,20 @@ interface PPostPage {
 }
 
 const PostsPage = (props: PPostPage) => {
+  const [isMounted, setIsMounted] = useState(false);
+  useEffect(() => setIsMounted(true), []);
+
   return (
-    <DefaultLayoutRouter>
-      <div className={style.container}>
-        <SiteTitle>Blog</SiteTitle>
-        {props.resultList.map((props, idx) => (
-          <PostItem key={idx} {...props} />
-        ))}
-      </div>
-    </DefaultLayoutRouter>
+    isMounted && (
+      <DefaultLayoutRouter>
+        <div className={style.container}>
+          <SiteTitle>Blog</SiteTitle>
+          {props.resultList.map((props, idx) => (
+            <PostItem key={idx} {...props} />
+          ))}
+        </div>
+      </DefaultLayoutRouter>
+    )
   );
 };
 

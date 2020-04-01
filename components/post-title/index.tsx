@@ -9,7 +9,9 @@ interface PostTitleProps {
 
 const PostTitle = ({ number, title }: PostTitleProps) => (
   <p className={style.post_title}>
-    <Link href={`post/${number}`}>{title}</Link>
+    <Link href={`post/${number}`}>
+      <a>{title}</a>
+    </Link>
   </p>
 );
 

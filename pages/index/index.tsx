@@ -1,6 +1,6 @@
 import FullScreenContainer from "../../components/full-screen-container";
 import SiteTitle from "../../components/site-title";
-import Aside from "./components/Aside";
+import Aside from "./components/aside";
 import Footer from "../../components/footer";
 import { USERNAME } from "../../constant/me";
 

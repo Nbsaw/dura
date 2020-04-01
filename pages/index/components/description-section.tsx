@@ -1,7 +1,10 @@
 import React from "react";
 import Section from "../../../components/section";
 import Description from "../../../components/description";
-import { DescriptionSectionParmas } from "./types";
+
+interface DescriptionSectionParmas {
+  bio: string;
+}
 
 const DescriptionSection = ({ bio }: DescriptionSectionParmas) => (
   <Section>
