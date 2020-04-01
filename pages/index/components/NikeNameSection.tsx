@@ -1,6 +1,6 @@
 import React from "react";
-import Section from "../section";
-import NikeName from "../nikeName";
+import Section from "../../../components/section";
+import NikeName from "../../../components/nikeName";
 import { NikeNameSectionParmas } from "./types";
 
 const NikeNameSection = ({ nickname }: NikeNameSectionParmas) => (

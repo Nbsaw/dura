@@ -1,6 +1,6 @@
 import React from "react";
-import Section from "../section";
-import Description from "../description";
+import Section from "../../../components/section";
+import Description from "../../../components/description";
 import { DescriptionSectionParmas } from "./types";
 
 const DescriptionSection = ({ bio }: DescriptionSectionParmas) => (

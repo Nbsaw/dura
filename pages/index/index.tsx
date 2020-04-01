@@ -1,7 +1,7 @@
-import FullScreenContainer from "../components/full-screen-container";
-import SiteTitle from "../components/site-title";
-import { Aside } from "../components/home-page";
-import Footer from "../components/footer";
+import FullScreenContainer from "../../components/full-screen-container";
+import SiteTitle from "../../components/site-title";
+import Aside from "./components/Aside";
+import Footer from "../../components/footer";
 
 const Home = ({ userAgent }) => (
   <FullScreenContainer>

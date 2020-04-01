@@ -1,6 +1,6 @@
 import React from "react";
-import Section from "../section";
-import Avatar from "../avatar";
+import Section from "../../../components/section";
+import Avatar from "../../../components/avatar";
 import { AvatarSectionParmas } from "./types";
 
 const AvatarSection = ({ avatar }: AvatarSectionParmas) => (

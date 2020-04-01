@@ -1,8 +1,8 @@
 import React from "react";
-import Division from "../division";
+import Division from "../../../components/division";
 import { AsideParmas } from "./types";
-import { me } from "../../constant";
-import githubApi from "../../services/github";
+import { me } from "../../../constant";
+import githubApi from "../../../services/github";
 const { USER_INFO_MODE, NIKENAME, AVATAR, BIO } = me;
 
 import {
