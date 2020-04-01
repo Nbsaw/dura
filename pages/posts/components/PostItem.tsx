@@ -6,14 +6,14 @@ import style from "./index.module.scss";
 
 // the post item to render posts list
 export default function PostItem(props) {
-  const { updated_at, title, number, body, img, ...args } = props;
+  const { created_at, title, number, body, img, ...args } = props;
   const plainText = removeMd(body);
   return (
     <div className={style.block} key={number}>
       <div className={style.block_text}>
         <div className={style.block_header}>
           <PostTitle number={number} title={title} />
-          <div className={style.post_at}>{updated_at.slice(0, 10)}</div>
+          <div className={style.post_at}>{created_at.slice(0, 10)}</div>
           {args.labels.map((item: any, idx: number) => (
             <div
               className={style.block_label_title}

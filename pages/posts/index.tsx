@@ -23,8 +23,11 @@ const PostsPage = (props: PPostPage) => {
 };
 
 PostsPage.getInitialProps = async () => {
-  const resultList: any = await githubApi.issues.getAll();
+  let resultList: any = await githubApi.issues.getAll();
   const pixivList = await getPixivList();
+  resultList = resultList.filter(
+    ({ labels }) => !labels.some(({ name }) => name === "WIP")
+  );
   resultList.forEach(
     (_: string, idx: number) => (resultList[idx].img = pixivList[idx])
   );

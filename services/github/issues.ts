@@ -12,7 +12,13 @@ const { GITHUB_API_URL } = config;
 export async function getAll({
   state = "open"
 }: IssuseService.getAllParams = {}): Promise<IssuseService.getAllResponse[]> {
-  const query = qs.stringify({ state, page: 1, per_page: 300 });
+  const query = qs.stringify({
+    state,
+    page: 1,
+    per_page: 300,
+    sort: "created_at",
+    direction: "desc"
+  });
   const request = await fetchGithubWithOauth.get(
     `${GITHUB_API_URL}/repos/${USERNAME}/${REPO}/issues?${query}`
   );
