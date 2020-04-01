@@ -2,12 +2,13 @@ import FullScreenContainer from "../../components/full-screen-container";
 import SiteTitle from "../../components/site-title";
 import Aside from "./components/Aside";
 import Footer from "../../components/footer";
+import { USERNAME } from "../../constant/me";
 
 const Home = ({ userAgent }) => (
   <FullScreenContainer>
     <SiteTitle>首页</SiteTitle>
     <Aside />
-    <Footer>© 2018 nbsaw </Footer>
+    <Footer>© 2018 {USERNAME} </Footer>
   </FullScreenContainer>
 );
 

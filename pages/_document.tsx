@@ -21,10 +21,10 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Sunflower:300"
             rel="stylesheet"
           />
+          <NextScript />
         </Head>
         <body>
           <Main />
-          <NextScript />
         </body>
       </Html>
     );

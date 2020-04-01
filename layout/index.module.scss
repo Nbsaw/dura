@@ -2,11 +2,12 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  min-height: 100vh;
 }
 
 .container {
   width: 100%;
-  min-height: 100vh;
+  flex: 1;
   max-width: 1200px;
   margin: auto;
   box-sizing: border-box;
@@ -102,6 +103,15 @@
 .quote {
   color: #ffffff;
   margin: 0;
+}
+
+.footer {
+  background: black;
+  padding: 20px;
+  box-sizing: border-box;
+  color: #ffffffad;
+  font-size: 14px;
+  text-align: center;
 }
 
 @media only screen and (max-width: 1185px) {

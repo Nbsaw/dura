@@ -1,6 +1,6 @@
 import React from "react";
 import { me } from "../constant";
-const { NIKENAME, BIO, SOCICAL_LIST } = me;
+const { NIKENAME, BIO, SOCICAL_LIST, USERNAME } = me;
 import style from "./index.module.scss";
 
 const DefaultLayoutRouter = ({ isPost = false, children }) => {
@@ -31,6 +31,10 @@ const DefaultLayoutRouter = ({ isPost = false, children }) => {
       <div className={`${style.container} ${isPost && style.shink}`}>
         {children}
       </div>
+
+      <footer className={style.footer}>
+        没 footer 很奇怪啊，所以加了一个但是不知道打点什么东西近来比较好 ..
+      </footer>
     </div>
   );
 };
