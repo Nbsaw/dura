@@ -1,0 +1,13 @@
+.timeago {
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: 700;
+
+  span > i {
+    margin-right: 5px;
+  }
+
+  span + span {
+    margin-left: 15px;
+  }
+}

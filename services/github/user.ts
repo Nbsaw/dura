@@ -1,6 +1,6 @@
-import { config, me } from '../../../constant';
-import axios from 'axios';
-import { fetchGithubWithOauth } from '../../comman';
+import { config, me } from "../../constant";
+import axios from "axios";
+import { fetchGithubWithOauth } from "../common";
 
 const { USERNAME, REPO } = me;
 const { GITHUB_API_URL, CLIENTID, CLIENTSECRET } = config;
@@ -12,13 +12,13 @@ export async function getUserInfo() {
 
 export async function getAccessToken(code: string) {
   const res = await axios({
-    method: 'post',
-    url: 'https://gh-oauth.imsun.net',
+    method: "post",
+    url: "https://gh-oauth.imsun.net",
     data: {
       code,
       client_id: CLIENTID,
-      client_secret: CLIENTSECRET,
-    },
+      client_secret: CLIENTSECRET
+    }
   });
   return res.data.access_token;
 }

@@ -1,3 +1,4 @@
+// The socical list
 import React from "react";
 import A from "../a";
 import style from "./index.module.scss";

@@ -1,20 +1,17 @@
-import qs from 'qs';
-import axios from 'axios';
+import qs from "qs";
 
-import { config, me } from '../../../constant';
-import { fetchGithubWithOauth } from '../../comman';
+import { config, me } from "../../constant";
+import { fetchGithubWithOauth } from "../common";
 
 const { USERNAME, REPO } = me;
 const { GITHUB_API_URL } = config;
-
-import * as TYPES from './types';
 
 // ref ↓
 // https://stackoverflow.com/questions/23314806/setting-default-value-for-typescript-object-passed-as-argument
 // page limit: https://stackoverflow.com/questions/33374778/how-can-i-get-all-the-github-issues-using-github-api
 export async function getAll({
-  state = 'open'
-}: TYPES.getAllParams = {}): Promise<TYPES.getAllResponse[]> {
+  state = "open"
+}: IssuseService.getAllParams = {}): Promise<IssuseService.getAllResponse[]> {
   const query = qs.stringify({ state, page: 1, per_page: 300 });
   const request = await fetchGithubWithOauth.get(
     `${GITHUB_API_URL}/repos/${USERNAME}/${REPO}/issues?${query}`
@@ -24,7 +21,7 @@ export async function getAll({
 
 export async function getDetails({
   number
-}: TYPES.getDetailsParams): Promise<TYPES.getDetailsResponse> {
+}: IssuseService.getDetailsParams): Promise<IssuseService.getDetailsResponse> {
   const request = await fetchGithubWithOauth.get(
     `${GITHUB_API_URL}/repos/${USERNAME}/${REPO}/issues/${number}`
   );
@@ -33,7 +30,9 @@ export async function getDetails({
 
 export async function getComments({
   number
-}: TYPES.getCommentsParams): Promise<TYPES.getCommentsResponse[]> {
+}: IssuseService.getCommentsParams): Promise<
+  IssuseService.getCommentsResponse[]
+> {
   // /repos/:owner/:repo/issues/:number/comments
   const request = await fetchGithubWithOauth.get(
     `${GITHUB_API_URL}/repos/${USERNAME}/${REPO}/issues/${number}/comments`
