@@ -2,10 +2,7 @@ import React from "react";
 import { me } from "../constant";
 const { NIKENAME, BIO, SOCICAL_LIST, USERNAME } = me;
 import style from "./index.module.scss";
-import { UpOutlined } from "@ant-design/icons";
 import classnames from "classnames";
-import { scrollToTop } from "../utils/dom";
-import { debounce } from "../utils/helper";
 
 const DefaultLayoutRouter = ({ isPost = false, children }) => {
   return (
@@ -35,13 +32,6 @@ const DefaultLayoutRouter = ({ isPost = false, children }) => {
       <div className={classnames([style.container, { [style.shink]: isPost }])}>
         {children}
       </div>
-      {/* Scroll to top */}
-      {/* <div
-        className={classnames([style.scrollToTop])}
-        onClick={debounce(scrollToTop, 200, true)}
-      >
-        <UpOutlined />
-      </div> */}
       <footer className={style.footer}>
         没 footer 很奇怪啊，所以加了一个但是不知道打点什么东西进来比较好 ..
       </footer>
