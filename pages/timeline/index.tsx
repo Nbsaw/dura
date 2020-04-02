@@ -1,16 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 import SiteTitle from "../../components/site-title";
-import RenderTimeLine from "./components/RenderTimeLine";
+// import RenderTimeLine from "./components/RenderTimeLine";
 
-class TimeLinePage extends Component {
-  render() {
-    return (
-      <>
-        <SiteTitle>时间轴</SiteTitle>
-        <RenderTimeLine />
-      </>
-    );
-  }
-}
+const TimeLinePage = () => {
+  return (
+    <>
+      <SiteTitle>时间轴</SiteTitle>
+      {/* <RenderTimeLine /> */}
+    </>
+  );
+};
 
 export default TimeLinePage;

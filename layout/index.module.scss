@@ -114,6 +114,28 @@
   text-align: center;
 }
 
+// .scrollToTop {
+//   position: fixed;
+//   right: 40px;
+//   bottom: 25px;
+//   z-index: 1000;
+//   opacity: 1;
+//   border-radius: 50%;
+//   width: 20px;
+//   border: 2px solid #000000;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   border-radius: 50%;
+//   width: 40px;
+//   height: 40px;
+//   background: #ffffff;
+//   cursor: pointer;
+//   * {
+//     outline: none;
+//   }
+// }
+
 @media only screen and (max-width: 1185px) {
   .box {
     max-width: 600px;

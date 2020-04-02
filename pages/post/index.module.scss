@@ -26,6 +26,10 @@
   flex: 1;
 }
 
+.content_render > *:nth-child(1) {
+  margin-top: 0;
+}
+
 .content pre {
   padding: 16px;
   border-radius: 4px;

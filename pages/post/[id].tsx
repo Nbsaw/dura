@@ -58,7 +58,10 @@ const RenderPostById = function(props) {
                 updated_at={post_updated_at}
               />
             </h2>
-            <p dangerouslySetInnerHTML={{ __html: postContent }} />
+            <div
+              className={style.content_render}
+              dangerouslySetInnerHTML={{ __html: postContent }}
+            />
           </div>
         </div>
       </DefaultLayoutRouter>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Division from "../../../components/division";
 import { me } from "../../../constant";
 import githubApi from "../../../services/github";
@@ -25,26 +25,42 @@ const _Aside = ({ nickname, avatar, bio }: AsideParmas) => (
   </>
 );
 
-class Aside extends React.Component {
-  state = { nickname: "", avatar: "", bio: "" };
+const Aside = () => {
+  const [isMounted, setIsMounted] = useState(false);
 
-  async componentDidMount() {
-    if (USER_INFO_MODE === "CUSTOM") {
-      this.setState({ nickname: NIKENAME, avatar: AVATAR, bio: BIO });
-    } else {
-      const res = await githubApi.user.getUserInfo();
-      this.setState({
-        nickname: res.name,
-        avatar: res.avatar_url,
-        bio: res.bio
-      });
+  const [data, setData] = useState<{
+    nickname?: string;
+    avatar?: string;
+    bio?: string;
+  }>({});
+
+  useEffect(() => setIsMounted(true), []);
+
+  useEffect(() => {
+    let didCancel = false;
+    async function fetchUserInfo() {
+      if (USER_INFO_MODE === "CUSTOM") {
+        setData({ nickname: NIKENAME, avatar: AVATAR, bio: BIO });
+      } else if (!didCancel) {
+        const res = await githubApi.user.getUserInfo();
+        setData({
+          nickname: res.name,
+          avatar: res.avatar_url,
+          bio: res.bio
+        });
+      }
     }
-  }
 
-  render() {
-    const { nickname, avatar, bio } = this.state;
-    return <_Aside nickname={nickname} avatar={avatar} bio={bio} />;
-  }
-}
+    fetchUserInfo();
+
+    return () => {
+      didCancel = true;
+    };
+  }, [isMounted]);
+
+  const { nickname, avatar, bio } = data;
+
+  return <_Aside nickname={nickname} avatar={avatar} bio={bio} />;
+};
 
 export default Aside;
