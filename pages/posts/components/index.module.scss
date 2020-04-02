@@ -101,3 +101,9 @@
     display: none;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  .block:after {
+    border-color: #545454;
+  }
+}

@@ -3,20 +3,14 @@ import SiteTitle from "../../components/site-title";
 import Aside from "./components/aside";
 import Footer from "../../components/footer";
 import { USERNAME } from "../../constant/me";
+import style from "./index.module.scss";
 
-const Home = ({ userAgent }) => (
-  <FullScreenContainer>
+const Home = () => (
+  <FullScreenContainer className={style.index}>
     <SiteTitle>首页</SiteTitle>
     <Aside />
     <Footer>© 2018 {USERNAME} </Footer>
   </FullScreenContainer>
 );
-
-Home.layout = "wuwuwu";
-
-Home.getInitialProps = async ({ req }) => {
-  const userAgent = req ? req.headers["user-agent"] : navigator.userAgent;
-  return { userAgent };
-};
 
 export default Home;

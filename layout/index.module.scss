@@ -201,3 +201,12 @@
     font-size: 12px;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  .layout {
+    background: black;
+    * {
+      color: #ffffff !important;
+    }
+  }
+}
