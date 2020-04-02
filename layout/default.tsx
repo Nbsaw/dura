@@ -3,15 +3,20 @@ import { me } from "../constant";
 const { NIKENAME, BIO, SOCICAL_LIST, USERNAME } = me;
 import style from "./index.module.scss";
 import classnames from "classnames";
+import Link from "next/link";
 
 const DefaultLayoutRouter = ({ isPost = false, children }) => {
   return (
     <div className={style.layout}>
       <div className={classnames([style.nav, { [style.shink]: isPost }])}>
         <div className={classnames([style.box, { [style.shink]: isPost }])}>
-          <div className={classnames([style.logo, { [style.shink]: isPost }])}>
-            {NIKENAME}
-          </div>
+          <Link href="/">
+            <div
+              className={classnames([style.logo, { [style.shink]: isPost }])}
+            >
+              {USERNAME.toUpperCase()}
+            </div>
+          </Link>
           <div className={style.socical_list}>
             {SOCICAL_LIST.map((item, idx) => {
               return (
