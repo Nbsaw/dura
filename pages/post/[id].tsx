@@ -6,6 +6,7 @@ import SiteTitle from "../../components/site-title";
 import style from "./index.module.scss";
 import DefaultLayoutRouter from "../../layout/default";
 import TimeAgo from "./components/time-ago";
+import ReadProgressBar from "./components/read-progress-bar";
 
 const md = MarkdownIt();
 
@@ -64,6 +65,7 @@ const RenderPostById = function(props) {
             />
           </div>
         </div>
+        <ReadProgressBar />
       </DefaultLayoutRouter>
     )
   );

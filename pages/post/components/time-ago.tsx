@@ -1,6 +1,6 @@
 import * as React from "react";
 import { timeAgo } from "../../../utils/time";
-import { ClockCircleFilled, ClockCircleOutlined } from "@ant-design/icons";
+import { ClockCircleOutlined } from "@ant-design/icons";
 import style from "./index.module.scss";
 
 interface TimeAgoProps {
