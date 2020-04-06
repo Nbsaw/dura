@@ -14,7 +14,7 @@ export default function PostItem(props) {
         <div className={style.block_header}>
           <PostTitle number={number} title={title} />
           <div className={style.post_at}>{created_at?.substr(0, 10)}</div>
-          {args?.labels?.map(item => (
+          {args?.labels?.map((item) => (
             <div
               className={style.block_label_title}
               key={`${number}-${item.id}`}

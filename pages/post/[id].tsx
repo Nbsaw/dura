@@ -6,18 +6,19 @@ import SiteTitle from "../../components/site-title";
 import style from "./index.module.scss";
 import DefaultLayoutRouter from "../../layout/default";
 import TimeAgo from "./components/time-ago";
-import ReadProgressBar from "./components/read-progress-bar";
+import Utterances from "../../components/utterances";
+// import ReadProgressBar from "./components/read-progress-bar";
 
 const md = MarkdownIt();
 
-const RenderPostById = function(props) {
+const RenderPostById = function (props) {
   const {
     post_content,
     post_title,
     post_created_at,
     post_updated_at,
     post_url,
-    error
+    error,
   } = props;
   const [postContent, setPostContent] = useState("");
   const [dom, setDom] = useState<HTMLDivElement>();
@@ -38,7 +39,7 @@ const RenderPostById = function(props) {
   // hightlight code
   useEffect(() => {
     if (isMounted && dom?.innerHTML) {
-      Array.from(dom.getElementsByTagName("pre")).forEach(elm =>
+      Array.from(dom.getElementsByTagName("pre")).forEach((elm) =>
         hljs.highlightBlock(elm)
       );
       setPostContent(dom.innerHTML);
@@ -65,13 +66,14 @@ const RenderPostById = function(props) {
             />
           </div>
         </div>
-        <ReadProgressBar />
+        <Utterances />
+        {/* <ReadProgressBar /> */}
       </DefaultLayoutRouter>
     )
   );
 };
 
-RenderPostById.getInitialProps = async res => {
+RenderPostById.getInitialProps = async (res) => {
   const { id } = res.query;
   try {
     const result = await githubApi.issues.getDetails({ number: id });
@@ -80,12 +82,12 @@ RenderPostById.getInitialProps = async res => {
       post_title: result.title,
       post_created_at: result.created_at,
       post_updated_at: result.updated_at,
-      post_url: result.url
+      post_url: result.url,
     };
   } catch (e) {
     // this.props.history.replace("/404");
     return {
-      error: e
+      error: e,
     };
   }
 };
