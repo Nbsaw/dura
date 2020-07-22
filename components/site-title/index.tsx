@@ -1,5 +1,5 @@
 import React from "react";
-import { Helmet } from "react-helmet";
+import Head from "next/head";
 import { me } from "../../constant";
 
 const { USERNAME } = me;
@@ -9,11 +9,11 @@ interface SiteTitleParms {
 }
 
 const SiteTitle = ({ children }: SiteTitleParms) => (
-  <Helmet>
+  <Head>
     <title>
       {USERNAME} | {children}
     </title>
-  </Helmet>
+  </Head>
 );
 
 export default SiteTitle;
