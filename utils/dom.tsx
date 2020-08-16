@@ -66,9 +66,15 @@ class Modal extends React.Component<ModalProps, ModalState> {
   }
 }
 
-export const openModal = ({ children, onClose, ...props }: openModalProps) => {
-  const container = document.createElement("div");
+export const openModal = ({
+  children,
+  onClose,
+  customElm,
+  ...props
+}: openModalProps & { customElm?: HTMLElement }) => {
+  const container = customElm ? customElm : document.createElement("div");
   document.body.appendChild(container);
+
   ReactDOM.render(
     <Modal
       elm={container}

@@ -8,7 +8,6 @@ import DefaultLayoutRouter from "../../layout/default";
 import TimeAgo from "./components/time-ago";
 import Utterances from "../../components/utterances";
 import { openModal } from "../../utils/dom";
-import { debug } from "console";
 
 const md = MarkdownIt();
 
@@ -50,11 +49,10 @@ const RenderPostById = function (props) {
         const imgs = Array.from(document.getElementsByTagName("img"));
         imgs.forEach((elm) => {
           elm.style.cursor = "zoom-in";
-          elm.onclick = function () {
-            openModal({
-              children: <img src={elm.src} />,
-            });
-          };
+          elm.addEventListener("click", (e) => {
+            e.stopPropagation();
+            openModal({ children: <img src={elm.src} /> });
+          });
         });
       }, 0);
 
