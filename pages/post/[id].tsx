@@ -38,12 +38,12 @@ const RenderPostById = function (props) {
   // after render
   useEffect(() => {
     if (isMounted && dom?.innerHTML) {
-      setTimeout(() => {
-        // hightlight code
-        Array.from(dom.getElementsByTagName("pre")).forEach((elm) =>
-          hljs.highlightBlock(elm)
-        );
+      // hightlight code
+      Array.from(dom.getElementsByTagName("pre")).forEach((elm) =>
+        hljs.highlightBlock(elm)
+      );
 
+      setTimeout(() => {
         // scale image
         const imgs = Array.from(document.getElementsByTagName("img"));
         imgs.forEach((elm) => {
