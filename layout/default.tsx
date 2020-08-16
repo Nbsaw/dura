@@ -40,7 +40,10 @@ const DefaultLayoutRouter = ({ isPost = false, children }) => {
         {children}
       </div>
       <footer className={style.footer}>
-        没 footer 很奇怪啊，所以加了一个但是不知道打点什么东西进来比较好 ..
+        <span className={style.footer_text}>
+          『 没 footer 很奇怪啊 ... 所以加了一个但是不知道打点什么东西进来比较好
+          .. 』
+        </span>
       </footer>
     </div>
   );
