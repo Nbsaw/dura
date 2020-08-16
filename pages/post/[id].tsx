@@ -67,7 +67,7 @@ const RenderPostById = function (props) {
   return (
     isMounted && (
       <DefaultLayoutRouter isPost>
-        <div className={style.post}>
+        <article className={style.post}>
           <div className={style.content}>
             <SiteTitle>{post_title}</SiteTitle>
             <h2 className={style.title}>
@@ -83,7 +83,7 @@ const RenderPostById = function (props) {
               dangerouslySetInnerHTML={{ __html: postContent }}
             />
           </div>
-        </div>
+        </article>
         <Utterances />
         {/* <ReadProgressBar /> */}
       </DefaultLayoutRouter>
