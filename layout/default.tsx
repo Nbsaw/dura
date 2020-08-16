@@ -29,10 +29,10 @@ const DefaultLayoutRouter = ({ isPost = false, children }) => {
         </div>
         <div className={classnames([style.info, { [style.shink]: isPost }])}>
           <div className={classnames([style.box2, { [style.shink]: isPost }])}>
-            <Link href="/">
+            <Link href="/posts">
               <h3 className={style.title}>BLOG @ {NIKENAME}</h3>
+              <p className={style.quote}>{BIO}</p>
             </Link>
-            <p className={style.quote}>{BIO}</p>
           </div>
         </div>
       </div>
