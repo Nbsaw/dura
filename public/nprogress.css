@@ -82,9 +82,9 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   #nprogress {
     --color: #1890ff;
     pointer-events: none;
   }
-}
+} */

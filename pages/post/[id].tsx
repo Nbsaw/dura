@@ -7,7 +7,8 @@ import style from "./index.module.scss";
 import DefaultLayoutRouter from "../../layout/default";
 import TimeAgo from "./components/time-ago";
 import Utterances from "../../components/utterances";
-// import ReadProgressBar from "./components/read-progress-bar";
+import { openModal } from "../../utils/dom";
+import { debug } from "console";
 
 const md = MarkdownIt();
 
@@ -36,17 +37,33 @@ const RenderPostById = function (props) {
     }
   }, [isMounted, post_content]);
 
-  // hightlight code
+  // after render
   useEffect(() => {
     if (isMounted && dom?.innerHTML) {
-      Array.from(dom.getElementsByTagName("pre")).forEach((elm) =>
-        hljs.highlightBlock(elm)
-      );
+      setTimeout(() => {
+        // hightlight code
+        Array.from(dom.getElementsByTagName("pre")).forEach((elm) =>
+          hljs.highlightBlock(elm)
+        );
+
+        // scale image
+        const imgs = Array.from(document.getElementsByTagName("img"));
+        imgs.forEach((elm) => {
+          elm.style.cursor = "zoom-in";
+          elm.onclick = function () {
+            openModal({
+              children: <img src={elm.src} />,
+            });
+          };
+        });
+      }, 0);
+
       setPostContent(dom.innerHTML);
     }
   }, [isMounted, dom]);
 
   if (error) return error.message;
+
   return (
     isMounted && (
       <DefaultLayoutRouter isPost>
@@ -61,6 +78,7 @@ const RenderPostById = function (props) {
               />
             </h2>
             <div
+              id="post"
               className={style.content_render}
               dangerouslySetInnerHTML={{ __html: postContent }}
             />

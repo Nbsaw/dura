@@ -1,5 +1,6 @@
 import { AppProps } from "next/app";
 import "../style/index.scss";
+import "../style/dom.scss";
 import NProgress from "nprogress";
 import Router from "next/router";
 
