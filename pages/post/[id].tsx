@@ -17,7 +17,6 @@ const RenderPostById = function (props) {
     post_title,
     post_created_at,
     post_updated_at,
-    post_url,
     error,
   } = props;
   const [postContent, setPostContent] = useState("");
