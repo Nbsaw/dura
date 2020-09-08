@@ -12,6 +12,9 @@ interface TimelineType {
 const Timeline: TimelineType = {
   2020: [
     {
+      text: "09月08日 最近都很闲 -w- 在弄新的开源库",
+    },
+    {
       text: "08月16日 并没有...睡公司，我选择了去公司旁边的酒店",
     },
     {
