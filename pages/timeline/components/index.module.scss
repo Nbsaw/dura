@@ -39,6 +39,15 @@
   }
 }
 
+.time_item_warpper {
+  &:after {
+    content: " ";
+    width: 28%;
+    margin: 50px auto 0;
+    border-bottom: 1px solid #ece8e8;
+  }
+}
+
 .time_dot {
   width: 20px;
   height: 20px;
@@ -62,13 +71,16 @@
 .time_desc {
   text-align: justify;
   width: 80px;
+  font-weight: 600;
 }
 
 .txt {
   text-align: justify;
   width: 700px;
+  // color: #c9c9c9;
 }
 
 .custom {
   width: 700px;
+  // color: #c9c9c9;
 }

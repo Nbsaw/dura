@@ -2,6 +2,9 @@ import React from "react";
 import { timeline } from "../../../constant";
 import style from "./index.module.scss";
 
+// if (process.)
+// window && (window.alert = () => {});
+
 const Dot = () => {
   return <div className={style.dot} />;
 };

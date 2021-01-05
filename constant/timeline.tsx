@@ -12,7 +12,11 @@ const Player163 = ({ id, text = "" }) => {
         frameBorder={0}
         width="100%"
         height="86"
-        style={{ display: loading ? "none" : "block", marginTop: -7 }}
+        style={{
+          display: loading ? "none" : "block",
+          marginTop: -10,
+          marginLeft: -8,
+        }}
         onLoad={() => {
           setLoading(false);
           console.log("loaded");
@@ -47,12 +51,12 @@ const Timeline: TimelineType = {
   "2021 (新生的一年)": [
     {
       time: "01月05日",
-      custom: <Player163 id="1466520418" />,
-    },
-    {
-      time: "01月05日",
-      text:
-        "内推面试挂了 表现得非常差 ... 估计是没看题目吧，其实类似的经历也有过，但是那会在职所以也没放心上，通过这次其实还是非常深刻的认识到了自己的不足。要说心情，其实毫无波动，目标还是三月份的时候的跳槽。2020 真的很累了, 真的不想上班, 想好好休息一下了。",
+      custom: (
+        <Player163
+          text="内推面试挂了 表现得非常差 ... 估计是没看题目吧，其实类似的经历也有过，但是那会在职所以也没放心上，通过这次其实还是非常深刻的认识到了自己的不足。要说心情，其实毫无波动，目标还是三月份的时候的跳槽。2020 真的很累了, 真的不太想上班, 想好好休息一下了。人生很长 ... 打工生涯不过几年 。"
+          id="1466520418"
+        />
+      ),
     },
     {
       time: "01月04日",
@@ -70,9 +74,14 @@ const Timeline: TimelineType = {
   "2020 (终结的一年)": [
     {
       time: "12月31日",
-      text:
-        "今天离职了，打算新的开始，这件事情看起来像是即兴的。其实已经蓄谋已久了，一直也没什么好的借口说辞职，毕竟舒适区。是时候脱离舒适区了，干点自己喜欢的事情。",
+      custom: (
+        <Player163
+          id="1403858544"
+          text="今天离职了，打算新的开始，这件事情看起来像是即兴的。其实已经蓄谋已久了，一直也没什么好的借口说辞职，毕竟舒适区。是时候脱离舒适区了，干点自己喜欢的事情。"
+        />
+      ),
     },
+
     {
       time: "12月30日",
       text:
@@ -82,6 +91,10 @@ const Timeline: TimelineType = {
       time: "12月29日",
       text:
         "PDD买的新手机到了 芜湖，其实我也不是很想买要不是手机坏掉了-.-,而且用的一直都是公司的手机，离职了总要还给公司的",
+    },
+    {
+      time: "10月21日",
+      custom: <Player163 id="1487009099" text="好叮。" />,
     },
     {
       time: "10月01日",
@@ -108,6 +121,10 @@ const Timeline: TimelineType = {
     {
       time: "07月21日",
       text: "线上出问题了=w=",
+    },
+    {
+      time: "04月24日",
+      custom: <Player163 id="35678877" text="老网易云了" />,
     },
     {
       time: "04月01日",
@@ -173,6 +190,10 @@ const Timeline: TimelineType = {
       text: "贵州到咯 ~",
     },
     {
+      time: "09月14日",
+      custom: <Player163 id="1383954630" />,
+    },
+    {
       time: "09月13日",
       text: "GO 重庆 !",
     },
@@ -203,6 +224,10 @@ const Timeline: TimelineType = {
     {
       time: "05月08日",
       text: "生日快乐",
+    },
+    {
+      time: "03月29日",
+      custom: <Player163 id="525063503" />,
     },
     {
       time: "03月19日",
