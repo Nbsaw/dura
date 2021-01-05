@@ -5,7 +5,7 @@ export const USER_INFO_MODE = "CUSTOM";
 export const NIKENAME = "Gavin Phang";
 export const AVATAR =
   "https://avatars1.githubusercontent.com/u/12481935?s=460&v=4";
-export const BIO = `梦到你了。`;
+export const BIO = `初心者。`;
 export const WECAHT = "UEkyMzQ1";
 
 // Which repo you select to as blog
