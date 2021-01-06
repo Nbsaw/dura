@@ -9,7 +9,8 @@ export default function About() {
       <SiteTitle>关于我</SiteTitle>
       <div className={style.about}>
         <p className={style.right}>JUST CALL ME :P</p>
-        <p>THE WECHAT 👉 {WECAHT}</p>
+        <p>YOU CAN ADD ME BY WECHAT</p>
+        <p>{WECAHT} 👈</p>
       </div>
     </FullScreenContainer>
   );
