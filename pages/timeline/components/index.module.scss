@@ -16,7 +16,7 @@
 
 .time_item {
   position: relative;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
   display: flex;
   &:before {
     z-index: 0;
@@ -31,11 +31,26 @@
   &:last-child {
     padding-bottom: 0px;
     &:before {
-      bottom: 8px;
+      bottom: 28px;
     }
   }
   svg {
     background: #fff;
+  }
+  &:nth-child(2n) {
+    .dot {
+      width: 10px;
+      height: 10px;
+      border: 2px solid #19caad;
+      position: relative;
+    }
+  }
+  &:nth-child(3n) {
+    .dot {
+      border-radius: 0;
+      transform: rotate(45deg);
+      border: 2px solid #f4606c;
+    }
   }
 }
 
@@ -66,6 +81,13 @@
   background: white;
   border: 2px solid #1890ff;
   border-radius: 50%;
+  // &:nth-child(2n) {
+  //   width: 6px;
+  //   height: 6px;
+  //   border-radius: 50%;
+  //   background: white;
+  //   border: 2px solid pink;
+  // }
 }
 
 .time_desc {

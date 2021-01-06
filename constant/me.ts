@@ -24,4 +24,5 @@ export const SOCICAL_LIST: { key: string; link: string }[] = [
   // { key: "TimeLine", link: "timeline" },
   { key: "About", link: "/about" },
   { key: "Github", link: "https://github.com/yuxino" },
+  { key: "Timeline", link: "/timeline" },
 ];
