@@ -50,6 +50,10 @@ interface TimelineType {
 const Timeline: TimelineType = {
   "2021 (新生的一年)": [
     {
+      time: "01月08日",
+      text: "看了别人的经历发现，还是自己不够努力8，加油。。。",
+    },
+    {
       time: "01月06日",
       custom: (
         <Player163
