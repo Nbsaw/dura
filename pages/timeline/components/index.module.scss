@@ -92,17 +92,23 @@
 
 .time_desc {
   text-align: justify;
-  width: 80px;
+  min-width: 80px;
   font-weight: 600;
+  line-height: 1.8;
 }
 
 .txt {
   text-align: justify;
-  width: 700px;
-  // color: #c9c9c9;
+  max-width: 700px;
+  line-height: 1.8;
+  text-decoration: underline;
+  text-underline-position: under;
+  & + & {
+    margin-top: 5px;
+  }
 }
 
 .custom {
-  width: 700px;
+  max-width: 700px;
   // color: #c9c9c9;
 }

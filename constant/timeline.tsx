@@ -8,7 +8,7 @@ const Player163 = ({ id, text = "" }) => {
   return (
     <div>
       {!loading && text && <div style={{ marginBottom: 15 }}>{text}</div>}
-      <iframe
+      {/* <iframe
         frameBorder={0}
         width="100%"
         height="86"
@@ -22,7 +22,7 @@ const Player163 = ({ id, text = "" }) => {
           console.log("loaded");
         }}
         src={`//music.163.com/outchain/player?type=2&id=${id}&auto=0&height=66`}
-      ></iframe>
+      ></iframe> */}
       {loading && (
         <span>
           {/* <img
@@ -30,7 +30,8 @@ const Player163 = ({ id, text = "" }) => {
             height="100"
             src="https://user-images.githubusercontent.com/12481935/103640095-5ed48800-4f8a-11eb-8282-6f1af067d27e.png"
           /> */}
-          有什么东东正在加载中 ...
+          {/* 有什么东东正在加载中 ... */}
+          播放器维护中 ovo
         </span>
       )}
     </div>
@@ -49,6 +50,24 @@ interface TimelineType {
 
 const Timeline: TimelineType = {
   "2021 (新生的一年)": [
+    {
+      time: "04月12日",
+      text: [
+        "几个月过去了，博客都忘记怎么启动了。有点想找一份远程的工作。对于这几个月有什么想要总结的吗? 有很多但是想了想也不是什么大不了的东西吧，只感觉时间过得真的很快。还是不够努力，不够认真，2021的愿望是能变得自律。不成规矩不成方圆，内心还是要有束缚自己的东西。",
+      ],
+    },
+    {
+      time: "04月11日",
+      text: [
+        "在这寂寞的星球上，能感觉到最真的爱大概是爸爸妈妈吧，随着年龄的增长总能感受到他们的爱，确实长大了会想家了。",
+        "就算是相处的很好的人最终也会别离变成手机相册角落中的一张照片。",
+      ],
+    },
+    {
+      time: "04月10日",
+      text:
+        "该加油了，跟你的差距变得越来越大，轨迹也偏移到了一个离谱的地方，看到了自己的下限，希望打破自己的上限。对自己不负责，放任自己并不是一件好事情。",
+    },
     {
       time: "01月08日",
       text: "看了别人的经历发现，还是自己不够努力8，加油。。。",
