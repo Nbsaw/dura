@@ -51,6 +51,10 @@ interface TimelineType {
 const Timeline: TimelineType = {
   "2021 (新生的一年)": [
     {
+      time: "04月18日",
+      text: "明天就要面试了，脑壳疼，有点紧张，还有好多东西没复习完 ..."
+    },
+    {
       time: "04月17日",
       text: "似乎找到了前进的意义"
     },
